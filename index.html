@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f1e8" />
+    <meta name="description" content="Buketia Flower premium çiçek kataloğu ve WhatsApp sipariş deneyimi." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="./assets/buketia-symbol.svg?v=3" />
+    <title>Buketia Flower | Çiçek Kataloğu</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="header-nav" id="location-link" href="geo:0,0?q=52%2F1%20Sokak%20No%3A%207%2FC%2C%20Seferihisar%2C%20İzmir" aria-label="Buketia Flower konumunu navigasyonda aç">Yol tarifi</a>
+      <a class="brand" href="#top" aria-label="Buketia Flower ana sayfa">
+        <img class="brand-symbol" src="./assets/buketia-symbol.svg?v=3" alt="" />
+        <span class="brand-name">Buketia Flower</span>
+      </a>
+      <a class="header-contact" href="https://wa.me/905524072817" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden Buketia Flower ile iletişim kurun">
+        <span>WhatsApp</span><span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="catalog-title">Koleksiyon</h2>
+          </div>
+          <p id="result-count" aria-live="polite"></p>
+        </div>
+
+        <nav class="category-scroll" aria-label="Ürün kategorileri">
+          <button class="category active" type="button" data-category="Tümü">Tümü</button>
+          <button class="category" type="button" data-category="Doğum Günü">Doğum Günü</button>
+          <button class="category" type="button" data-category="Sevgiliye">Sevgiliye</button>
+          <button class="category" type="button" data-category="Yeni İş">Yeni İş</button>
+          <button class="category" type="button" data-category="Geçmiş Olsun">Geçmiş Olsun</button>
+          <button class="category" type="button" data-category="Orkide">Orkide</button>
+          <button class="category" type="button" data-category="Gelin Buketi">Gelin Buketi</button>
+          <button class="category" type="button" data-category="Çelenk">Çelenk</button>
+        </nav>
+
+        <button class="designer-choice" type="button" data-open-choice>
+          <span class="designer-choice-index">Buketia seçkisi</span>
+          <span class="designer-choice-copy"><strong>Bize Bırak</strong><small>Bütçeni belirle, buketini Buketia Flower tasarlasın.</small></span>
+          <span class="designer-choice-action" aria-hidden="true">Seç ↗</span>
+        </button>
+
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section class="catalog-notes" aria-label="Buketia hizmetleri">
+        <span>01 / Taze çiçek garantisi</span>
+        <span>02 / Özenli teslimat</span>
+        <span>03 / Kişisel kart notu</span>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#top"><img class="brand-symbol" src="./assets/buketia-symbol.svg?v=3" alt="" /><span class="brand-name">Buketia Flower</span></a>
+      <div class="footer-info">
+        <div class="footer-contact" aria-label="İletişim bilgileri">
+          <a href="https://www.instagram.com/buketia.flower/" target="_blank" rel="noopener noreferrer">@buketia.flower</a>
+          <a href="tel:+905524072817">0552 407 28 17</a>
+          <a href="tel:+905522425252">0552 242 52 52</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=52%2F1%20Sokak%20No%3A%207%2FC%2C%20Seferihisar%2C%20%C4%B0zmir" target="_blank" rel="noopener noreferrer">52/1 Sokak No: 7/C, Seferihisar / İzmir</a>
+        </div>
+        <div class="footer-hours" aria-label="Çalışma saatleri">
+          <span>Hafta içi &amp; Cumartesi 08.30–20.30</span>
+          <span>Pazar 09.00–20.00</span>
+        </div>
+        <p>Seferihisar’da özenle hazırlanır.</p>
+      </div>
+      <p>© <span id="year"></span> Buketia Flower</p>
+    </footer>
+
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-shell">
+        <button class="dialog-close" type="button" aria-label="Pencereyi kapat">×</button>
+        <div class="dialog-product">
+          <div class="dialog-visual product-visual" id="dialog-visual">
+            <span>Görsel eklenecek</span>
+          </div>
+          <div class="dialog-summary">
+            <p class="eyebrow" id="dialog-category"></p>
+            <h2 id="dialog-title"></h2>
+            <p id="dialog-description"></p>
+            <strong id="dialog-price"></strong>
+          </div>
+        </div>
+
+        <form id="order-form" novalidate>
+          <div class="form-heading">
+            <span>02</span>
+            <div><p class="eyebrow">Teslimat bilgileri</p><h3>Siparişini kişiselleştir</h3></div>
+          </div>
+          <div class="form-grid">
+            <label class="wide budget-field" id="budget-field" hidden>Bütçeniz (₺)<input name="budget" type="number" inputmode="numeric" min="1500" max="5000" step="100" placeholder="1.500 – 5.000 TL" /></label>
+            <label>Teslimat tarihi<input type="date" name="deliveryDate" required /></label>
+            <label class="delivery-time-field">Teslimat saati
+              <div class="delivery-time-controls">
+                <select name="deliveryTime" required>
+                  <option value="">Saat seçin</option>
+                  <option>09.00 – 12.00</option>
+                  <option>12.00 – 15.00</option>
+                  <option>15.00 – 18.00</option>
+                  <option>18.00 – 21.00</option>
+                  <option value="custom">Özel</option>
+                </select>
+                <button class="custom-time-toggle" id="custom-time-toggle" type="button" aria-expanded="false">Özel</button>
+              </div>
+              <span class="custom-time-field" id="custom-time-field" hidden>
+                <span>İstediğiniz saati seçin</span>
+                <input name="customDeliveryTime" type="time" aria-label="Özel teslimat saati" />
+              </span>
+            </label>
+            <label>Alıcının adı<input name="recipientName" autocomplete="name" placeholder="Örn. Ayşe Yılmaz" required /></label>
+            <label class="wide">Teslimat adresi<textarea name="address" rows="3" placeholder="Mahalle, sokak, bina ve daire bilgisi" required></textarea><small class="delivery-fee-note">Kurye ücreti teslimat adresi ve koşullarına göre tarafımızca belirlenir; sipariş onayından önce size bildirilir.</small></label>
+            <label class="wide">Kart notu <span>(isteğe bağlı)</span><textarea name="cardNote" rows="3" placeholder="Çiçeklerle birlikte iletmek istediğiniz not"></textarea></label>
+            <label>Siparişi veren<input name="customerName" autocomplete="name" placeholder="Adınız soyadınız" required /></label>
+            <label>Telefon<input name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05__ ___ __ __" required /></label>
+          </div>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <button class="whatsapp-button" type="submit">
+            <span class="whatsapp-dot" aria-hidden="true"></span>
+            WhatsApp’ta siparişe geç
+            <span aria-hidden="true">↗</span>
+          </button>
+          <p class="privacy-note">Butona dokunduğunuzda sipariş bilgileriniz hazır bir WhatsApp mesajına dönüştürülür.</p>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="./products.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
