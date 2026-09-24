@@ -65,6 +65,11 @@ a { color: inherit; }
 .product-meta h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 600; letter-spacing: -.025em; }
 .product-meta strong { font-size: .83rem; font-weight: 500; white-space: nowrap; }
 
+.local-guide { padding: 0 clamp(20px, 4vw, 64px) 72px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: start; }
+.local-guide h2 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 3vw, 3rem); font-weight: 600; line-height: 1.08; letter-spacing: -.035em; }
+.local-guide-copy { max-width: 620px; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+.local-guide-copy p { margin: 0 0 12px; }
+.local-guide-copy p:last-child { margin-bottom: 0; }
 .catalog-notes { padding: 34px clamp(20px, 4vw, 64px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; background: var(--ink); color: #d7d0c5; font-size: .7rem; text-transform: uppercase; letter-spacing: .13em; }
 footer { padding: 44px clamp(20px, 4vw, 64px); display: grid; grid-template-columns: minmax(180px, 1fr) minmax(280px, 2fr) auto; align-items: center; gap: 30px; border-top: 1px solid var(--line); }
 footer p { margin: 0; font-size: .75rem; color: var(--muted); }
@@ -139,6 +144,8 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   .product-meta strong { font-size: .76rem; }
   .product-badge { top: 7px; left: 7px; padding: 5px 6px; font-size: .55rem; }
   .product-visual span { padding: 6px; font-size: .55rem; }
+  .local-guide { grid-template-columns: 1fr; gap: 18px; padding-bottom: 52px; }
+  .local-guide-copy { font-size: .84rem; }
   .catalog-notes { grid-template-columns: 1fr; gap: 12px; }
   footer { grid-template-columns: 1fr; text-align: center; }
   footer .brand { justify-content: center; }
