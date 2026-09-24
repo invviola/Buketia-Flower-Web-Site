@@ -53,7 +53,6 @@
         <div class="product-meta">
           <small>${product.category}</small>
           <h3>${product.name}</h3>
-          <strong>${money.format(product.price)}</strong>
         </div>
       </button>
     </article>`;
@@ -70,7 +69,9 @@
     document.querySelector("#dialog-category").textContent = product.category;
     document.querySelector("#dialog-title").textContent = product.name;
     document.querySelector("#dialog-description").textContent = product.description;
-    document.querySelector("#dialog-price").textContent = product.custom ? "₺1.500 – ₺5.000" : money.format(product.price);
+    const priceLabel = document.querySelector("#dialog-price");
+    priceLabel.textContent = product.custom ? "₺1.500 – ₺5.000" : "Fiyat bilgisi WhatsApp üzerinden iletilir.";
+    priceLabel.classList.toggle("price-note", !product.custom);
     budgetField.hidden = !product.custom;
     budgetInput.disabled = !product.custom;
     budgetInput.required = Boolean(product.custom);
@@ -93,14 +94,12 @@
 
   function buildMessage(values) {
     const deliveryTime = values.deliveryTime === "custom" ? values.customDeliveryTime : values.deliveryTime;
-    const priceLine = activeProduct.custom
-      ? `Bütçe: ${money.format(Number(values.budget))}`
-      : `Fiyat: ${money.format(activeProduct.price)}`;
+    const budgetLines = activeProduct.custom ? [`Bütçe: ${money.format(Number(values.budget))}`] : [];
     return [
       "Merhaba Buketia Flower, bu ürün için sipariş vermek istiyorum:",
       "",
       `Ürün: ${activeProduct.name}`,
-      priceLine,
+      ...budgetLines,
       `Teslimat: ${values.deliveryDate} · ${deliveryTime}`,
       `Alıcı: ${values.recipientName}`,
       `Adres: ${values.address}`,
