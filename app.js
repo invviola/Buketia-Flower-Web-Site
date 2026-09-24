@@ -12,9 +12,6 @@
   const customTimeInput = form.elements.customDeliveryTime;
   const customTimeToggle = document.querySelector("#custom-time-toggle");
   const whatsappNumber = "905524072817";
-  const locationLink = document.querySelector("#location-link");
-  const shopAddress = "52/1 Sokak No: 7/C, Seferihisar, İzmir";
-  const mapsFallback = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shopAddress)}`;
   const designerChoice = {
     id: "bize-birak",
     name: "Bize Bırak",
@@ -25,16 +22,6 @@
     custom: true
   };
 
-  locationLink?.addEventListener("click", (event) => {
-    const userAgent = navigator.userAgent || "";
-    if (/iPhone|iPad|iPod/i.test(userAgent)) {
-      event.preventDefault();
-      window.location.href = `maps://?q=${encodeURIComponent(shopAddress)}`;
-    } else if (!/Android/i.test(userAgent)) {
-      event.preventDefault();
-      window.open(mapsFallback, "_blank", "noopener,noreferrer");
-    }
-  });
   let activeProduct = products[0] || null;
 
   const money = new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 });
