@@ -22,23 +22,30 @@
     custom: true
   };
 
+  const dictionaries = window.BUKETIA_I18N || {};
+  const t = dictionaries[document.documentElement.lang.slice(0, 2)] || dictionaries.tr;
+  const isTurkish = t === dictionaries.tr;
+  const tx = (product) => ({ ...product, ...(t.products[product.id] || {}), category: t.categories[product.category] || product.category });
+  // Alt sayfalarda (/en/ vb.) ürün görselleri bir üst klasördedir.
+  const assetBase = document.documentElement.dataset.assetBase || "";
+
   let activeProduct = products[0] || null;
 
-  const money = new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 });
+  const money = new Intl.NumberFormat(t.locale, { style: "currency", currency: "TRY", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 });
 
   const visualMarkup = (product) => product.image
-    ? `<img src="${product.image}" alt="${product.name}" loading="lazy" />`
-    : `<span>Görsel eklenecek</span>`;
+    ? `<img src="${assetBase}${product.image}" alt="${product.name}" loading="lazy" />`
+    : `<span>${t.imagePending}</span>`;
 
-  function productCard(product) {
+  function productCard(item) {
+    const product = tx(item);
     return `<article class="product-card">
-      <button class="product-button" type="button" data-product="${product.id}" aria-label="${product.name} ürününü incele">
+      <button class="product-button" type="button" data-product="${product.id}" aria-label="${t.viewProduct(product.name)}">
         <div class="product-visual tone-${product.tone}">
           ${visualMarkup(product)}
           ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
         </div>
         <div class="product-meta">
-          <small>${product.category}</small>
           <h3>${product.name}</h3>
         </div>
       </button>
@@ -48,16 +55,17 @@
   function render(category = "Tümü") {
     const visible = category === "Tümü" ? products : products.filter((p) => p.categories.includes(category));
     grid.innerHTML = visible.map(productCard).join("");
-    count.textContent = `${visible.length} tasarım`;
+    count.textContent = t.count(visible.length);
   }
 
-  function setProduct(product) {
-    activeProduct = product;
+  function setProduct(item) {
+    activeProduct = item;
+    const product = tx(item);
     document.querySelector("#dialog-category").textContent = product.category;
     document.querySelector("#dialog-title").textContent = product.name;
     document.querySelector("#dialog-description").textContent = product.description;
     const priceLabel = document.querySelector("#dialog-price");
-    priceLabel.textContent = product.custom ? "₺1.500 – ₺5.000" : "Fiyat bilgisi WhatsApp üzerinden iletilir.";
+    priceLabel.textContent = product.custom ? "₺1.500 – ₺5.000" : t.priceNote;
     priceLabel.classList.toggle("price-note", !product.custom);
     budgetField.hidden = !product.custom;
     budgetInput.disabled = !product.custom;
@@ -81,20 +89,23 @@
 
   function buildMessage(values) {
     const deliveryTime = values.deliveryTime === "custom" ? values.customDeliveryTime : values.deliveryTime;
-    const budgetLines = activeProduct.custom ? [`Bütçe: ${money.format(Number(values.budget))}`] : [];
+    const m = t.message;
+    // Yabancı dilde ürünün Türkçe adı da yazılır ki dükkân ürünü hemen tanısın.
+    const productName = isTurkish ? activeProduct.name : `${tx(activeProduct).name} (${activeProduct.name})`;
+    const budgetLines = activeProduct.custom ? [`${m.budget}: ${money.format(Number(values.budget))}`] : [];
     return [
-      "Merhaba Buketia Flower, bu ürün için sipariş vermek istiyorum:",
+      m.intro,
       "",
-      `Ürün: ${activeProduct.name}`,
+      `${m.product}: ${productName}`,
       ...budgetLines,
-      `Teslimat: ${values.deliveryDate} · ${deliveryTime}`,
-      `Alıcı: ${values.recipientName}`,
-      `Adres: ${values.address}`,
-      "Kurye ücreti: Buketia tarafından belirlenecek",
-      `Kart notu: ${values.cardNote || "—"}`,
+      `${m.delivery}: ${values.deliveryDate} · ${deliveryTime}`,
+      `${m.recipient}: ${values.recipientName}`,
+      `${m.address}: ${values.address}`,
+      m.courier,
+      `${m.card}: ${values.cardNote || "—"}`,
       "",
-      `Siparişi veren: ${values.customerName}`,
-      `Telefon: ${values.customerPhone}`
+      `${m.customer}: ${values.customerName}`,
+      `${m.phone}: ${values.customerPhone}`
     ].join("\n");
   }
 
@@ -136,7 +147,7 @@
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!form.reportValidity()) {
-      error.textContent = "Lütfen zorunlu alanları tamamlayın.";
+      error.textContent = t.formError;
       return;
     }
     error.textContent = "";
@@ -150,6 +161,36 @@
   dateInput.min = localToday;
   dateInput.value = localToday;
   document.querySelector("#year").textContent = String(today.getFullYear());
+
+  function updateOpenStatus() {
+    const status = document.querySelector("[data-open-status]");
+    if (!status) return;
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Istanbul", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+    }).formatToParts(new Date()).map((part) => [part.type, part.value]));
+    const minutes = Number(parts.hour) * 60 + Number(parts.minute);
+    const isSunday = parts.weekday === "Sun";
+    const opens = isSunday ? 9 * 60 : 8 * 60 + 30;
+    const closes = isSunday ? 20 * 60 : 20 * 60 + 30;
+    const nextOpen = parts.weekday === "Sat" ? t.time("09", "00") : t.time("08", "30");
+    const isOpen = minutes >= opens && minutes < closes;
+    let text;
+    if (isOpen) text = t.openNow(isSunday ? t.time("20", "00") : t.time("20", "30"));
+    else if (minutes < opens) text = t.opensToday(isSunday ? t.time("09", "00") : t.time("08", "30"));
+    else text = t.opensTomorrow(nextOpen);
+    status.querySelector("[data-open-status-text]").textContent = text;
+    status.classList.toggle("is-closed", !isOpen);
+  }
+  updateOpenStatus();
+  setInterval(updateOpenStatus, 60000);
+
+  const langSwitch = document.querySelector(".lang-switch");
+  document.addEventListener("click", (event) => {
+    if (langSwitch?.open && !langSwitch.contains(event.target)) langSwitch.open = false;
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && langSwitch?.open) { langSwitch.open = false; langSwitch.querySelector("summary").focus(); }
+  });
 
   function registerWebMcp() {
     const context = document.modelContext;
