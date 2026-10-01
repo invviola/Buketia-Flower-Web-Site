@@ -1,5 +1,6 @@
 (() => {
-  const products = window.BUKETIA_PRODUCTS || [];
+  // Fotoğrafı olmayan ürünler katalogda gösterilmez; products.js'te image doldurulunca kendiliğinden görünür.
+  const products = (window.BUKETIA_PRODUCTS || []).filter((product) => product.image);
   const grid = document.querySelector("#product-grid");
   const count = document.querySelector("#result-count");
   const dialog = document.querySelector("#product-dialog");
