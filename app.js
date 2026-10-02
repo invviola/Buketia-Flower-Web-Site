@@ -98,6 +98,18 @@
     dialog.classList.add("is-ordering");
     dialogShell.scrollTop = 0;
   });
+  const orderBack = document.createElement("button");
+  orderBack.type = "button";
+  orderBack.className = "order-back";
+  orderBack.setAttribute("aria-label", t.backToProduct);
+  orderBack.textContent = "←";
+  document.querySelector(".dialog-product").prepend(orderBack);
+  orderBack.addEventListener("click", () => {
+    // Fotoğrafı olmayan "Bize Bırak"ta geri dönülecek bir fotoğraf adımı yok; pencere kapanır.
+    if (activeProduct?.custom) { dialog.close(); return; }
+    dialog.classList.remove("is-ordering");
+    dialogShell.scrollTop = 0;
+  });
 
   function openProduct(product) {
     setProduct(product);
