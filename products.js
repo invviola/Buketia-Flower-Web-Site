@@ -293,5 +293,27 @@ window.BUKETIA_PRODUCTS = [
     tone: "stone",
     badge: "Aynı gün",
     inStock: true
+  },
+  {
+    id: "taziye-celengi",
+    name: "Beyaz Huzur Çelengi",
+    category: "Çelenk",
+    categories: ["Çelenk"],
+    description: "Beyaz güller, lilyumlar ve sade yeşilliklerle hazırlanan, saygı ve başsağlığı için ölçülü taziye çelengi.",
+    image: "",
+    tone: "pearl",
+    badge: "",
+    inStock: true
+  },
+  {
+    id: "tebrik-celengi",
+    name: "Görkemli Tebrik Çelengi",
+    category: "Çelenk",
+    categories: ["Çelenk"],
+    description: "Açılış, düğün ve kutlamalar için canlı mevsim çiçekleriyle hazırlanan gösterişli tebrik çelengi.",
+    image: "",
+    tone: "sun",
+    badge: "",
+    inStock: true
   }
 ];

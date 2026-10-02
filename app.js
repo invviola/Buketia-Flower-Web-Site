@@ -1,6 +1,7 @@
 (() => {
   // Fotoğrafı olmayan ürünler katalogda gösterilmez; products.js'te image doldurulunca kendiliğinden görünür.
-  const products = (window.BUKETIA_PRODUCTS || []).filter((product) => product.image);
+  // İstisna: Çelenk ürünleri fotoğrafsız da (renkli zeminle) yalnızca "Çelenk" kategorisinde görünür, "Tümü"de görünmez.
+  const products = (window.BUKETIA_PRODUCTS || []).filter((product) => product.image || product.categories.includes("Çelenk"));
   const grid = document.querySelector("#product-grid");
   const count = document.querySelector("#result-count");
   const dialog = document.querySelector("#product-dialog");
@@ -54,7 +55,7 @@
   }
 
   function render(category = "Tümü") {
-    const visible = category === "Tümü" ? products : products.filter((p) => p.categories.includes(category));
+    const visible = category === "Tümü" ? products.filter((p) => p.image) : products.filter((p) => p.categories.includes(category));
     grid.innerHTML = visible.map(productCard).join("");
     count.textContent = t.count(visible.length);
   }

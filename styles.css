@@ -78,6 +78,11 @@ a { color: inherit; }
 .category-scroll::-webkit-scrollbar { display: none; }
 .category { flex: 0 0 auto; padding: 10px 17px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font-size: .8rem; cursor: pointer; transition: .2s ease; }
 .category:hover, .category:focus-visible, .category.active { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+/* Çelenk: diğer kategorilerden belirgin, altın zeminli vurgulu buton (data-category her dilde "Çelenk"). */
+.category-featured { display: inline-flex; align-items: center; gap: 7px; border-color: #c9a96e; background: linear-gradient(135deg, #f5ead0, #e3cb93); color: var(--ink); font-weight: 600; letter-spacing: .03em; box-shadow: 0 6px 14px -8px rgba(138,109,71,.75); }
+.category-featured::before { content: "✦"; font-size: .68rem; color: var(--gold); }
+.category-featured:hover, .category-featured:focus-visible, .category-featured.active { background: var(--ink); border-color: var(--ink); color: #f1dfb4; }
+.category-featured:hover::before, .category-featured:focus-visible::before, .category-featured.active::before { color: #d9c29b; }
 
 .designer-choice { width: 100%; min-height: 118px; margin: 12px 0 34px; padding: 24px 28px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px; border: 0; background: var(--ink); color: var(--cream); text-align: left; cursor: pointer; }
 .designer-choice-index { color: #c8b18f; font-size: .67rem; letter-spacing: .16em; text-transform: uppercase; }
