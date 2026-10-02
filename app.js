@@ -73,15 +73,60 @@
     budgetInput.required = Boolean(product.custom);
     if (product.custom) budgetInput.value = "";
     const visual = document.querySelector("#dialog-visual");
-    visual.className = `dialog-visual product-visual tone-${product.tone}`;
-    visual.innerHTML = visualMarkup(product);
+    visual.className = `dialog-visual product-visual tone-${product.tone}${product.image ? " has-photo" : ""}`;
+    visual.innerHTML = visualMarkup(product) + (product.image ? `<span class="dialog-zoom-hint">${t.zoomPhoto} ⤢</span>` : "");
+    if (product.image) {
+      visual.setAttribute("role", "button");
+      visual.tabIndex = 0;
+      visual.setAttribute("aria-label", t.zoomPhoto);
+    } else {
+      visual.removeAttribute("role");
+      visual.removeAttribute("tabindex");
+      visual.removeAttribute("aria-label");
+    }
   }
+
+  // Telefonda pencere iki adımlıdır: önce büyük fotoğraf, "Sipariş oluştur" ile form açılır.
+  // Fotoğrafı olmayan "Bize Bırak" doğrudan forma açılır. Masaüstünde form her zaman görünür.
+  const dialogShell = dialog.querySelector(".dialog-shell");
+  const orderStart = document.createElement("button");
+  orderStart.type = "button";
+  orderStart.className = "order-start";
+  orderStart.innerHTML = `<span class="whatsapp-dot" aria-hidden="true"></span>${t.orderStart}`;
+  document.querySelector(".dialog-summary").append(orderStart);
+  orderStart.addEventListener("click", () => {
+    dialog.classList.add("is-ordering");
+    dialogShell.scrollTop = 0;
+  });
 
   function openProduct(product) {
     setProduct(product);
     error.textContent = "";
+    dialog.classList.toggle("is-ordering", Boolean(product.custom));
     if (!dialog.open) dialog.showModal();
+    dialogShell.scrollTop = 0;
   }
+
+  // Tam ekran fotoğraf görüntüleyici: fotoğrafa dokununca açılır; dokununca veya Esc ile kapanır.
+  const viewer = document.createElement("dialog");
+  viewer.className = "photo-viewer";
+  viewer.innerHTML = `<img alt="" /><button class="photo-viewer-close" type="button" aria-label="${t.closePhoto}">×</button>`;
+  document.body.append(viewer);
+  viewer.addEventListener("click", () => viewer.close());
+
+  function openViewer() {
+    if (!activeProduct?.image) return;
+    const img = viewer.querySelector("img");
+    img.src = `${assetBase}${activeProduct.image}`;
+    img.alt = tx(activeProduct).name;
+    viewer.showModal();
+  }
+
+  const dialogVisual = document.querySelector("#dialog-visual");
+  dialogVisual.addEventListener("click", openViewer);
+  dialogVisual.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openViewer(); }
+  });
 
   function orderData() {
     const data = new FormData(form);
@@ -101,6 +146,7 @@
       ...budgetLines,
       `${m.delivery}: ${values.deliveryDate} · ${deliveryTime}`,
       `${m.recipient}: ${values.recipientName}`,
+      `${m.recipientPhone}: ${values.recipientPhone}`,
       `${m.address}: ${values.address}`,
       m.courier,
       `${m.card}: ${values.cardNote || "—"}`,
@@ -209,12 +255,13 @@
           deliveryTime: { type: "string" },
           customDeliveryTime: { type: "string", description: "Özel saat seçildiyse HH:MM" },
           recipientName: { type: "string" },
+          recipientPhone: { type: "string" },
           address: { type: "string" },
           cardNote: { type: "string" },
           customerName: { type: "string" },
           customerPhone: { type: "string" }
         },
-        required: ["productId", "deliveryDate", "deliveryTime", "recipientName", "address", "customerName", "customerPhone"],
+        required: ["productId", "deliveryDate", "deliveryTime", "recipientName", "recipientPhone", "address", "customerName", "customerPhone"],
         additionalProperties: false
       },
       annotations: { readOnlyHint: false, untrustedContentHint: false },
@@ -222,8 +269,9 @@
         const product = products.find((item) => item.id === input.productId);
         if (!product) throw new Error("Ürün bulunamadı.");
         const deliveryTime = input.deliveryTime === "custom" ? input.customDeliveryTime : input.deliveryTime;
-        if (!input.deliveryDate || !deliveryTime || !input.recipientName || !input.address || !input.customerName || !input.customerPhone) throw new Error("Zorunlu sipariş bilgileri eksik.");
+        if (!input.deliveryDate || !deliveryTime || !input.recipientName || !input.recipientPhone || !input.address || !input.customerName || !input.customerPhone) throw new Error("Zorunlu sipariş bilgileri eksik.");
         openProduct(product);
+        dialog.classList.add("is-ordering");
         Object.entries(input).forEach(([key, value]) => { if (form.elements[key]) form.elements[key].value = value; });
         syncCustomDeliveryTime();
         const message = buildMessage(input);

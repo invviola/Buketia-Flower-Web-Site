@@ -12,13 +12,14 @@
       imagePending: "Görsel eklenecek",
       priceNote: "Fiyat bilgisi WhatsApp üzerinden iletilir.",
       formError: "Lütfen zorunlu alanları tamamlayın.",
+      orderStart: "Sipariş oluştur", zoomPhoto: "Fotoğrafı büyüt", closePhoto: "Kapat",
       viewProduct: (name) => `${name} ürününü incele`,
       openNow: (t) => `Şu an açık · ${t}’${t.endsWith(".00") ? "ye" : "a"} kadar`,
       opensToday: (t) => `Şu an kapalı · ${t}’da açılır`,
       opensTomorrow: (t) => `Şu an kapalı · yarın ${t}’da açılır`,
       message: {
         intro: "Merhaba Buketia Flower, bu ürün için sipariş vermek istiyorum:",
-        product: "Ürün", budget: "Bütçe", delivery: "Teslimat", recipient: "Alıcı", address: "Adres",
+        product: "Ürün", budget: "Bütçe", delivery: "Teslimat", recipient: "Alıcı", recipientPhone: "Alıcı telefonu", address: "Adres",
         courier: "Kurye ücreti: Buketia tarafından belirlenecek", card: "Kart notu", customer: "Siparişi veren", phone: "Telefon"
       },
       categories: {},
@@ -32,13 +33,14 @@
       imagePending: "Photo coming soon",
       priceNote: "Prices are shared via WhatsApp.",
       formError: "Please fill in the required fields.",
+      orderStart: "Order now", zoomPhoto: "Enlarge photo", closePhoto: "Close",
       viewProduct: (name) => `View ${name}`,
       openNow: (t) => `Open now · until ${t}`,
       opensToday: (t) => `Closed now · opens at ${t}`,
       opensTomorrow: (t) => `Closed now · opens tomorrow at ${t}`,
       message: {
         intro: "Hello Buketia Flower, I would like to order this item:",
-        product: "Item", budget: "Budget", delivery: "Delivery", recipient: "Recipient", address: "Address",
+        product: "Item", budget: "Budget", delivery: "Delivery", recipient: "Recipient", recipientPhone: "Recipient’s phone", address: "Address",
         courier: "Courier fee: to be set by Buketia", card: "Card message", customer: "Ordered by", phone: "Phone"
       },
       categories: {
@@ -83,13 +85,14 @@
       imagePending: "Фото скоро появится",
       priceNote: "Цену сообщим в WhatsApp.",
       formError: "Пожалуйста, заполните обязательные поля.",
+      orderStart: "Оформить заказ", zoomPhoto: "Увеличить фото", closePhoto: "Закрыть",
       viewProduct: (name) => `Подробнее: ${name}`,
       openNow: (t) => `Сейчас открыто · до ${t}`,
       opensToday: (t) => `Сейчас закрыто · откроемся в ${t}`,
       opensTomorrow: (t) => `Сейчас закрыто · откроемся завтра в ${t}`,
       message: {
         intro: "Здравствуйте, Buketia Flower! Хочу заказать:",
-        product: "Товар", budget: "Бюджет", delivery: "Доставка", recipient: "Получатель", address: "Адрес",
+        product: "Товар", budget: "Бюджет", delivery: "Доставка", recipient: "Получатель", recipientPhone: "Телефон получателя", address: "Адрес",
         courier: "Стоимость доставки: определит Buketia", card: "Текст открытки", customer: "Заказчик", phone: "Телефон"
       },
       categories: {
@@ -134,13 +137,14 @@
       imagePending: "Foto folgt",
       priceNote: "Preise erhalten Sie per WhatsApp.",
       formError: "Bitte füllen Sie die Pflichtfelder aus.",
+      orderStart: "Jetzt bestellen", zoomPhoto: "Foto vergrößern", closePhoto: "Schließen",
       viewProduct: (name) => `${name} ansehen`,
       openNow: (t) => `Jetzt geöffnet · bis ${t} Uhr`,
       opensToday: (t) => `Jetzt geschlossen · öffnet um ${t} Uhr`,
       opensTomorrow: (t) => `Jetzt geschlossen · öffnet morgen um ${t} Uhr`,
       message: {
         intro: "Hallo Buketia Flower, ich möchte diesen Artikel bestellen:",
-        product: "Artikel", budget: "Budget", delivery: "Lieferung", recipient: "Empfänger", address: "Adresse",
+        product: "Artikel", budget: "Budget", delivery: "Lieferung", recipient: "Empfänger", recipientPhone: "Telefon des Empfängers", address: "Adresse",
         courier: "Kuriergebühr: wird von Buketia festgelegt", card: "Kartentext", customer: "Besteller", phone: "Telefon"
       },
       categories: {
