@@ -88,16 +88,61 @@
 
   // Telefonda pencere iki adımlıdır: önce büyük fotoğraf, "Sipariş oluştur" ile form açılır.
   // Fotoğrafı olmayan "Bize Bırak" doğrudan forma açılır. Masaüstünde form her zaman görünür.
+  // Telefonda sipariş üç adımda sorulur (styles.css: data-step); masaüstünde adımlar görünmez.
   const dialogShell = dialog.querySelector(".dialog-shell");
+  const stepFields = {
+    budget: 1, deliveryDate: 1, deliveryTime: 1,
+    recipientName: 2, recipientPhone: 2, address: 2, cardNote: 2,
+    customerName: 3, customerPhone: 3
+  };
+  form.querySelectorAll(".form-grid > label").forEach((label) => {
+    const control = label.querySelector("[name]");
+    if (control && stepFields[control.name]) label.dataset.step = String(stepFields[control.name]);
+  });
+  const stepHead = document.createElement("div");
+  stepHead.className = "step-head";
+  stepHead.innerHTML = `<div class="step-progress" aria-hidden="true"><i></i><i></i><i></i></div><p class="step-count"></p><p class="step-question"></p>`;
+  form.prepend(stepHead);
+  const stepNext = document.createElement("button");
+  stepNext.type = "button";
+  stepNext.className = "step-next";
+  stepNext.textContent = `${t.next} →`;
+  form.append(stepNext);
+  let step = 0;
+
+  function setStep(next) {
+    step = next;
+    dialog.dataset.step = String(step);
+    dialog.classList.toggle("is-ordering", step > 0);
+    if (step > 0) {
+      stepHead.querySelectorAll(".step-progress i").forEach((bar, index) => bar.classList.toggle("on", index < step));
+      stepHead.querySelector(".step-count").textContent = t.stepOf(step, 3);
+      stepHead.querySelector(".step-question").textContent = t.stepQuestions[step - 1];
+    }
+    error.textContent = "";
+    dialogShell.scrollTop = 0;
+  }
+
+  function stepIsValid() {
+    const controls = form.querySelectorAll(`.form-grid > label[data-step="${step}"] [name]`);
+    for (const control of controls) {
+      if (!control.disabled && !control.checkValidity()) {
+        control.reportValidity();
+        error.textContent = t.formError;
+        return false;
+      }
+    }
+    return true;
+  }
+
   const orderStart = document.createElement("button");
   orderStart.type = "button";
   orderStart.className = "order-start";
   orderStart.innerHTML = `<span class="whatsapp-dot" aria-hidden="true"></span>${t.orderStart}`;
   document.querySelector(".dialog-summary").append(orderStart);
-  orderStart.addEventListener("click", () => {
-    dialog.classList.add("is-ordering");
-    dialogShell.scrollTop = 0;
-  });
+  orderStart.addEventListener("click", () => setStep(1));
+  stepNext.addEventListener("click", () => { if (stepIsValid()) setStep(step + 1); });
+
   const orderBack = document.createElement("button");
   orderBack.type = "button";
   orderBack.className = "order-back";
@@ -105,18 +150,16 @@
   orderBack.textContent = "←";
   document.querySelector(".dialog-product").prepend(orderBack);
   orderBack.addEventListener("click", () => {
+    if (step > 1) { setStep(step - 1); return; }
     // Fotoğrafı olmayan "Bize Bırak"ta geri dönülecek bir fotoğraf adımı yok; pencere kapanır.
     if (activeProduct?.custom) { dialog.close(); return; }
-    dialog.classList.remove("is-ordering");
-    dialogShell.scrollTop = 0;
+    setStep(0);
   });
 
   function openProduct(product) {
     setProduct(product);
-    error.textContent = "";
-    dialog.classList.toggle("is-ordering", Boolean(product.custom));
     if (!dialog.open) dialog.showModal();
-    dialogShell.scrollTop = 0;
+    setStep(product.custom ? 1 : 0);
   }
 
   // Tam ekran fotoğraf görüntüleyici: fotoğrafa dokununca açılır; dokununca veya Esc ile kapanır.
@@ -205,6 +248,11 @@
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    // Telefonda klavyeden "Git"e basılırsa son adıma kadar formu göndermek yerine sonraki adıma geç.
+    if (getComputedStyle(stepNext).display !== "none") {
+      if (stepIsValid()) setStep(step + 1);
+      return;
+    }
     if (!form.reportValidity()) {
       error.textContent = t.formError;
       return;
@@ -283,7 +331,7 @@
         const deliveryTime = input.deliveryTime === "custom" ? input.customDeliveryTime : input.deliveryTime;
         if (!input.deliveryDate || !deliveryTime || !input.recipientName || !input.recipientPhone || !input.address || !input.customerName || !input.customerPhone) throw new Error("Zorunlu sipariş bilgileri eksik.");
         openProduct(product);
-        dialog.classList.add("is-ordering");
+        setStep(3);
         Object.entries(input).forEach(([key, value]) => { if (form.elements[key]) form.elements[key].value = value; });
         syncCustomDeliveryTime();
         const message = buildMessage(input);

@@ -130,7 +130,7 @@ footer p:last-child { text-align: right; }
 .dialog-visual.has-photo { cursor: zoom-in; }
 .product-visual .dialog-zoom-hint { position: absolute; z-index: 3; right: 14px; bottom: 14px; padding: 7px 11px; background: rgba(255,253,248,.92); color: var(--ink); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
 .dialog-summary { grid-column: 2; grid-row: 1; padding: 56px 44px 0; }
-.order-start, .order-back { display: none; }
+.order-start, .order-back, .step-head, .step-next { display: none; }
 .dialog-summary h2 { margin: 0 0 14px; font-family: var(--serif); font-size: 2.45rem; font-weight: 600; line-height: 1; letter-spacing: -.03em; }
 .dialog-summary p:not(.eyebrow) { color: var(--muted); font-size: .9rem; }
 .dialog-summary strong { display: block; margin-top: 20px; font-size: 1rem; }
@@ -210,46 +210,63 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   footer { grid-template-columns: 1fr; text-align: center; }
   footer .brand { justify-content: center; }
   footer p:last-child { text-align: center; }
-  .product-dialog { width: 100%; max-width: none; height: 94dvh; max-height: 94dvh; margin: auto 0 0; }
+  /* Telefonda ürün penceresi uygulama gibi çalışır (data-step: 0 = ürün, 1–3 = sipariş adımları). */
+  .product-dialog { width: 100%; max-width: none; height: 100dvh; max-height: 100dvh; margin: 0; }
   .dialog-shell { display: block; height: 100%; overflow: auto; }
-  .dialog-close { position: fixed; top: calc(6dvh + 12px); right: 12px; margin: 0; }
-  /* 1. adım: büyük fotoğraf + ürün bilgisi + "Sipariş oluştur" düğmesi. */
-  .dialog-product { display: block; background: var(--cream); }
-  .dialog-visual { position: relative; height: 64dvh; }
-  .dialog-summary { padding: 22px 20px calc(24px + env(safe-area-inset-bottom)); }
-  .dialog-summary h2 { font-size: 2rem; }
-  .order-start { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 55px; margin-top: 22px; border: 0; background: var(--ink); color: white; font-size: .95rem; cursor: pointer; position: sticky; bottom: 8px; box-shadow: 0 8px 28px rgba(0,0,0,.16); }
+  .dialog-close { position: fixed; top: calc(14px + env(safe-area-inset-top)); right: 14px; margin: 0; }
   .product-dialog:not(.is-ordering) #order-form { display: none; }
-  /* 2. adım: üstte ince sabit şerit (geri, küçük fotoğraf, ürün adı), altında form. */
-  .is-ordering .dialog-product { display: grid; grid-template-columns: auto 46px minmax(0, 1fr); align-items: center; gap: 12px; padding: 12px 66px 12px 10px; position: sticky; top: 0; z-index: 3; border-bottom: 1px solid var(--line); }
-  .is-ordering .order-back { display: grid; place-items: center; width: 38px; height: 38px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.3rem; cursor: pointer; }
-  .is-ordering .order-back { grid-column: 1; grid-row: 1; }
-  .is-ordering .dialog-visual { grid-column: 2; grid-row: 1; width: 46px; height: 58px; }
-  .is-ordering .dialog-summary { grid-column: 3; grid-row: 1; }
+
+  /* 0. adım: fotoğraf tüm ekranı kaplar, bilgiler alttan açılan kartta durur. */
+  .product-dialog:not(.is-ordering) .dialog-shell { overflow: hidden; }
+  .product-dialog:not(.is-ordering) .dialog-product { display: block; height: 100%; position: relative; background: var(--cream); }
+  .product-dialog:not(.is-ordering) .dialog-visual { position: absolute; inset: 0; height: 100%; }
+  .product-dialog:not(.is-ordering) .product-visual .dialog-zoom-hint { top: calc(20px + env(safe-area-inset-top)); bottom: auto; left: 14px; right: auto; }
+  .product-dialog:not(.is-ordering) .dialog-summary { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; max-height: 62%; overflow: auto; padding: 12px 22px calc(20px + env(safe-area-inset-bottom)); background: var(--paper); border-radius: 26px 26px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,.15); }
+  .product-dialog:not(.is-ordering) .dialog-summary::before { content: ""; display: block; width: 42px; height: 4px; margin: 0 auto 16px; border-radius: 4px; background: var(--line); }
+  .dialog-summary h2 { font-size: 1.95rem; margin-bottom: 8px; }
+  .dialog-summary p:not(.eyebrow) { margin: 0; font-size: .88rem; line-height: 1.5; }
+  .dialog-summary strong { margin-top: 8px; }
+  .order-start { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 54px; margin-top: 18px; border: 0; border-radius: 999px; background: var(--ink); color: white; font-size: .95rem; font-weight: 500; cursor: pointer; }
+
+  /* 1–3. adım: üstte geri + yuvarlak küçük fotoğraf + ürün adı, ilerleme çizgisi ve soru. */
+  .is-ordering .dialog-product { display: grid; grid-template-columns: auto 44px minmax(0, 1fr); align-items: center; gap: 12px; padding: calc(10px + env(safe-area-inset-top)) 66px 10px 8px; position: sticky; top: 0; z-index: 3; background: var(--paper); }
+  .is-ordering .order-back { display: grid; place-items: center; grid-column: 1; grid-row: 1; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.35rem; cursor: pointer; }
+  .is-ordering .dialog-visual { grid-column: 2; grid-row: 1; width: 44px; height: 44px; border-radius: 50%; }
   .is-ordering .dialog-zoom-hint { display: none; }
-  .is-ordering .dialog-summary { padding: 0; }
+  .is-ordering .dialog-summary { grid-column: 3; grid-row: 1; padding: 0; }
   .is-ordering .dialog-summary .eyebrow { margin: 0 0 2px; font-size: .6rem; }
-  .is-ordering .dialog-summary h2 { margin: 0; font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .is-ordering .dialog-summary h2 { margin: 0; font-size: 1.1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .is-ordering .dialog-summary p:not(.eyebrow), .is-ordering .dialog-summary strong.price-note, .is-ordering .order-start { display: none; }
-  .is-ordering .dialog-summary strong { margin-top: 2px; font-size: .8rem; }
-  .is-ordering .dialog-close { top: calc(6dvh + 20px); }
-  #order-form { margin-top: 0; border-top: 0; padding: 26px 18px calc(24px + env(safe-area-inset-bottom)); }
-  .form-heading { margin-bottom: 22px; }
-  .form-heading > span { display: none; }
-  .form-heading h3 { font-size: 1.5rem; }
-  .form-grid { gap: 16px; }
+  .is-ordering .dialog-summary strong { margin-top: 2px; font-size: .78rem; }
+  .is-ordering .dialog-close { top: calc(12px + env(safe-area-inset-top)); }
+  #order-form { margin-top: 0; border-top: 0; padding: 4px 20px calc(110px + env(safe-area-inset-bottom)); }
+  .form-heading { display: none; }
+  .step-head { display: block; }
+  .step-progress { display: flex; gap: 6px; margin: 8px 0 12px; }
+  .step-progress i { flex: 1; height: 3px; border-radius: 3px; background: var(--line); transition: background .25s ease; }
+  .step-progress i.on { background: var(--gold); }
+  .step-count { margin: 0 0 6px; color: var(--muted); font-size: .72rem; letter-spacing: .06em; }
+  .step-question { margin: 0 0 22px; font-family: var(--serif); font-size: 1.6rem; font-weight: 600; line-height: 1.12; letter-spacing: -.02em; }
+  .product-dialog[data-step="1"] .form-grid > label:not([data-step="1"]),
+  .product-dialog[data-step="2"] .form-grid > label:not([data-step="2"]),
+  .product-dialog[data-step="3"] .form-grid > label:not([data-step="3"]) { display: none; }
+  .product-dialog:not([data-step="3"]) .whatsapp-button, .product-dialog:not([data-step="3"]) .privacy-note { display: none; }
+  .form-grid { grid-template-columns: 1fr; gap: 16px; }
+  .form-grid .wide { grid-column: auto; }
   .form-grid label { gap: 8px; color: var(--ink); font-size: .8rem; font-weight: 500; letter-spacing: .01em; }
   .form-grid label span { font-weight: 400; }
   /* 16px yazı iOS'ta alana dokununca sayfanın kendiliğinden yakınlaşmasını önler. */
-  .form-grid input, .form-grid textarea, .form-grid select { min-height: 50px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fffdf8; font-size: 16px; font-weight: 400; }
+  .form-grid input, .form-grid textarea, .form-grid select { min-height: 50px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; font-size: 16px; font-weight: 400; }
   .form-grid textarea { min-height: 0; }
   .form-grid input:focus, .form-grid textarea:focus, .form-grid select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184, 151, 90, .15); }
-  .custom-time-toggle { min-height: 50px; border-radius: 10px; }
+  .custom-time-toggle { min-height: 50px; border-radius: 12px; }
   .custom-time-field input { max-width: none; }
   .delivery-fee-note { font-weight: 400; color: var(--muted); }
-  .form-grid { grid-template-columns: 1fr; }
-  .form-grid .wide { grid-column: auto; }
-  .whatsapp-button { position: sticky; bottom: 8px; box-shadow: 0 8px 28px rgba(0,0,0,.16); }
+  .step-next, .whatsapp-button { position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); width: auto; min-height: 54px; border-radius: 999px; box-shadow: 0 8px 28px rgba(0,0,0,.18); z-index: 6; }
+  .step-next { display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; background: var(--ink); color: white; font-size: .95rem; font-weight: 500; cursor: pointer; }
+  .product-dialog[data-step="3"] .step-next { display: none; }
+  .whatsapp-button { padding: 15px 22px; }
+  .form-error { margin: 18px 0 0; }
 }
 
 @media (max-width: 400px) {
