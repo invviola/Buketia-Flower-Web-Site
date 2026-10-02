@@ -57,6 +57,8 @@
   function render(category = "Tümü") {
     const visible = category === "Tümü" ? products.filter((p) => p.image) : products.filter((p) => p.categories.includes(category));
     grid.innerHTML = visible.map(productCard).join("");
+    // "Bize Bırak" buket seçeneğidir; Çelenk kategorisinde gösterilmez.
+    document.querySelector("[data-open-choice]").hidden = category === "Çelenk";
     count.textContent = t.count(visible.length);
   }
 

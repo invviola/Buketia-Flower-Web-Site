@@ -127,14 +127,15 @@ footer p:last-child { text-align: right; }
 .footer-hours { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; color: var(--ink); font-size: .72rem; }
 
 /* Ürün penceresi: masaüstünde solda büyük sabit fotoğraf, sağda ürün bilgisi + sipariş formu. */
-.product-dialog { width: min(1280px, calc(100% - 48px)); height: min(92vh, 940px); max-height: none; padding: 0; border: 0; background: var(--paper); color: var(--ink); box-shadow: 0 30px 90px rgba(0,0,0,.26); }
+.product-dialog { width: min(1180px, calc(100% - 48px)); height: min(92vh, 750px); max-height: none; padding: 0; border: 0; background: var(--paper); color: var(--ink); box-shadow: 0 30px 90px rgba(0,0,0,.26); }
 .product-dialog::backdrop { background: rgba(20,18,15,.65); backdrop-filter: blur(5px); }
 .dialog-shell { position: relative; height: 100%; overflow: auto; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr; }
 .dialog-close { grid-column: 2; grid-row: 1 / 3; align-self: start; justify-self: end; position: sticky; top: 15px; margin: 15px 15px 0 0; z-index: 5; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,253,248,.94); color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; }
 .dialog-product { display: contents; }
 /* Sütun genişliği fotoğrafın kendi oranından (3:4) gelir; fotoğraf kırpılmadan tamamı görünür. */
-.dialog-visual { grid-column: 1; grid-row: 1 / 3; position: sticky; top: 0; height: min(92vh, 940px, 60vw); width: auto; aspect-ratio: 9 / 10; border: 0; background: var(--cream); }
-/* Fotoğraf üstten hizalı: duvardaki yazı tam görünür, yalnızca alttaki masa ayağı/çim kırpılır. */
+.dialog-visual { grid-column: 1; grid-row: 1 / 3; position: sticky; top: 0; height: min(92vh, 750px, 60vw); width: auto; aspect-ratio: 9 / 10; border: 0; background: var(--cream); }
+/* Fotoğraf üstten hizalı: duvardaki yazı tam görünür, yalnızca alttaki masa ayağı/çim kırpılır.
+   Yükseklik en fazla 750 px = genişlik 675 px: ürün fotoğrafları 675×900, kendi boyutundan büyük gösterilmez (pikselleşme). */
 .dialog-visual img { object-position: center top; }
 .dialog-visual.has-photo { cursor: zoom-in; }
 .product-visual .dialog-zoom-hint { position: absolute; z-index: 3; right: 14px; bottom: 14px; padding: 7px 11px; background: rgba(255,253,248,.92); color: var(--ink); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
