@@ -242,7 +242,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Yeni İş",
     categories: ["Yeni İş", "Geçmiş Olsun"],
     description: "Hasır sepette gerbera, lilyum ve renkli çiçeklerle hazırlanan bir mutluluk aranjmanı.",
-    image: "assets/urunler/mutluluk-sepeti.jpg",
+    image: "",
     tone: "sun",
     badge: "",
     inStock: true
