@@ -74,7 +74,7 @@
     if (product.custom) budgetInput.value = "";
     const visual = document.querySelector("#dialog-visual");
     visual.className = `dialog-visual product-visual tone-${product.tone}${product.image ? " has-photo" : ""}`;
-    visual.innerHTML = visualMarkup(product) + (product.image ? `<span class="dialog-zoom-hint">${t.zoomPhoto} ⤢</span>` : "");
+    visual.innerHTML = visualMarkup(product) + (product.image ? `<span class="dialog-zoom-hint"><span class="dialog-zoom-text">${t.zoomPhoto} </span>⤢</span>` : "");
     if (product.image) {
       visual.setAttribute("role", "button");
       visual.tabIndex = 0;
