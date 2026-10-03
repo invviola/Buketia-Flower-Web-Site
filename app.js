@@ -231,10 +231,22 @@
     grid._switchTimer = setTimeout(() => { render(category); grid.classList.remove("is-switching"); }, 260);
   };
 
+  // Kategori çubuğu: kapalıyken seçili kategoriyi gösterir, dokununca tüm kategoriler açılır.
+  const categoryToggle = document.querySelector(".category-toggle");
+  const categoryPanel = document.querySelector("#category-panel");
+  const setCategoryPanel = (open) => {
+    categoryPanel.classList.toggle("is-open", open);
+    categoryPanel.inert = !open;
+    categoryToggle.setAttribute("aria-expanded", String(open));
+  };
+  categoryToggle.addEventListener("click", () => setCategoryPanel(!categoryPanel.classList.contains("is-open")));
+
   document.querySelectorAll(".category").forEach((button) => {
     button.addEventListener("click", () => {
       document.querySelector(".category.active")?.classList.remove("active");
       button.classList.add("active");
+      document.querySelector("[data-current]").textContent = button.textContent.trim();
+      setCategoryPanel(false);
       switchTo(button.dataset.category);
     });
   });

@@ -66,7 +66,7 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="./assets/buketia-symbol.svg?v=3" />
     <title>Buketia Flower | Seferihisar Çiçekçi · Çiçek Kataloğu</title>
-    <link rel="stylesheet" href="./styles.css?v=20261003k" />
+    <link rel="stylesheet" href="./styles.css?v=20261003l" />
   </head>
   <body>
     <div class="top-bar" role="region" aria-label="Mağaza bilgileri">
@@ -116,17 +116,29 @@
           <p id="result-count" aria-live="polite"></p>
         </div>
 
-        <div class="category-grid" role="group" aria-label="Ürün kategorileri">
-          <button class="category active" type="button" data-category="Tümü">Tümü</button>
-          <button class="category category-featured" type="button" data-category="Çelenk">Çelenkler</button>
-          <button class="category" type="button" data-category="Buket">Buketler</button>
-          <button class="category" type="button" data-category="Sevgiliye">Sevgiliye</button>
-          <button class="category" type="button" data-category="Yeni Doğum">Yeni Doğum</button>
-          <button class="category" type="button" data-category="Orkide">Orkideler</button>
-          <button class="category" type="button" data-category="Özel Aranjman">Özel Aranjmanlar</button>
-          <button class="category" type="button" data-category="Yapay Buket">Yapay Buketler</button>
-          <button class="category" type="button" data-category="Yapay Aranjman">Yapay Aranjmanlar</button>
-          <button class="category" type="button" data-category="Yapay Ağaç">Yapay Ağaçlar</button>
+        <div class="category-picker">
+          <button class="category-toggle" type="button" aria-expanded="false" aria-controls="category-panel">
+            <span class="category-toggle-label">Kategoriler</span>
+            <span class="category-toggle-current" data-current>Tümü</span>
+            <span class="category-toggle-count" aria-hidden="true">10</span>
+            <span class="category-toggle-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="category-panel" id="category-panel" inert>
+            <div class="category-panel-inner">
+              <div class="category-grid" role="group" aria-label="Kategoriler">
+                <button class="category active" type="button" data-category="Tümü">Tümü</button>
+                <button class="category category-featured" type="button" data-category="Çelenk">Çelenkler</button>
+                <button class="category" type="button" data-category="Buket">Buketler</button>
+                <button class="category" type="button" data-category="Sevgiliye">Sevgiliye</button>
+                <button class="category" type="button" data-category="Yeni Doğum">Yeni Doğum</button>
+                <button class="category" type="button" data-category="Orkide">Orkideler</button>
+                <button class="category" type="button" data-category="Özel Aranjman">Özel Aranjmanlar</button>
+                <button class="category" type="button" data-category="Yapay Buket">Yapay Buketler</button>
+                <button class="category" type="button" data-category="Yapay Aranjman">Yapay Aranjmanlar</button>
+                <button class="category" type="button" data-category="Yapay Ağaç">Yapay Ağaçlar</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <button class="designer-choice" type="button" data-open-choice>
@@ -234,6 +246,6 @@
 
     <script src="./products.js?v=20261003c"></script>
     <script src="./i18n.js?v=20261003f"></script>
-    <script src="./app.js?v=20261003g"></script>
+    <script src="./app.js?v=20261003h"></script>
   </body>
 </html>
