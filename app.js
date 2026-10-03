@@ -243,8 +243,8 @@
 
   document.querySelectorAll(".category").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelector(".category.active")?.classList.remove("active");
-      button.classList.add("active");
+      document.querySelectorAll(".category.active").forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(`.category[data-category="${button.dataset.category}"]`).forEach((b) => b.classList.add("active"));
       document.querySelector("[data-current]").textContent = button.textContent.trim();
       setCategoryPanel(false);
       switchTo(button.dataset.category);
