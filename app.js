@@ -24,6 +24,11 @@
     custom: true
   };
 
+  // "Bize Bırak" bütçe aralığı kategoriye göre değişir; listede olmayan kategori varsayılanı kullanır.
+  const defaultBudget = [1500, 5000];
+  const budgetRanges = { "Yapay Ağaç": [4000, 10000] };
+  let currentCategory = "Tümü";
+
   const dictionaries = window.BUKETIA_I18N || {};
   const t = dictionaries[document.documentElement.lang.slice(0, 2)] || dictionaries.tr;
   const isTurkish = t === dictionaries.tr;
@@ -64,6 +69,7 @@
   }
 
   function render(category = "Tümü") {
+    currentCategory = category;
     const keys = category.split(",");
     const visible = category === "Tümü" ? products.filter((p) => p.image) : products.filter((p) => keys.some((k) => p.categories.includes(k)));
     grid.innerHTML = visible.length ? visible.map(productCard).join("") : `<p class="empty-note">${t.empty}</p>`;
@@ -79,7 +85,11 @@
     document.querySelector("#dialog-title").textContent = product.name;
     document.querySelector("#dialog-description").textContent = product.description;
     const priceLabel = document.querySelector("#dialog-price");
-    priceLabel.textContent = product.custom ? "₺1.500 – ₺5.000" : t.priceNote;
+    const [minBudget, maxBudget] = item.budgetRange || defaultBudget;
+    priceLabel.textContent = product.custom ? `${money.format(minBudget)} – ${money.format(maxBudget)}` : t.priceNote;
+    budgetInput.min = minBudget;
+    budgetInput.max = maxBudget;
+    budgetInput.placeholder = `${minBudget.toLocaleString(t.locale)} – ${maxBudget.toLocaleString(t.locale)} TL`;
     priceLabel.classList.toggle("price-note", !product.custom);
     setShown(budgetField, !!product.custom);
     budgetInput.disabled = !product.custom;
@@ -205,22 +215,37 @@
     const deliveryTime = values.deliveryTime === "custom" ? values.customDeliveryTime : values.deliveryTime;
     const m = t.message;
     // Yabancı dilde ürünün Türkçe adı da yazılır ki dükkân ürünü hemen tanısın.
-    const productName = isTurkish ? activeProduct.name : `${tx(activeProduct).name} (${activeProduct.name})`;
-    const budgetLines = activeProduct.custom ? [`${m.budget}: ${money.format(Number(values.budget))}`] : [];
+    let productName = isTurkish ? activeProduct.name : `${tx(activeProduct).name} (${activeProduct.name})`;
+    // "Bize Bırak" hangi kategoriden açıldıysa mesajda yazsın (ör. Bize Bırak – Yapay Ağaçlar).
+    const chosenKey = activeProduct.custom && activeProduct.categoryKey;
+    if (chosenKey && chosenKey !== "Tümü") productName += ` – ${t.categories[chosenKey] || chosenKey}`;
+    const budgetLines = activeProduct.custom ? [`💰 ${m.budget}: ${money.format(Number(values.budget))}`] : [];
+    // 2026-10-04 yerine "4 Ekim 2026 Pazar" gibi okunur tarih.
+    const [y, mo, d] = String(values.deliveryDate).split("-").map(Number);
+    const dateText = y ? new Date(y, mo - 1, d).toLocaleDateString(t.locale, { day: "numeric", month: "long", year: "numeric", weekday: "long" }) : values.deliveryDate;
     return [
       m.intro,
       "",
-      `${m.product}: ${productName}`,
+      `🌸 *${m.product}*`,
+      productName,
+      // Fotoğraf adresi mesajda küçük resimli önizleme olarak görünür; dükkân ürünü bir bakışta tanır.
+      ...(activeProduct.image ? [`https://buketiaflower.com/${activeProduct.image}`] : []),
       ...budgetLines,
-      `${m.delivery}: ${values.deliveryDate} · ${deliveryTime}`,
-      `${m.recipient}: ${values.recipientName}`,
-      `${m.recipientPhone}: ${values.recipientPhone}`,
-      `${m.address}: ${values.address}`,
-      m.courier,
-      `${m.card}: ${values.cardNote || "—"}`,
       "",
-      `${m.customer}: ${values.customerName}`,
-      `${m.phone}: ${values.customerPhone}`
+      `📅 *${m.delivery}*`,
+      `${dateText} · ${deliveryTime}`,
+      `📍 ${values.address}`,
+      "",
+      `🎁 *${m.recipient}*`,
+      `${values.recipientName} · ${values.recipientPhone}`,
+      "",
+      `💌 *${m.card}*`,
+      values.cardNote || "—",
+      "",
+      `👤 *${m.customer}*`,
+      `${values.customerName} · ${values.customerPhone}`,
+      "",
+      m.courier
     ].join("\n");
   }
 
@@ -258,7 +283,11 @@
     if (product) openProduct(product);
   });
 
-  document.querySelector("[data-open-choice]").addEventListener("click", () => openProduct(designerChoice));
+  document.querySelector("[data-open-choice]").addEventListener("click", () => openProduct({
+    ...designerChoice,
+    budgetRange: budgetRanges[currentCategory.split(",")[0]] || defaultBudget,
+    categoryKey: currentCategory
+  }));
   document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 
