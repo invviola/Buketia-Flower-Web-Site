@@ -32,7 +32,7 @@ a { color: inherit; }
 .top-bar-status { min-width: 0; overflow: hidden; }
 .top-bar-status > span:last-child { overflow: hidden; text-overflow: ellipsis; }
 .lang-switch { position: relative; flex: 0 0 auto; }
-.lang-switch summary { display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; color: var(--cream); font-weight: 600; letter-spacing: .1em; cursor: pointer; list-style: none; }
+.lang-switch summary { display: inline-flex; align-items: center; gap: 6px; padding: 12px 0; min-height: 44px; box-sizing: border-box; color: var(--cream); font-weight: 600; letter-spacing: .1em; cursor: pointer; list-style: none; }
 .lang-switch summary::-webkit-details-marker { display: none; }
 .lang-switch summary::after { content: ""; width: 5px; height: 5px; margin: -3px 0 0 2px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); transition: transform .2s ease; }
 .lang-switch[open] summary::after { margin-top: 3px; transform: rotate(-135deg); }
@@ -76,7 +76,7 @@ a { color: inherit; }
 #result-count { flex: 0 0 auto; color: var(--muted); font-size: .8rem; white-space: nowrap; }
 .category-scroll { display: flex; gap: 8px; overflow-x: auto; padding: 1px 44px 18px 0; scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); }
 .category-scroll::-webkit-scrollbar { display: none; }
-.category { flex: 0 0 auto; padding: 10px 17px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font-size: .8rem; cursor: pointer; transition: .2s ease; }
+.category { flex: 0 0 auto; padding: 12px 17px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font-size: .8rem; cursor: pointer; transition: .2s ease; }
 .category:hover, .category:focus-visible, .category.active { color: var(--paper); background: var(--ink); border-color: var(--ink); }
 /* Çelenk: diğer kategorilerden belirgin, altın zeminli vurgulu buton (data-category her dilde "Çelenk"). */
 .category-featured { display: inline-flex; align-items: center; gap: 7px; border-color: #c9a96e; background: linear-gradient(135deg, #f5ead0, #e3cb93); color: var(--ink); font-weight: 600; letter-spacing: .03em; box-shadow: 0 6px 14px -8px rgba(138,109,71,.75); }
@@ -129,7 +129,7 @@ footer p:last-child { text-align: right; }
 /* Ürün penceresi: masaüstünde solda büyük sabit fotoğraf, sağda ürün bilgisi + sipariş formu. */
 .product-dialog { width: min(1080px, calc(100% - 48px)); height: min(80vh, 660px); max-height: none; padding: 0; border: 0; background: var(--paper); color: var(--ink); box-shadow: 0 30px 90px rgba(0,0,0,.26); }
 .product-dialog::backdrop { background: rgba(20,18,15,.65); backdrop-filter: blur(5px); }
-.dialog-shell { position: relative; height: 100%; overflow: auto; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr; }
+.dialog-shell { position: relative; height: 100%; overflow: auto; overscroll-behavior: contain; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr; }
 .dialog-close { grid-column: 2; grid-row: 1 / 3; align-self: start; justify-self: end; position: sticky; top: 15px; margin: 15px 15px 0 0; z-index: 5; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,253,248,.94); color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; }
 .dialog-product { display: contents; }
 /* Sütun genişliği fotoğrafın kendi oranından (3:4) gelir; fotoğraf kırpılmadan tamamı görünür. */
@@ -186,7 +186,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 @media (max-width: 640px) {
   .site-header { height: 76px; padding: 0 18px; }
   .header-nav, .header-contact { font-size: .58rem; letter-spacing: .1em; }
-  .header-contact { padding: 6px 9px; gap: 5px; letter-spacing: .06em; }
+  .header-contact { padding: 12px 10px; min-height: 44px; box-sizing: border-box; gap: 5px; letter-spacing: .06em; }
   .header-contact span:last-child { display: none; }
   .header-icon { width: 13px; height: 13px; }
   .top-bar { min-height: 32px; padding: 0 18px; font-size: .64rem; letter-spacing: .03em; }
@@ -223,7 +223,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   /* Telefonda ürün penceresi uygulama gibi çalışır (data-step: 0 = ürün, 1–3 = sipariş adımları). */
   .product-dialog { width: 100%; max-width: none; height: 100dvh; max-height: 100dvh; margin: 0; }
   .dialog-shell { display: block; height: 100%; overflow: auto; }
-  .dialog-close { position: fixed; top: calc(12px + env(safe-area-inset-top)); right: 12px; margin: 0; width: 40px; height: 40px; border: 0; background: rgba(255,253,245,.82); backdrop-filter: blur(10px); box-shadow: 0 4px 14px rgba(61,45,23,.12); font-size: 1.45rem; }
+  .dialog-close { position: fixed; top: calc(12px + env(safe-area-inset-top)); right: 12px; margin: 0; width: 44px; height: 44px; border: 0; background: rgba(255,253,245,.82); backdrop-filter: blur(10px); box-shadow: 0 4px 14px rgba(61,45,23,.12); font-size: 1.45rem; }
   .product-dialog:not(.is-ordering) #order-form { display: none; }
 
   /* 0. adım: katalog sayfası gibi tek, kesintisiz krem zemin. Fotoğraf paspartulu çerçevede, ortalı ve
@@ -252,7 +252,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 
   /* 1–3. adım: üstte geri + yuvarlak küçük fotoğraf + ürün adı, ilerleme çizgisi ve soru. */
   .is-ordering .dialog-product { display: grid; grid-template-columns: auto 44px minmax(0, 1fr); align-items: center; gap: 12px; padding: calc(10px + env(safe-area-inset-top)) 66px 10px 8px; position: sticky; top: 0; z-index: 3; background: var(--paper); }
-  .is-ordering .order-back { display: grid; place-items: center; grid-column: 1; grid-row: 1; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.35rem; cursor: pointer; }
+  .is-ordering .order-back { display: grid; place-items: center; grid-column: 1; grid-row: 1; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.35rem; cursor: pointer; }
   .is-ordering .dialog-visual { grid-column: 2; grid-row: 1; width: 44px; height: 44px; border-radius: 50%; }
   .is-ordering .dialog-zoom-hint { display: none; }
   .is-ordering .dialog-visual img { object-position: center; }

@@ -36,7 +36,7 @@
   const money = new Intl.NumberFormat(t.locale, { style: "currency", currency: "TRY", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 });
 
   const visualMarkup = (product) => product.image
-    ? `<img src="${assetBase}${product.image}" alt="${product.name}" loading="lazy" />`
+    ? `<img src="${assetBase}${product.image}" alt="${product.name}" loading="lazy" decoding="async" width="675" height="900" />`
     : `<span>${t.imagePending}</span>`;
 
   function productCard(item) {

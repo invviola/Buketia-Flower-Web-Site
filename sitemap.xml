@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://buketiaflower.com/</loc>
+    <lastmod>2026-10-03</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -10,6 +11,7 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/en/</loc>
+    <lastmod>2026-10-03</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -18,6 +20,7 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/ru/</loc>
+    <lastmod>2026-10-03</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -26,6 +29,7 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/de/</loc>
+    <lastmod>2026-10-03</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -34,5 +38,6 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/seferihisar-cicekci/</loc>
+    <lastmod>2026-10-03</lastmod>
   </url>
 </urlset>
