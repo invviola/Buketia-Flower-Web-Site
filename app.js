@@ -54,11 +54,20 @@
     </article>`;
   }
 
+  // Gizle/göster geçişi: gizlenirken önce çıkış animasyonu oynar, sonra hidden uygulanır.
+  function setShown(el, show) {
+    clearTimeout(el._leaveTimer);
+    if (show) { el.hidden = false; el.classList.remove("is-leaving"); return; }
+    if (el.hidden) return;
+    el.classList.add("is-leaving");
+    el._leaveTimer = setTimeout(() => { el.hidden = true; el.classList.remove("is-leaving"); }, 450);
+  }
+
   function render(category = "Tümü") {
     const visible = category === "Tümü" ? products.filter((p) => p.image) : products.filter((p) => p.categories.includes(category));
     grid.innerHTML = visible.map(productCard).join("");
     // "Bize Bırak" buket seçeneğidir; Çelenk kategorisinde gösterilmez.
-    document.querySelector("[data-open-choice]").hidden = category === "Çelenk";
+    setShown(document.querySelector("[data-open-choice]"), category !== "Çelenk");
     count.textContent = t.count(visible.length);
   }
 
@@ -71,7 +80,7 @@
     const priceLabel = document.querySelector("#dialog-price");
     priceLabel.textContent = product.custom ? "₺1.500 – ₺5.000" : t.priceNote;
     priceLabel.classList.toggle("price-note", !product.custom);
-    budgetField.hidden = !product.custom;
+    setShown(budgetField, !!product.custom);
     budgetInput.disabled = !product.custom;
     budgetInput.required = Boolean(product.custom);
     if (product.custom) budgetInput.value = "";
@@ -218,7 +227,9 @@
     button.addEventListener("click", () => {
       document.querySelector(".category.active")?.classList.remove("active");
       button.classList.add("active");
-      render(button.dataset.category);
+      grid.classList.add("is-switching");
+      clearTimeout(grid._switchTimer);
+      grid._switchTimer = setTimeout(() => { render(button.dataset.category); grid.classList.remove("is-switching"); }, 260);
     });
   });
 
@@ -235,7 +246,7 @@
 
   function syncCustomDeliveryTime() {
     const isCustom = deliveryTimeSelect.value === "custom";
-    customTimeField.hidden = !isCustom;
+    setShown(customTimeField, isCustom);
     customTimeInput.required = isCustom;
     customTimeToggle.setAttribute("aria-expanded", String(isCustom));
     if (!isCustom) customTimeInput.value = "";
