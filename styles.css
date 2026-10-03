@@ -394,3 +394,11 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 .product-grid.is-switching { opacity: 0; transform: translateY(18px); pointer-events: none; }
 .lang-switch::details-content { opacity: 0; transform: translateY(-10px); transition: opacity .4s ease, transform .4s ease, content-visibility .4s allow-discrete; }
 .lang-switch[open]::details-content { opacity: 1; transform: none; }
+
+.empty-note { grid-column: 1 / -1; text-align: center; color: var(--muted, #6f665e); padding: 48px 16px; animation: soft-in .5s ease both; }
+
+
+/* Kategori kartları: tüm kategoriler tek bakışta, 2 sütun (masaüstünde 5). */
+.category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px; }
+.category-grid .category { display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 10px 12px; border-radius: 14px; text-align: center; line-height: 1.25; }
+@media (min-width: 760px) { .category-grid { grid-template-columns: repeat(5, 1fr); } }

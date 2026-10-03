@@ -64,8 +64,9 @@
   }
 
   function render(category = "Tümü") {
-    const visible = category === "Tümü" ? products.filter((p) => p.image) : products.filter((p) => p.categories.includes(category));
-    grid.innerHTML = visible.map(productCard).join("");
+    const keys = category.split(",");
+    const visible = category === "Tümü" ? products.filter((p) => p.image) : products.filter((p) => keys.some((k) => p.categories.includes(k)));
+    grid.innerHTML = visible.length ? visible.map(productCard).join("") : `<p class="empty-note">${t.empty}</p>`;
     // "Bize Bırak" buket seçeneğidir; Çelenk kategorisinde gösterilmez.
     setShown(document.querySelector("[data-open-choice]"), category !== "Çelenk");
     count.textContent = t.count(visible.length);
@@ -223,13 +224,18 @@
     ].join("\n");
   }
 
+
+  const switchTo = (category) => {
+    grid.classList.add("is-switching");
+    clearTimeout(grid._switchTimer);
+    grid._switchTimer = setTimeout(() => { render(category); grid.classList.remove("is-switching"); }, 260);
+  };
+
   document.querySelectorAll(".category").forEach((button) => {
     button.addEventListener("click", () => {
       document.querySelector(".category.active")?.classList.remove("active");
       button.classList.add("active");
-      grid.classList.add("is-switching");
-      clearTimeout(grid._switchTimer);
-      grid._switchTimer = setTimeout(() => { render(button.dataset.category); grid.classList.remove("is-switching"); }, 260);
+      switchTo(button.dataset.category);
     });
   });
 

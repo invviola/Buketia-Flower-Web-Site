@@ -9,6 +9,7 @@
       locale: "tr-TR",
       time: (h, m) => `${h}.${m}`,
       count: (n) => `${n} tasarım`,
+      empty: "Bu kategoriye yakında yeni tasarımlar eklenecek.",
       imagePending: "Görsel eklenecek",
       priceNote: "Fiyat bilgisi WhatsApp üzerinden iletilir.",
       formError: "Lütfen zorunlu alanları tamamlayın.",
@@ -32,6 +33,7 @@
       locale: "en-GB",
       time: (h, m) => `${h}:${m}`,
       count: (n) => `${n} ${n === 1 ? "design" : "designs"}`,
+      empty: "New designs will be added to this category soon.",
       imagePending: "Photo coming soon",
       priceNote: "Prices are shared via WhatsApp.",
       formError: "Please fill in the required fields.",
@@ -49,7 +51,7 @@
       },
       categories: {
         "Doğum Günü": "Birthday", "Sevgiliye": "Romance", "Yeni İş": "New Job", "Geçmiş Olsun": "Get Well",
-        "Orkide": "Orchids", "Gelin Buketi": "Bridal", "Çelenk": "Wreaths", "Buketia seçkisi": "Buketia selection"
+        "Buket": "Bouquets", "Yeni Doğum": "Newborn", "Yapay Ağaç": "Faux Trees", "Özel Aranjman": "Custom Arrangements", "Orkide": "Orchids", "Gelin Buketi": "Bridal", "Çelenk": "Wreaths", "Buketia seçkisi": "Buketia selection"
       },
       products: {
         "bize-birak": { name: "Leave It to Us", description: "Set your budget and let Buketia Flower create your bouquet with the season’s most beautiful flowers." },
@@ -88,6 +90,7 @@
       locale: "ru-RU",
       time: (h, m) => `${h}:${m}`,
       count: (n) => `${n} ${{ one: "дизайн", few: "дизайна" }[ruPlural.select(n)] || "дизайнов"}`,
+      empty: "Новые композиции скоро появятся в этой категории.",
       imagePending: "Фото скоро появится",
       priceNote: "Цену сообщим в WhatsApp.",
       formError: "Пожалуйста, заполните обязательные поля.",
@@ -105,7 +108,7 @@
       },
       categories: {
         "Doğum Günü": "День рождения", "Sevgiliye": "Любимым", "Yeni İş": "Новая работа", "Geçmiş Olsun": "Выздоравливайте",
-        "Orkide": "Орхидеи", "Gelin Buketi": "Свадебные", "Çelenk": "Венки", "Buketia seçkisi": "Выбор Buketia"
+        "Buket": "Букеты", "Yeni Doğum": "Новорождённым", "Yapay Ağaç": "Искусственные деревья", "Özel Aranjman": "Особые композиции", "Orkide": "Орхидеи", "Gelin Buketi": "Свадебные", "Çelenk": "Венки", "Buketia seçkisi": "Выбор Buketia"
       },
       products: {
         "bize-birak": { name: "Доверьтесь нам", description: "Укажите бюджет, а Buketia Flower соберёт для вас букет из самых красивых цветов сезона." },
@@ -144,6 +147,7 @@
       locale: "de-DE",
       time: (h, m) => `${h}:${m}`,
       count: (n) => `${n} ${n === 1 ? "Design" : "Designs"}`,
+      empty: "Bald kommen neue Designs in dieser Kategorie hinzu.",
       imagePending: "Foto folgt",
       priceNote: "Preise erhalten Sie per WhatsApp.",
       formError: "Bitte füllen Sie die Pflichtfelder aus.",
@@ -161,7 +165,7 @@
       },
       categories: {
         "Doğum Günü": "Geburtstag", "Sevgiliye": "Für die Liebe", "Yeni İş": "Neuer Job", "Geçmiş Olsun": "Gute Besserung",
-        "Orkide": "Orchideen", "Gelin Buketi": "Brautstrauß", "Çelenk": "Kränze", "Buketia seçkisi": "Buketia-Auswahl"
+        "Buket": "Sträuße", "Yeni Doğum": "Zur Geburt", "Yapay Ağaç": "Kunstbäume", "Özel Aranjman": "Besondere Arrangements", "Orkide": "Orchideen", "Gelin Buketi": "Brautstrauß", "Çelenk": "Kränze", "Buketia seçkisi": "Buketia-Auswahl"
       },
       products: {
         "bize-birak": { name: "Überlassen Sie es uns", description: "Legen Sie Ihr Budget fest – Buketia Flower bindet Ihren Strauß aus den schönsten Blumen der Saison." },
