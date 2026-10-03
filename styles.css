@@ -439,3 +439,8 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 .instagram-cta-icon { width: 36px; height: 36px; padding: 8px; border: 1px solid var(--gold); border-radius: 50%; stroke-width: 1.6; }
 .instagram-cta-copy strong { font-size: 1.12rem; }
 .instagram-cta-copy small { font-size: .68rem; }
+/* Instagram bağlantısı: bir kademe küçültüldü */
+.instagram-cta { gap: 7px; margin-top: 16px; padding: 10px 20px 11px; }
+.instagram-cta-icon { width: 30px; height: 30px; padding: 6px; }
+.instagram-cta-copy strong { font-size: .98rem; }
+.instagram-cta-copy small { font-size: .62rem; }
