@@ -1,6 +1,6 @@
 (() => {
   // Fotoğrafı olmayan ürünler katalogda gösterilmez; products.js'te image doldurulunca kendiliğinden görünür.
-  // İstisna: Çelenk ürünleri fotoğrafsız da (renkli zeminle) yalnızca "Çelenk" kategorisinde görünür, "Tümü"de görünmez.
+  // Çelenk ürünleri yalnızca "Çelenk" kategorisinde görünür, "Tümü"de görünmez.
   const products = (window.BUKETIA_PRODUCTS || []).filter((product) => product.image || product.categories.includes("Çelenk"));
   const grid = document.querySelector("#product-grid");
   const count = document.querySelector("#result-count");
@@ -71,7 +71,7 @@
   function render(category = "Tümü") {
     currentCategory = category;
     const keys = category.split(",");
-    const visible = category === "Tümü" ? products.filter((p) => p.image) : products.filter((p) => keys.some((k) => p.categories.includes(k)));
+    const visible = category === "Tümü" ? products.filter((p) => p.image && !p.categories.includes("Çelenk")) : products.filter((p) => keys.some((k) => p.categories.includes(k)));
     grid.innerHTML = visible.length ? visible.map(productCard).join("") : `<p class="empty-note">${t.empty}</p>`;
     // "Bize Bırak" buket seçeneğidir; Çelenk kategorisinde gösterilmez.
     setShown(document.querySelector("[data-open-choice]"), category !== "Çelenk");
