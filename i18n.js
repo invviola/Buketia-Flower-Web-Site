@@ -50,6 +50,7 @@
         courier: "Courier fee: to be set by Buketia", card: "Card message", customer: "Ordered by", phone: "Phone"
       },
       categories: {
+        "İsteme Çiçekleri & Çikolataları": "Engagement Flowers & Chocolates",
         "Doğum Günü": "Birthday", "Sevgiliye": "Romance", "Yeni İş": "New Job", "Geçmiş Olsun": "Get Well",
         "Buket": "Bouquets", "Yeni Doğum": "Newborn", "Yapay Ağaç": "Faux Trees", "Özel Aranjman": "Custom Arrangements", "Orkide": "Orchids", "Gelin Buketi": "Bridal", "Çelenk": "Wreaths", "Buketia seçkisi": "Buketia selection"
       },
@@ -125,6 +126,7 @@
         courier: "Стоимость доставки: определит Buketia", card: "Текст открытки", customer: "Заказчик", phone: "Телефон"
       },
       categories: {
+        "İsteme Çiçekleri & Çikolataları": "Цветы и шоколад для помолвки",
         "Doğum Günü": "День рождения", "Sevgiliye": "Любимым", "Yeni İş": "Новая работа", "Geçmiş Olsun": "Выздоравливайте",
         "Buket": "Букеты", "Yeni Doğum": "Новорождённым", "Yapay Ağaç": "Искусственные деревья", "Özel Aranjman": "Особые композиции", "Orkide": "Орхидеи", "Gelin Buketi": "Свадебные", "Çelenk": "Венки", "Buketia seçkisi": "Выбор Buketia"
       },
@@ -200,6 +202,7 @@
         courier: "Kuriergebühr: wird von Buketia festgelegt", card: "Kartentext", customer: "Besteller", phone: "Telefon"
       },
       categories: {
+        "İsteme Çiçekleri & Çikolataları": "Verlobungsblumen & Pralinen",
         "Doğum Günü": "Geburtstag", "Sevgiliye": "Für die Liebe", "Yeni İş": "Neuer Job", "Geçmiş Olsun": "Gute Besserung",
         "Buket": "Sträuße", "Yeni Doğum": "Zur Geburt", "Yapay Ağaç": "Kunstbäume", "Özel Aranjman": "Besondere Arrangements", "Orkide": "Orchideen", "Gelin Buketi": "Brautstrauß", "Çelenk": "Kränze", "Buketia seçkisi": "Buketia-Auswahl"
       },
