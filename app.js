@@ -47,14 +47,13 @@
   function productCard(item) {
     const product = tx(item);
     return `<article class="product-card">
-      <button class="product-button" type="button" data-product="${product.id}" aria-label="${t.viewProduct(product.name)}${product.code ? ` (${product.code})` : ""}">
+      <button class="product-button" type="button" data-product="${product.id}" aria-label="${t.viewProduct(product.name)}">
         <div class="product-visual tone-${product.tone}">
           ${visualMarkup(product)}
           ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
         </div>
         <div class="product-meta">
           <h3>${product.name}</h3>
-          ${product.code ? `<small class="product-code" aria-label="${t.message.productCode}: ${product.code}">${product.code}</small>` : ""}
         </div>
       </button>
     </article>`;
@@ -86,7 +85,7 @@
     document.querySelector("#dialog-title").textContent = product.name;
     const productCode = document.querySelector("#dialog-code");
     productCode.textContent = product.code ? `${t.message.productCode} · ${product.code}` : "";
-    productCode.hidden = !product.code;
+    productCode.hidden = !product.code || product.name === product.code;
     document.querySelector("#dialog-description").textContent = product.description;
     const priceLabel = document.querySelector("#dialog-price");
     const [minBudget, maxBudget] = item.budgetRange || defaultBudget;
@@ -218,8 +217,8 @@
   function buildMessage(values) {
     const deliveryTime = values.deliveryTime === "custom" ? values.customDeliveryTime : values.deliveryTime;
     const m = t.message;
-    // Yabancı dilde ürünün Türkçe adı da yazılır ki dükkân ürünü hemen tanısın.
-    let productName = isTurkish ? activeProduct.name : `${tx(activeProduct).name} (${activeProduct.name})`;
+    // Ürün, tüm dillerde aynı kalıcı kodla tanınır.
+    let productName = activeProduct.code || (isTurkish ? activeProduct.name : `${tx(activeProduct).name} (${activeProduct.name})`);
     // "Bize Bırak" hangi kategoriden açıldıysa mesajda yazsın (ör. Bize Bırak – Yapay Ağaçlar).
     const chosenKey = activeProduct.custom && activeProduct.categoryKey;
     if (chosenKey && chosenKey !== "Tümü") productName += ` – ${t.categories[chosenKey] || chosenKey}`;
@@ -232,7 +231,6 @@
       "",
       `🌸 *${m.product}*`,
       productName,
-      ...(activeProduct.code ? [`${m.productCode}: ${activeProduct.code}`] : []),
       // Fotoğraf adresi mesajda küçük resimli önizleme olarak görünür; dükkân ürünü bir bakışta tanır.
       ...(activeProduct.image ? [`https://buketiaflower.com/${activeProduct.image}`] : []),
       ...budgetLines,
