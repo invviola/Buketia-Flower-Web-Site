@@ -11,7 +11,7 @@ window.BUKETIA_PRODUCTS = [
     imageWidth: 768,
     imageHeight: 1365,
     imagePosition: "center",
-    imageFit: "contain",
+    imageFit: "cover",
     tone: "rose",
     badge: "Çok sevilen",
     inStock: true
@@ -27,7 +27,7 @@ window.BUKETIA_PRODUCTS = [
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
-    imageFit: "contain",
+    imageFit: "cover",
     tone: "wine",
     badge: "İmza tasarım",
     inStock: true
@@ -76,7 +76,7 @@ window.BUKETIA_PRODUCTS = [
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
-    imageFit: "contain",
+    imageFit: "cover",
     tone: "rose",
     badge: "",
     inStock: true
@@ -247,7 +247,7 @@ window.BUKETIA_PRODUCTS = [
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
-    imageFit: "contain",
+    imageFit: "cover",
     tone: "rose",
     badge: "",
     inStock: true
@@ -273,7 +273,7 @@ window.BUKETIA_PRODUCTS = [
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
-    imageFit: "contain",
+    imageFit: "cover",
     tone: "wine",
     badge: "Özel tasarım",
     inStock: true
@@ -545,7 +545,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -562,7 +562,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -579,7 +579,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -596,7 +596,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -613,7 +613,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -630,7 +630,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -647,7 +647,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -664,7 +664,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -681,7 +681,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -698,7 +698,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -715,7 +715,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -732,7 +732,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -749,7 +749,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -766,7 +766,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -783,7 +783,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -800,7 +800,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -817,7 +817,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -834,7 +834,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -851,7 +851,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -868,7 +868,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -885,7 +885,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -902,7 +902,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -919,7 +919,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -936,7 +936,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -953,7 +953,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -970,7 +970,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -987,7 +987,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1004,7 +1004,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1021,7 +1021,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1038,7 +1038,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1055,7 +1055,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1072,7 +1072,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1089,7 +1089,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1106,7 +1106,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1123,7 +1123,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1140,7 +1140,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1157,7 +1157,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1174,7 +1174,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1191,7 +1191,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1208,7 +1208,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1225,7 +1225,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1242,7 +1242,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1259,7 +1259,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1276,7 +1276,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1293,7 +1293,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1310,7 +1310,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1327,7 +1327,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1344,7 +1344,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1361,7 +1361,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1378,7 +1378,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1395,7 +1395,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1412,7 +1412,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1429,7 +1429,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1446,7 +1446,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1463,7 +1463,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1480,7 +1480,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1497,7 +1497,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1514,7 +1514,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1531,7 +1531,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1548,7 +1548,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1565,7 +1565,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1582,7 +1582,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1599,7 +1599,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1616,7 +1616,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1633,7 +1633,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1650,7 +1650,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1667,7 +1667,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1684,7 +1684,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1701,7 +1701,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1718,7 +1718,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1735,7 +1735,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1752,7 +1752,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1769,7 +1769,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1786,7 +1786,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1803,7 +1803,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1820,7 +1820,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1837,7 +1837,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1854,7 +1854,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1871,7 +1871,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1888,7 +1888,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1905,7 +1905,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1922,7 +1922,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1939,7 +1939,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1956,7 +1956,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1973,7 +1973,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -1990,7 +1990,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2007,7 +2007,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2024,7 +2024,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2041,7 +2041,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2058,7 +2058,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2075,7 +2075,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2092,7 +2092,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2109,7 +2109,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2126,7 +2126,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2143,7 +2143,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2160,7 +2160,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2177,7 +2177,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2194,7 +2194,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2211,7 +2211,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2228,7 +2228,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2245,7 +2245,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2262,7 +2262,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2279,7 +2279,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2296,7 +2296,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2313,7 +2313,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2330,7 +2330,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2347,7 +2347,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2364,7 +2364,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2381,7 +2381,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2398,7 +2398,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2415,7 +2415,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2432,7 +2432,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2449,7 +2449,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2466,7 +2466,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2483,7 +2483,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2500,7 +2500,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2517,7 +2517,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2534,7 +2534,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2551,7 +2551,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2568,7 +2568,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2585,7 +2585,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2602,7 +2602,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2619,7 +2619,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2636,7 +2636,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2653,7 +2653,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2670,7 +2670,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2687,7 +2687,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2704,7 +2704,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2721,7 +2721,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2738,7 +2738,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2755,7 +2755,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2772,7 +2772,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2789,7 +2789,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2806,7 +2806,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2823,7 +2823,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2840,7 +2840,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2857,7 +2857,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2874,7 +2874,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2891,7 +2891,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2908,7 +2908,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2925,7 +2925,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2942,7 +2942,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2959,7 +2959,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2976,7 +2976,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -2993,7 +2993,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3010,7 +3010,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3027,7 +3027,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3044,7 +3044,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3061,7 +3061,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3078,7 +3078,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3095,7 +3095,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3112,7 +3112,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3129,7 +3129,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3146,7 +3146,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3163,7 +3163,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3180,7 +3180,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3197,7 +3197,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3214,7 +3214,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3231,7 +3231,7 @@ window.BUKETIA_PRODUCTS = [
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
-    "imageFit": "contain",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3247,8 +3247,8 @@ window.BUKETIA_PRODUCTS = [
     "image": "assets/urunler/isteme-cikolata-001-koleksiyon.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
-    "imagePosition": "center",
-    "imageFit": "contain",
+    "imagePosition": "center bottom",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
@@ -3264,8 +3264,8 @@ window.BUKETIA_PRODUCTS = [
     "image": "assets/urunler/isteme-cikolata-002-koleksiyon.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
-    "imagePosition": "center",
-    "imageFit": "contain",
+    "imagePosition": "center bottom",
+    "imageFit": "cover",
     "tone": "ivory",
     "badge": "",
     "inStock": true
