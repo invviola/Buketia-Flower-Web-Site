@@ -4,6 +4,8 @@
   const products = (window.BUKETIA_PRODUCTS || []).filter((product) => product.image || product.categories.includes("Çelenk"));
   const grid = document.querySelector("#product-grid");
   const count = document.querySelector("#result-count");
+  const searchInput = document.querySelector("#product-search");
+  const searchClear = document.querySelector(".search-clear");
   const dialog = document.querySelector("#product-dialog");
   const form = document.querySelector("#order-form");
   const error = document.querySelector("#form-error");
@@ -33,6 +35,23 @@
   const t = dictionaries[document.documentElement.lang.slice(0, 2)] || dictionaries.tr;
   const isTurkish = t === dictionaries.tr;
   const tx = (product) => ({ ...product, ...(t.products[product.id] || {}), category: t.categories[product.category] || product.category });
+  // Türkçe karakterler ve kodun tire/boşluk biçimi arama sonucunu değiştirmez.
+  const normalizeSearch = (value) => value.toLocaleLowerCase("tr-TR").normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "").replace(/ı/g, "i")
+    .replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  function matchesSearch(product, query) {
+    const normalized = normalizeSearch(query);
+    if (!normalized) return false;
+    const compact = normalized.replace(/\s/g, "");
+    const codeQuery = compact.match(/^([a-z]{3})(\d{1,3})$/);
+    if (codeQuery) return product.code === `${codeQuery[1].toUpperCase()}-${codeQuery[2].padStart(3, "0")}`;
+    const terms = normalized.split(/\s+/).filter(Boolean);
+    const names = [product.code, product.name, ...(product.searchNames || [])];
+    return names.some((name) => {
+      const candidate = normalizeSearch(name);
+      return terms.every((term) => candidate.includes(term)) || candidate.replace(/\s/g, "").includes(compact);
+    });
+  }
   // Alt sayfalarda (/en/ vb.) ürün görselleri bir üst klasördedir.
   const assetBase = document.documentElement.dataset.assetBase || "";
 
@@ -71,10 +90,13 @@
   function render(category = "Tümü") {
     currentCategory = category;
     const keys = category.split(",");
-    const visible = category === "Tümü" ? products.filter((p) => p.image && !p.categories.includes("Çelenk")) : products.filter((p) => keys.some((k) => p.categories.includes(k)));
-    grid.innerHTML = visible.length ? visible.map(productCard).join("") : `<p class="empty-note">${t.empty}</p>`;
+    const query = searchInput.value.trim();
+    const visible = query ? products.filter((p) => matchesSearch(p, query))
+      : category === "Tümü" ? products.filter((p) => p.image && !p.categories.includes("Çelenk")) : products.filter((p) => keys.some((k) => p.categories.includes(k)));
+    grid.innerHTML = visible.length ? visible.map(productCard).join("") : `<p class="empty-note">${query ? t.searchEmpty : t.empty}</p>`;
     // "Bize Bırak" buket seçeneğidir; Çelenk kategorisinde gösterilmez.
-    setShown(document.querySelector("[data-open-choice]"), category !== "Çelenk");
+    setShown(document.querySelector("[data-open-choice]"), !query && category !== "Çelenk");
+    searchClear.hidden = !searchInput.value;
     count.textContent = t.count(visible.length);
   }
 
@@ -269,8 +291,23 @@
   };
   categoryToggle.addEventListener("click", () => setCategoryPanel(!categoryPanel.classList.contains("is-open")));
 
+  searchInput.addEventListener("input", () => {
+    clearTimeout(grid._switchTimer);
+    grid.classList.remove("is-switching");
+    document.querySelectorAll(".category").forEach((button) => button.classList.toggle("active", button.dataset.category === "Tümü"));
+    document.querySelector("[data-current]").textContent = document.querySelector('.category[data-category="Tümü"]').textContent.trim();
+    setCategoryPanel(false);
+    render();
+  });
+  searchClear.addEventListener("click", () => {
+    searchInput.value = "";
+    render(currentCategory);
+    searchInput.focus();
+  });
+
   document.querySelectorAll(".category").forEach((button) => {
     button.addEventListener("click", () => {
+      searchInput.value = "";
       document.querySelectorAll(".category.active").forEach((b) => b.classList.remove("active"));
       document.querySelectorAll(`.category[data-category="${button.dataset.category}"]`).forEach((b) => b.classList.add("active"));
       document.querySelector("[data-current]").textContent = button.textContent.trim();

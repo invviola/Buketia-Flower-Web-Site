@@ -74,6 +74,17 @@ a { color: inherit; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
 .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 600; line-height: .9; letter-spacing: -.04em; }
 #result-count { flex: 0 0 auto; color: var(--muted); font-size: .8rem; white-space: nowrap; }
+.product-search { margin-bottom: 24px; }
+.product-search label { display: block; margin-bottom: 9px; font-size: .8rem; font-weight: 600; }
+.product-search-field { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 10px 0 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,253,248,.7); }
+.product-search-field:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(138,109,71,.12); }
+.product-search-field svg { flex: 0 0 20px; width: 20px; height: 20px; fill: none; stroke: var(--muted); stroke-width: 1.7; }
+.product-search input { flex: 1; min-width: 0; width: 100%; min-height: 54px; padding: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 16px; }
+.product-search input::placeholder { color: var(--muted); }
+.product-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.search-clear { flex: 0 0 40px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); font-size: 1.5rem; cursor: pointer; }
+.search-clear:hover, .search-clear:focus-visible { background: var(--paper); color: var(--ink); }
+.product-search p { margin: 8px 0 0; color: var(--muted); font-size: .73rem; line-height: 1.5; }
 .category-scroll { display: flex; gap: 8px; overflow-x: auto; padding: 1px 44px 18px 0; scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); }
 .category-scroll::-webkit-scrollbar { display: none; }
 .category { flex: 0 0 auto; padding: 12px 17px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font-size: .8rem; cursor: pointer; transition: .2s ease; }

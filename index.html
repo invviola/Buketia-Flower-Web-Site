@@ -67,7 +67,7 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="./assets/buketia-symbol.svg?v=3" />
     <title>Buketia Flower | Seferihisar Çiçekçi · Çiçek Kataloğu</title>
-    <link rel="stylesheet" href="./styles.css?v=20261007d" />
+    <link rel="stylesheet" href="./styles.css?v=20261007f" />
   </head>
   <body>
     <div class="top-bar" role="region" aria-label="Mağaza bilgileri">
@@ -116,6 +116,16 @@
             <h2 id="catalog-title">Koleksiyon</h2>
           </div>
           <p id="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="product-search" role="search" aria-label="Ürün ara">
+          <label for="product-search">Ürün ara</label>
+          <div class="product-search-field">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input id="product-search" type="search" placeholder="Ürün kodu veya adı…" aria-describedby="product-search-help" aria-controls="product-grid" autocomplete="off" spellcheck="false" />
+            <button class="search-clear" type="button" aria-label="Aramayı temizle" hidden>×</button>
+          </div>
+          <p id="product-search-help">Örn. BKT-001 veya Romantik Pudra · Tüm koleksiyonda arayın.</p>
         </div>
 
         <div class="category-picker">
@@ -253,8 +263,8 @@
       </div>
     </dialog>
 
-    <script src="./products.js?v=20261007e"></script>
-    <script src="./i18n.js?v=20261007e"></script>
-    <script src="./app.js?v=20261007e"></script>
+    <script src="./products.js?v=20261007f"></script>
+    <script src="./i18n.js?v=20261007f"></script>
+    <script src="./app.js?v=20261007f"></script>
   </body>
 </html>
