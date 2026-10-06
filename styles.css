@@ -108,6 +108,7 @@ a { color: inherit; }
 .product-visual .product-badge { position: absolute; z-index: 3; top: auto; bottom: 12px; left: 12px; padding: 6px 9px; font-size: .64rem; letter-spacing: .08em; color: var(--ink); background: rgba(255,253,248,.92); }
 .product-meta { padding-top: 15px; display: grid; grid-template-columns: 1fr auto; gap: 5px 12px; align-items: baseline; }
 .product-meta small { grid-column: 1 / -1; color: var(--gold); text-transform: uppercase; letter-spacing: .12em; font-size: .64rem; }
+.product-meta .product-code { font-size: .72rem; font-weight: 500; letter-spacing: .1em; font-variant-numeric: tabular-nums; }
 .product-meta h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 600; letter-spacing: -.025em; }
 .product-meta strong { font-size: .83rem; font-weight: 500; white-space: nowrap; }
 
@@ -144,6 +145,7 @@ footer p:last-child { text-align: right; }
 .order-start, .order-back, .step-head, .step-next { display: none; }
 .dialog-summary h2 { margin: 0 0 14px; font-family: var(--serif); font-size: 2.45rem; font-weight: 600; line-height: 1; letter-spacing: -.03em; }
 .dialog-summary p:not(.eyebrow) { color: var(--muted); font-size: .9rem; }
+.dialog-summary #dialog-code { margin: 0 0 14px; color: var(--gold); font-size: .74rem; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
 .dialog-summary strong { display: block; margin-top: 20px; font-size: 1rem; }
 .dialog-summary strong.price-note { color: var(--gold); font-size: .74rem; font-weight: 500; letter-spacing: .04em; }
 #order-form { grid-column: 2; grid-row: 2; padding: 38px 44px 36px; border-top: 1px solid var(--line); margin-top: 30px; }

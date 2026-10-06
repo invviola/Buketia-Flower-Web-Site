@@ -47,13 +47,14 @@
   function productCard(item) {
     const product = tx(item);
     return `<article class="product-card">
-      <button class="product-button" type="button" data-product="${product.id}" aria-label="${t.viewProduct(product.name)}">
+      <button class="product-button" type="button" data-product="${product.id}" aria-label="${t.viewProduct(product.name)}${product.code ? ` (${product.code})` : ""}">
         <div class="product-visual tone-${product.tone}">
           ${visualMarkup(product)}
           ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
         </div>
         <div class="product-meta">
           <h3>${product.name}</h3>
+          ${product.code ? `<small class="product-code" aria-label="${t.message.productCode}: ${product.code}">${product.code}</small>` : ""}
         </div>
       </button>
     </article>`;
@@ -83,6 +84,9 @@
     const product = tx(item);
     document.querySelector("#dialog-category").textContent = product.category;
     document.querySelector("#dialog-title").textContent = product.name;
+    const productCode = document.querySelector("#dialog-code");
+    productCode.textContent = product.code ? `${t.message.productCode} · ${product.code}` : "";
+    productCode.hidden = !product.code;
     document.querySelector("#dialog-description").textContent = product.description;
     const priceLabel = document.querySelector("#dialog-price");
     const [minBudget, maxBudget] = item.budgetRange || defaultBudget;
@@ -228,6 +232,7 @@
       "",
       `🌸 *${m.product}*`,
       productName,
+      ...(activeProduct.code ? [`${m.productCode}: ${activeProduct.code}`] : []),
       // Fotoğraf adresi mesajda küçük resimli önizleme olarak görünür; dükkân ürünü bir bakışta tanır.
       ...(activeProduct.image ? [`https://buketiaflower.com/${activeProduct.image}`] : []),
       ...budgetLines,

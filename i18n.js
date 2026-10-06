@@ -22,7 +22,7 @@
       opensTomorrow: (t) => `Şu an kapalı · yarın ${t}’da açılır`,
       message: {
         intro: "Merhaba Buketia Flower, bu ürün için sipariş vermek istiyorum:",
-        product: "Ürün", budget: "Bütçe", delivery: "Teslimat", recipient: "Alıcı", recipientPhone: "Alıcı telefonu", address: "Adres",
+        product: "Ürün", productCode: "Ürün kodu", budget: "Bütçe", delivery: "Teslimat", recipient: "Alıcı", recipientPhone: "Alıcı telefonu", address: "Adres",
         courier: "Kurye ücreti: Buketia tarafından belirlenecek", card: "Kart notu", customer: "Siparişi veren", phone: "Telefon"
       },
       categories: {},
@@ -46,7 +46,7 @@
       opensTomorrow: (t) => `Closed now · opens tomorrow at ${t}`,
       message: {
         intro: "Hello Buketia Flower, I would like to order this item:",
-        product: "Item", budget: "Budget", delivery: "Delivery", recipient: "Recipient", recipientPhone: "Recipient’s phone", address: "Address",
+        product: "Item", productCode: "Product code", budget: "Budget", delivery: "Delivery", recipient: "Recipient", recipientPhone: "Recipient’s phone", address: "Address",
         courier: "Courier fee: to be set by Buketia", card: "Card message", customer: "Ordered by", phone: "Phone"
       },
       categories: {
@@ -285,7 +285,7 @@
       opensTomorrow: (t) => `Сейчас закрыто · откроемся завтра в ${t}`,
       message: {
         intro: "Здравствуйте, Buketia Flower! Хочу заказать:",
-        product: "Товар", budget: "Бюджет", delivery: "Доставка", recipient: "Получатель", recipientPhone: "Телефон получателя", address: "Адрес",
+        product: "Товар", productCode: "Код товара", budget: "Бюджет", delivery: "Доставка", recipient: "Получатель", recipientPhone: "Телефон получателя", address: "Адрес",
         courier: "Стоимость доставки: определит Buketia", card: "Текст открытки", customer: "Заказчик", phone: "Телефон"
       },
       categories: {
@@ -524,7 +524,7 @@
       opensTomorrow: (t) => `Jetzt geschlossen · öffnet morgen um ${t} Uhr`,
       message: {
         intro: "Hallo Buketia Flower, ich möchte diesen Artikel bestellen:",
-        product: "Artikel", budget: "Budget", delivery: "Lieferung", recipient: "Empfänger", recipientPhone: "Telefon des Empfängers", address: "Adresse",
+        product: "Artikel", productCode: "Artikelnummer", budget: "Budget", delivery: "Lieferung", recipient: "Empfänger", recipientPhone: "Telefon des Empfängers", address: "Adresse",
         courier: "Kuriergebühr: wird von Buketia festgelegt", card: "Kartentext", customer: "Besteller", phone: "Telefon"
       },
       categories: {

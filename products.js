@@ -1,7 +1,9 @@
 // Bu dosyadaki ürünleri düzenleyerek katalog fiyatlarını, stok durumunu ve görselleri yönetebilirsiniz.
+// Ürün kodları sabittir. Yeni ürün için ana kategorisindeki en büyük kodun bir sonrakini kullanın; silinen kodları tekrar kullanmayın.
 window.BUKETIA_PRODUCTS = [
   {
     id: "romantik-pudra",
+    code: "BKT-001",
     name: "Romantik Pudra",
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
@@ -18,6 +20,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "ask-kirmizi",
+    code: "BKT-002",
     name: "Derin Aşk",
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
@@ -34,6 +37,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "fusya-ruya",
+    code: "BKT-003",
     name: "Fuşya Rüya",
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
@@ -45,6 +49,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "iyi-hisset",
+    code: "BKT-004",
     name: "İyi Hisset",
     category: "Buket",
     categories: ["Buket"],
@@ -57,6 +62,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "kirmizi-kalp",
+    code: "BKT-005",
     name: "Kırmızı Kalp",
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
@@ -68,6 +74,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "pembe-masal",
+    code: "BKT-006",
     name: "Pembe Masal",
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
@@ -83,6 +90,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "yeni-baslangic",
+    code: "BKT-007",
     name: "Yeni Başlangıç",
     category: "Buket",
     categories: ["Buket"],
@@ -95,6 +103,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "mercan-guller",
+    code: "BKT-008",
     name: "Mercan Güller",
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
@@ -106,6 +115,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "pastel-kutlama",
+    code: "BKT-009",
     name: "Pastel Kutlama",
     category: "Buket",
     categories: ["Buket"],
@@ -118,6 +128,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "isme-ozel-gul-kutusu",
+    code: "OAR-001",
     name: "İsme Özel Gül Kutusu",
     category: "Özel Aranjman",
     categories: ["Özel Aranjman", "Sevgiliye"],
@@ -129,6 +140,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "gunesli-gun",
+    code: "BKT-010",
     name: "Güneşli Gün",
     category: "Buket",
     categories: ["Buket"],
@@ -140,6 +152,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "beyaz-lilyum",
+    code: "BKT-011",
     name: "Beyaz Lilyum",
     category: "Buket",
     categories: ["Buket"],
@@ -151,6 +164,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "bahar-sepeti",
+    code: "OAR-002",
     name: "Bahar Sepeti",
     category: "Özel Aranjman",
     categories: ["Özel Aranjman"],
@@ -162,6 +176,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "lavanta-bahcesi",
+    code: "BKT-012",
     name: "Lavanta Bahçesi",
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
@@ -173,6 +188,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "altin-gece",
+    code: "BKT-013",
     name: "Altın Gece",
     category: "Buket",
     categories: ["Buket"],
@@ -184,6 +200,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "kir-esintisi",
+    code: "BKT-014",
     name: "Kır Esintisi",
     category: "Buket",
     categories: ["Buket"],
@@ -195,6 +212,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "mor-melodi",
+    code: "BKT-015",
     name: "Mor Melodi",
     category: "Buket",
     categories: ["Buket"],
@@ -206,6 +224,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "orman-buketi",
+    code: "BKT-016",
     name: "Orman Buketi",
     category: "Buket",
     categories: ["Buket"],
@@ -217,6 +236,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "gri-zarafet",
+    code: "BKT-017",
     name: "Gri Zarafet",
     category: "Buket",
     categories: ["Buket"],
@@ -228,6 +248,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "beyaz-ruya",
+    code: "BKT-018",
     name: "Beyaz Rüya",
     category: "Buket",
     categories: ["Buket"],
@@ -239,6 +260,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "yaz-senligi",
+    code: "BKT-019",
     name: "Yaz Şenliği",
     category: "Buket",
     categories: ["Buket"],
@@ -254,6 +276,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "mutluluk-sepeti",
+    code: "OAR-003",
     name: "Mutluluk Sepeti",
     category: "Özel Aranjman",
     categories: ["Özel Aranjman"],
@@ -265,6 +288,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "bohem-sepet",
+    code: "OAR-004",
     name: "Bohem Sepet",
     category: "Özel Aranjman",
     categories: ["Özel Aranjman"],
@@ -280,6 +304,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "beyaz-orkide",
+    code: "ORK-001",
     name: "Saf Zarafet Orkide",
     category: "Orkide",
     categories: ["Orkide"],
@@ -292,6 +317,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "gelin-inci",
+    code: "BKT-020",
     name: "İnci Gelin Buketi",
     category: "Buket",
     categories: ["Buket"],
@@ -304,6 +330,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-01",
+    code: "CLK-001",
     name: "Mavi Bahçe Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -315,6 +342,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-02",
+    code: "CLK-002",
     name: "Zümrüt Altın Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -326,6 +354,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-03",
+    code: "CLK-003",
     name: "Güneş Mavisi Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -337,6 +366,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-04",
+    code: "CLK-004",
     name: "Gri Mavi Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -348,6 +378,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-05",
+    code: "CLK-005",
     name: "Altın Sarı Damla Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -359,6 +390,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-06",
+    code: "CLK-006",
     name: "Güneş Damla Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -370,6 +402,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-07",
+    code: "CLK-007",
     name: "Siyah Yuvarlak Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -381,6 +414,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-08",
+    code: "CLK-008",
     name: "Siyah Halka Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -392,6 +426,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-09",
+    code: "CLK-009",
     name: "Sarı Papatya Damla Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -403,6 +438,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-10",
+    code: "CLK-010",
     name: "Kırmızı Beyaz Damla Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -414,6 +450,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-11",
+    code: "CLK-011",
     name: "Sarı Çift Katlı Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -425,6 +462,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-12",
+    code: "CLK-012",
     name: "Kırmızı Beyaz Saygı Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -436,6 +474,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-13",
+    code: "CLK-013",
     name: "Kırmızı Gerbera Damla Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -447,6 +486,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-14",
+    code: "CLK-014",
     name: "Yeşil Kenarlı Renkli Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -458,6 +498,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-15",
+    code: "CLK-015",
     name: "Üç Renkli Damla Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -469,6 +510,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-16",
+    code: "CLK-016",
     name: "Beyaz Kırmızı Kıvrım Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -480,6 +522,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-17",
+    code: "CLK-017",
     name: "Krem Gerbera Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -491,6 +534,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-18",
+    code: "CLK-018",
     name: "Beyaz Çift Katlı Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -502,6 +546,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-19",
+    code: "CLK-019",
     name: "Kırmızı Beyaz Çapraz Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -513,6 +558,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-20",
+    code: "CLK-020",
     name: "Kırmızı Beyaz Armut Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -524,6 +570,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     id: "celenk-21",
+    code: "CLK-021",
     name: "Krem Papatya Çelengi",
     category: "Çelenk",
     categories: ["Çelenk"],
@@ -535,6 +582,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-001",
+    code: "BKT-021",
     "name": "Buket 01",
     "category": "Buket",
     "categories": [
@@ -552,6 +600,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-002",
+    code: "BKT-022",
     "name": "Buket 02",
     "category": "Buket",
     "categories": [
@@ -569,6 +618,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-003",
+    code: "BKT-023",
     "name": "Buket 03",
     "category": "Buket",
     "categories": [
@@ -586,6 +636,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-004",
+    code: "BKT-024",
     "name": "Buket 04",
     "category": "Buket",
     "categories": [
@@ -603,6 +654,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-006",
+    code: "BKT-025",
     "name": "Buket 06",
     "category": "Buket",
     "categories": [
@@ -620,6 +672,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-007",
+    code: "BKT-026",
     "name": "Buket 07",
     "category": "Buket",
     "categories": [
@@ -637,6 +690,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-008",
+    code: "BKT-027",
     "name": "Buket 08",
     "category": "Buket",
     "categories": [
@@ -654,6 +708,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-009",
+    code: "BKT-028",
     "name": "Buket 09",
     "category": "Buket",
     "categories": [
@@ -671,6 +726,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-010",
+    code: "BKT-029",
     "name": "Buket 10",
     "category": "Buket",
     "categories": [
@@ -688,6 +744,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-011",
+    code: "BKT-030",
     "name": "Buket 11",
     "category": "Buket",
     "categories": [
@@ -705,6 +762,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-012",
+    code: "BKT-031",
     "name": "Buket 12",
     "category": "Buket",
     "categories": [
@@ -722,6 +780,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-013",
+    code: "BKT-032",
     "name": "Buket 13",
     "category": "Buket",
     "categories": [
@@ -739,6 +798,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-014",
+    code: "BKT-033",
     "name": "Buket 14",
     "category": "Buket",
     "categories": [
@@ -756,6 +816,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-015",
+    code: "BKT-034",
     "name": "Buket 15",
     "category": "Buket",
     "categories": [
@@ -773,6 +834,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-016",
+    code: "BKT-035",
     "name": "Buket 16",
     "category": "Buket",
     "categories": [
@@ -790,6 +852,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-017",
+    code: "BKT-036",
     "name": "Buket 17",
     "category": "Buket",
     "categories": [
@@ -807,6 +870,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-018",
+    code: "BKT-037",
     "name": "Buket 18",
     "category": "Buket",
     "categories": [
@@ -824,6 +888,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-019",
+    code: "BKT-038",
     "name": "Buket 19",
     "category": "Buket",
     "categories": [
@@ -841,6 +906,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-020",
+    code: "BKT-039",
     "name": "Buket 20",
     "category": "Buket",
     "categories": [
@@ -858,6 +924,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-021",
+    code: "BKT-040",
     "name": "Buket 21",
     "category": "Buket",
     "categories": [
@@ -875,6 +942,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-022",
+    code: "BKT-041",
     "name": "Buket 22",
     "category": "Buket",
     "categories": [
@@ -892,6 +960,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-023",
+    code: "BKT-042",
     "name": "Buket 23",
     "category": "Buket",
     "categories": [
@@ -909,6 +978,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-024",
+    code: "BKT-043",
     "name": "Buket 24",
     "category": "Buket",
     "categories": [
@@ -926,6 +996,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-025",
+    code: "BKT-044",
     "name": "Buket 25",
     "category": "Buket",
     "categories": [
@@ -943,6 +1014,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-026",
+    code: "BKT-045",
     "name": "Buket 26",
     "category": "Buket",
     "categories": [
@@ -960,6 +1032,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-027",
+    code: "BKT-046",
     "name": "Buket 27",
     "category": "Buket",
     "categories": [
@@ -977,6 +1050,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-028",
+    code: "BKT-047",
     "name": "Buket 28",
     "category": "Buket",
     "categories": [
@@ -994,6 +1068,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-029",
+    code: "BKT-048",
     "name": "Buket 29",
     "category": "Buket",
     "categories": [
@@ -1011,6 +1086,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-030",
+    code: "BKT-049",
     "name": "Buket 30",
     "category": "Buket",
     "categories": [
@@ -1028,6 +1104,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-031",
+    code: "BKT-050",
     "name": "Buket 31",
     "category": "Buket",
     "categories": [
@@ -1045,6 +1122,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-032",
+    code: "BKT-051",
     "name": "Buket 32",
     "category": "Buket",
     "categories": [
@@ -1062,6 +1140,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-033",
+    code: "BKT-052",
     "name": "Buket 33",
     "category": "Buket",
     "categories": [
@@ -1079,6 +1158,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-034",
+    code: "BKT-053",
     "name": "Buket 34",
     "category": "Buket",
     "categories": [
@@ -1096,6 +1176,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-035",
+    code: "BKT-054",
     "name": "Buket 35",
     "category": "Buket",
     "categories": [
@@ -1113,6 +1194,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-036",
+    code: "BKT-055",
     "name": "Buket 36",
     "category": "Buket",
     "categories": [
@@ -1130,6 +1212,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-038",
+    code: "BKT-056",
     "name": "Buket 38",
     "category": "Buket",
     "categories": [
@@ -1147,6 +1230,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-039",
+    code: "BKT-057",
     "name": "Buket 39",
     "category": "Buket",
     "categories": [
@@ -1164,6 +1248,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-040",
+    code: "BKT-058",
     "name": "Buket 40",
     "category": "Buket",
     "categories": [
@@ -1181,6 +1266,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-041",
+    code: "BKT-059",
     "name": "Buket 41",
     "category": "Buket",
     "categories": [
@@ -1198,6 +1284,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-042",
+    code: "BKT-060",
     "name": "Buket 42",
     "category": "Buket",
     "categories": [
@@ -1215,6 +1302,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-043",
+    code: "BKT-061",
     "name": "Buket 43",
     "category": "Buket",
     "categories": [
@@ -1232,6 +1320,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-044",
+    code: "BKT-062",
     "name": "Buket 44",
     "category": "Buket",
     "categories": [
@@ -1249,6 +1338,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-045",
+    code: "BKT-063",
     "name": "Buket 45",
     "category": "Buket",
     "categories": [
@@ -1266,6 +1356,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-046",
+    code: "BKT-064",
     "name": "Buket 46",
     "category": "Buket",
     "categories": [
@@ -1283,6 +1374,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-047",
+    code: "BKT-065",
     "name": "Buket 47",
     "category": "Buket",
     "categories": [
@@ -1300,6 +1392,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-048",
+    code: "BKT-066",
     "name": "Buket 48",
     "category": "Buket",
     "categories": [
@@ -1317,6 +1410,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-049",
+    code: "BKT-067",
     "name": "Buket 49",
     "category": "Buket",
     "categories": [
@@ -1334,6 +1428,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-050",
+    code: "BKT-068",
     "name": "Buket 50",
     "category": "Buket",
     "categories": [
@@ -1351,6 +1446,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-051",
+    code: "BKT-069",
     "name": "Buket 51",
     "category": "Buket",
     "categories": [
@@ -1368,6 +1464,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-052",
+    code: "BKT-070",
     "name": "Buket 52",
     "category": "Buket",
     "categories": [
@@ -1385,6 +1482,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-053",
+    code: "BKT-071",
     "name": "Buket 53",
     "category": "Buket",
     "categories": [
@@ -1402,6 +1500,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-054",
+    code: "BKT-072",
     "name": "Buket 54",
     "category": "Buket",
     "categories": [
@@ -1419,6 +1518,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-055",
+    code: "BKT-073",
     "name": "Buket 55",
     "category": "Buket",
     "categories": [
@@ -1436,6 +1536,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-056",
+    code: "BKT-074",
     "name": "Buket 56",
     "category": "Buket",
     "categories": [
@@ -1453,6 +1554,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-057",
+    code: "BKT-075",
     "name": "Buket 57",
     "category": "Buket",
     "categories": [
@@ -1470,6 +1572,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-058",
+    code: "BKT-076",
     "name": "Buket 58",
     "category": "Buket",
     "categories": [
@@ -1487,6 +1590,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-059",
+    code: "BKT-077",
     "name": "Buket 59",
     "category": "Buket",
     "categories": [
@@ -1504,6 +1608,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-060",
+    code: "BKT-078",
     "name": "Buket 60",
     "category": "Buket",
     "categories": [
@@ -1521,6 +1626,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-061",
+    code: "BKT-079",
     "name": "Buket 61",
     "category": "Buket",
     "categories": [
@@ -1538,6 +1644,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-062",
+    code: "BKT-080",
     "name": "Buket 62",
     "category": "Buket",
     "categories": [
@@ -1555,6 +1662,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-063",
+    code: "BKT-081",
     "name": "Buket 63",
     "category": "Buket",
     "categories": [
@@ -1572,6 +1680,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-064",
+    code: "BKT-082",
     "name": "Buket 64",
     "category": "Buket",
     "categories": [
@@ -1589,6 +1698,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-065",
+    code: "BKT-083",
     "name": "Buket 65",
     "category": "Buket",
     "categories": [
@@ -1606,6 +1716,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-066",
+    code: "BKT-084",
     "name": "Buket 66",
     "category": "Buket",
     "categories": [
@@ -1623,6 +1734,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-067",
+    code: "BKT-085",
     "name": "Buket 67",
     "category": "Buket",
     "categories": [
@@ -1640,6 +1752,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-068",
+    code: "BKT-086",
     "name": "Buket 68",
     "category": "Buket",
     "categories": [
@@ -1657,6 +1770,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-069",
+    code: "BKT-087",
     "name": "Buket 69",
     "category": "Buket",
     "categories": [
@@ -1674,6 +1788,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-070",
+    code: "BKT-088",
     "name": "Buket 70",
     "category": "Buket",
     "categories": [
@@ -1691,6 +1806,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-071",
+    code: "BKT-089",
     "name": "Buket 71",
     "category": "Buket",
     "categories": [
@@ -1708,6 +1824,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-072",
+    code: "BKT-090",
     "name": "Buket 72",
     "category": "Buket",
     "categories": [
@@ -1725,6 +1842,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-073",
+    code: "BKT-091",
     "name": "Buket 73",
     "category": "Buket",
     "categories": [
@@ -1742,6 +1860,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-074",
+    code: "BKT-092",
     "name": "Buket 74",
     "category": "Buket",
     "categories": [
@@ -1759,6 +1878,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-075",
+    code: "BKT-093",
     "name": "Buket 75",
     "category": "Buket",
     "categories": [
@@ -1776,6 +1896,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-076",
+    code: "BKT-094",
     "name": "Buket 76",
     "category": "Buket",
     "categories": [
@@ -1793,6 +1914,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-077",
+    code: "BKT-095",
     "name": "Buket 77",
     "category": "Buket",
     "categories": [
@@ -1810,6 +1932,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-078",
+    code: "BKT-096",
     "name": "Buket 78",
     "category": "Buket",
     "categories": [
@@ -1827,6 +1950,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-079",
+    code: "BKT-097",
     "name": "Buket 79",
     "category": "Buket",
     "categories": [
@@ -1844,6 +1968,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-080",
+    code: "BKT-098",
     "name": "Buket 80",
     "category": "Buket",
     "categories": [
@@ -1861,6 +1986,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-081",
+    code: "BKT-099",
     "name": "Buket 81",
     "category": "Buket",
     "categories": [
@@ -1878,6 +2004,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-082",
+    code: "BKT-100",
     "name": "Buket 82",
     "category": "Buket",
     "categories": [
@@ -1895,6 +2022,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-083",
+    code: "BKT-101",
     "name": "Buket 83",
     "category": "Buket",
     "categories": [
@@ -1912,6 +2040,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-084",
+    code: "BKT-102",
     "name": "Buket 84",
     "category": "Buket",
     "categories": [
@@ -1929,6 +2058,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-085",
+    code: "BKT-103",
     "name": "Buket 85",
     "category": "Buket",
     "categories": [
@@ -1946,6 +2076,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-086",
+    code: "BKT-104",
     "name": "Buket 86",
     "category": "Buket",
     "categories": [
@@ -1963,6 +2094,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-087",
+    code: "BKT-105",
     "name": "Buket 87",
     "category": "Buket",
     "categories": [
@@ -1980,6 +2112,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-088",
+    code: "BKT-106",
     "name": "Buket 88",
     "category": "Buket",
     "categories": [
@@ -1997,6 +2130,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-089",
+    code: "BKT-107",
     "name": "Buket 89",
     "category": "Buket",
     "categories": [
@@ -2014,6 +2148,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-090",
+    code: "BKT-108",
     "name": "Buket 90",
     "category": "Buket",
     "categories": [
@@ -2031,6 +2166,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "buket-091",
+    code: "BKT-109",
     "name": "Buket 91",
     "category": "Buket",
     "categories": [
@@ -2048,6 +2184,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-001",
+    code: "SVG-001",
     "name": "Sevgiliye Özel 01",
     "category": "Sevgiliye",
     "categories": [
@@ -2065,6 +2202,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-002",
+    code: "SVG-002",
     "name": "Sevgiliye Özel 02",
     "category": "Sevgiliye",
     "categories": [
@@ -2082,6 +2220,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-003",
+    code: "SVG-003",
     "name": "Sevgiliye Özel 03",
     "category": "Sevgiliye",
     "categories": [
@@ -2099,6 +2238,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-004",
+    code: "SVG-004",
     "name": "Sevgiliye Özel 04",
     "category": "Sevgiliye",
     "categories": [
@@ -2116,6 +2256,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-005",
+    code: "SVG-005",
     "name": "Sevgiliye Özel 05",
     "category": "Sevgiliye",
     "categories": [
@@ -2133,6 +2274,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-006",
+    code: "SVG-006",
     "name": "Sevgiliye Özel 06",
     "category": "Sevgiliye",
     "categories": [
@@ -2150,6 +2292,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-007",
+    code: "SVG-007",
     "name": "Sevgiliye Özel 07",
     "category": "Sevgiliye",
     "categories": [
@@ -2167,6 +2310,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-008",
+    code: "SVG-008",
     "name": "Sevgiliye Özel 08",
     "category": "Sevgiliye",
     "categories": [
@@ -2184,6 +2328,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-009",
+    code: "SVG-009",
     "name": "Sevgiliye Özel 09",
     "category": "Sevgiliye",
     "categories": [
@@ -2201,6 +2346,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-010",
+    code: "SVG-010",
     "name": "Sevgiliye Özel 10",
     "category": "Sevgiliye",
     "categories": [
@@ -2218,6 +2364,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "sevgiliye-011",
+    code: "SVG-011",
     "name": "Sevgiliye Özel 11",
     "category": "Sevgiliye",
     "categories": [
@@ -2235,6 +2382,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yeni-dogum-001",
+    code: "YDG-001",
     "name": "Hoş Geldin Bebek 01",
     "category": "Yeni Doğum",
     "categories": [
@@ -2252,6 +2400,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yeni-dogum-002",
+    code: "YDG-002",
     "name": "Hoş Geldin Bebek 02",
     "category": "Yeni Doğum",
     "categories": [
@@ -2269,6 +2418,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yeni-dogum-003",
+    code: "YDG-003",
     "name": "Hoş Geldin Bebek 03",
     "category": "Yeni Doğum",
     "categories": [
@@ -2286,6 +2436,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yeni-dogum-004",
+    code: "YDG-004",
     "name": "Hoş Geldin Bebek 04",
     "category": "Yeni Doğum",
     "categories": [
@@ -2303,6 +2454,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yeni-dogum-005",
+    code: "YDG-005",
     "name": "Hoş Geldin Bebek 05",
     "category": "Yeni Doğum",
     "categories": [
@@ -2320,6 +2472,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "orkide-001",
+    code: "ORK-002",
     "name": "Orkide 01",
     "category": "Orkide",
     "categories": [
@@ -2337,6 +2490,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "orkide-002",
+    code: "ORK-003",
     "name": "Orkide 02",
     "category": "Orkide",
     "categories": [
@@ -2354,6 +2508,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-001",
+    code: "OAR-005",
     "name": "Özel Aranjman 01",
     "category": "Özel Aranjman",
     "categories": [
@@ -2371,6 +2526,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-002",
+    code: "OAR-006",
     "name": "Özel Aranjman 02",
     "category": "Özel Aranjman",
     "categories": [
@@ -2388,6 +2544,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-003",
+    code: "OAR-007",
     "name": "Özel Aranjman 03",
     "category": "Özel Aranjman",
     "categories": [
@@ -2405,6 +2562,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-004",
+    code: "OAR-008",
     "name": "Özel Aranjman 04",
     "category": "Özel Aranjman",
     "categories": [
@@ -2422,6 +2580,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-006",
+    code: "OAR-009",
     "name": "Özel Aranjman 06",
     "category": "Özel Aranjman",
     "categories": [
@@ -2439,6 +2598,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-007",
+    code: "OAR-010",
     "name": "Özel Aranjman 07",
     "category": "Özel Aranjman",
     "categories": [
@@ -2456,6 +2616,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-008",
+    code: "OAR-011",
     "name": "Özel Aranjman 08",
     "category": "Özel Aranjman",
     "categories": [
@@ -2473,6 +2634,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-009",
+    code: "OAR-012",
     "name": "Özel Aranjman 09",
     "category": "Özel Aranjman",
     "categories": [
@@ -2490,6 +2652,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-010",
+    code: "OAR-013",
     "name": "Özel Aranjman 10",
     "category": "Özel Aranjman",
     "categories": [
@@ -2507,6 +2670,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-011",
+    code: "OAR-014",
     "name": "Özel Aranjman 11",
     "category": "Özel Aranjman",
     "categories": [
@@ -2524,6 +2688,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-012",
+    code: "OAR-015",
     "name": "Özel Aranjman 12",
     "category": "Özel Aranjman",
     "categories": [
@@ -2541,6 +2706,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "ozel-aranjman-013",
+    code: "OAR-016",
     "name": "Özel Aranjman 13",
     "category": "Özel Aranjman",
     "categories": [
@@ -2558,6 +2724,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-001",
+    code: "YBK-001",
     "name": "Yapay Buket 01",
     "category": "Yapay Buket",
     "categories": [
@@ -2575,6 +2742,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-002",
+    code: "YBK-002",
     "name": "Yapay Buket 02",
     "category": "Yapay Buket",
     "categories": [
@@ -2592,6 +2760,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-003",
+    code: "YBK-003",
     "name": "Yapay Buket 03",
     "category": "Yapay Buket",
     "categories": [
@@ -2609,6 +2778,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-004",
+    code: "YBK-004",
     "name": "Yapay Buket 04",
     "category": "Yapay Buket",
     "categories": [
@@ -2626,6 +2796,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-005",
+    code: "YBK-005",
     "name": "Yapay Buket 05",
     "category": "Yapay Buket",
     "categories": [
@@ -2643,6 +2814,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-006",
+    code: "YBK-006",
     "name": "Yapay Buket 06",
     "category": "Yapay Buket",
     "categories": [
@@ -2660,6 +2832,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-007",
+    code: "YBK-007",
     "name": "Yapay Buket 07",
     "category": "Yapay Buket",
     "categories": [
@@ -2677,6 +2850,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-008",
+    code: "YBK-008",
     "name": "Yapay Buket 08",
     "category": "Yapay Buket",
     "categories": [
@@ -2694,6 +2868,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-009",
+    code: "YBK-009",
     "name": "Yapay Buket 09",
     "category": "Yapay Buket",
     "categories": [
@@ -2711,6 +2886,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-011",
+    code: "YBK-010",
     "name": "Yapay Buket 11",
     "category": "Yapay Buket",
     "categories": [
@@ -2728,6 +2904,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-012",
+    code: "YBK-011",
     "name": "Yapay Buket 12",
     "category": "Yapay Buket",
     "categories": [
@@ -2745,6 +2922,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-013",
+    code: "YBK-012",
     "name": "Yapay Buket 13",
     "category": "Yapay Buket",
     "categories": [
@@ -2762,6 +2940,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-014",
+    code: "YBK-013",
     "name": "Yapay Buket 14",
     "category": "Yapay Buket",
     "categories": [
@@ -2779,6 +2958,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-015",
+    code: "YBK-014",
     "name": "Yapay Buket 15",
     "category": "Yapay Buket",
     "categories": [
@@ -2796,6 +2976,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-016",
+    code: "YBK-015",
     "name": "Yapay Buket 16",
     "category": "Yapay Buket",
     "categories": [
@@ -2813,6 +2994,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-017",
+    code: "YBK-016",
     "name": "Yapay Buket 17",
     "category": "Yapay Buket",
     "categories": [
@@ -2830,6 +3012,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-018",
+    code: "YBK-017",
     "name": "Yapay Buket 18",
     "category": "Yapay Buket",
     "categories": [
@@ -2847,6 +3030,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-019",
+    code: "YBK-018",
     "name": "Yapay Buket 19",
     "category": "Yapay Buket",
     "categories": [
@@ -2864,6 +3048,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-020",
+    code: "YBK-019",
     "name": "Yapay Buket 20",
     "category": "Yapay Buket",
     "categories": [
@@ -2881,6 +3066,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-021",
+    code: "YBK-020",
     "name": "Yapay Buket 21",
     "category": "Yapay Buket",
     "categories": [
@@ -2898,6 +3084,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-022",
+    code: "YBK-021",
     "name": "Yapay Buket 22",
     "category": "Yapay Buket",
     "categories": [
@@ -2915,6 +3102,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-023",
+    code: "YBK-022",
     "name": "Yapay Buket 23",
     "category": "Yapay Buket",
     "categories": [
@@ -2932,6 +3120,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-024",
+    code: "YBK-023",
     "name": "Yapay Buket 24",
     "category": "Yapay Buket",
     "categories": [
@@ -2949,6 +3138,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-025",
+    code: "YBK-024",
     "name": "Yapay Buket 25",
     "category": "Yapay Buket",
     "categories": [
@@ -2966,6 +3156,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-026",
+    code: "YBK-025",
     "name": "Yapay Buket 26",
     "category": "Yapay Buket",
     "categories": [
@@ -2983,6 +3174,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-buket-027",
+    code: "YBK-026",
     "name": "Yapay Buket 27",
     "category": "Yapay Buket",
     "categories": [
@@ -3000,6 +3192,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-001",
+    code: "YAR-001",
     "name": "Yapay Aranjman 01",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3017,6 +3210,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-002",
+    code: "YAR-002",
     "name": "Yapay Aranjman 02",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3034,6 +3228,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-003",
+    code: "YAR-003",
     "name": "Yapay Aranjman 03",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3051,6 +3246,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-004",
+    code: "YAR-004",
     "name": "Yapay Aranjman 04",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3068,6 +3264,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-005",
+    code: "YAR-005",
     "name": "Yapay Aranjman 05",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3085,6 +3282,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-006",
+    code: "YAR-006",
     "name": "Yapay Aranjman 06",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3102,6 +3300,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-007",
+    code: "YAR-007",
     "name": "Yapay Aranjman 07",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3119,6 +3318,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-008",
+    code: "YAR-008",
     "name": "Yapay Aranjman 08",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3136,6 +3336,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-009",
+    code: "YAR-009",
     "name": "Yapay Aranjman 09",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3153,6 +3354,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-010",
+    code: "YAR-010",
     "name": "Yapay Aranjman 10",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3170,6 +3372,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-011",
+    code: "YAR-011",
     "name": "Yapay Aranjman 11",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3187,6 +3390,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-012",
+    code: "YAR-012",
     "name": "Yapay Aranjman 12",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3204,6 +3408,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-013",
+    code: "YAR-013",
     "name": "Yapay Aranjman 13",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3221,6 +3426,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "yapay-aranjman-014",
+    code: "YAR-014",
     "name": "Yapay Aranjman 14",
     "category": "Yapay Aranjman",
     "categories": [
@@ -3238,6 +3444,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "isteme-cikolata-001",
+    code: "IST-001",
     "name": "İsteme Çiçeği & Çikolata 01",
     "category": "İsteme Çiçekleri & Çikolataları",
     "categories": [
@@ -3255,6 +3462,7 @@ window.BUKETIA_PRODUCTS = [
   },
   {
     "id": "isteme-cikolata-002",
+    code: "IST-002",
     "name": "İsteme Çiçeği & Çikolata 02",
     "category": "İsteme Çiçekleri & Çikolataları",
     "categories": [
