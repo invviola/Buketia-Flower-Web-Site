@@ -41,7 +41,7 @@
   const money = new Intl.NumberFormat(t.locale, { style: "currency", currency: "TRY", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 });
 
   const visualMarkup = (product) => product.image
-    ? `<img src="${assetBase}${product.image}" alt="${product.name}" loading="lazy" decoding="async" width="675" height="900" />`
+    ? `<img src="${assetBase}${product.image}" alt="${product.name}" loading="lazy" decoding="async" width="${product.imageWidth || 675}" height="${product.imageHeight || 900}"${product.imageFit ? ` style="min-width: 0; min-height: 0; object-fit: ${product.imageFit}; object-position: ${product.imagePosition || "center"}"` : ""} />`
     : `<span>${t.imagePending}</span>`;
 
   function productCard(item) {
