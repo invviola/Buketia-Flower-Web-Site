@@ -354,6 +354,17 @@
     setProduct(product);
     if (!dialog.open) dialog.showModal();
     setStep(product.custom ? 1 : 0);
+    // Açık ürünün bağlantısı adreste görünür (#BKT-001); kopyalanıp paylaşılabilir.
+    if (product.code && !product.custom && !product.cart) setProductHash(product.code);
+  }
+
+  // Ürün bağlantısı: adres çubuğundaki #BKT-001 gibi bir kod, sayfa açılınca o ürünün penceresini açar.
+  const productByCode = new Map(products.filter((product) => product.code).map((product) => [product.code.toLowerCase(), product]));
+  const hashProduct = () => {
+    try { return productByCode.get(decodeURIComponent(location.hash.slice(1)).toLowerCase()); } catch { return undefined; }
+  };
+  function setProductHash(code) {
+    try { history.replaceState(null, "", code ? `#${code}` : `${location.pathname}${location.search}`); } catch {}
   }
 
   // Tam ekran fotoğraf görüntüleyici: fotoğrafa dokununca açılır; dokununca veya Esc ile kapanır.
@@ -490,6 +501,7 @@
   }));
   document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener("close", () => { if (hashProduct()) setProductHash(""); });
 
   function syncCustomDeliveryTime() {
     const isCustom = deliveryTimeSelect.value === "custom";
@@ -604,4 +616,7 @@
   syncCart();
   render();
   registerWebMcp();
+  const openFromHash = () => { const product = hashProduct(); if (product) openProduct(product); };
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
 })();
