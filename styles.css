@@ -413,6 +413,14 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 .product-detail-code { margin: 0 0 22px; color: var(--gold); font-size: .78rem; font-weight: 500; letter-spacing: .1em; font-variant-numeric: tabular-nums; text-transform: uppercase; }
 .product-detail-note { max-width: 520px; margin: 26px 0 0; color: var(--muted); font-size: .84rem; line-height: 1.7; }
 .product-page .seo-section h2 { margin-bottom: 8px; }
+.product-page .seo-hero { padding-top: clamp(40px, 7vw, 90px); }
+.seo-service-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.seo-area-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
+.seo-area-links a { display: inline-block; padding: 10px 14px; border: 1px solid var(--line); color: var(--ink); font-size: .82rem; text-decoration: none; }
+.seo-area-links a:hover, .seo-area-links a:focus-visible { border-color: var(--ink); }
+.area-links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.area-links a:hover, .area-links a:focus-visible { border-color: var(--ink); }
+footer .area-links { max-width: 520px; line-height: 1.8; }
 .product-page .product-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 40px; }
 
 @media (max-width: 760px) {
@@ -420,6 +428,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   .product-detail { grid-template-columns: 1fr; gap: 26px; padding: 20px 0 60px; }
   .product-detail-visual img { max-height: 70vh; }
   .product-page .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 10px; }
+  .seo-service-grid-three { grid-template-columns: 1fr; }
   .seo-page { padding: 0 20px; }
   .seo-hero { padding: 60px 0 72px; }
   .seo-hero h1 { font-size: clamp(3.1rem, 16vw, 5.6rem); }
