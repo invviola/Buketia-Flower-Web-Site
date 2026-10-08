@@ -3,6 +3,9 @@
 (window.BUKETIA_I18N ||= {}).de = {
   locale: "de-DE",
   cart: {
+    prev: "Vorheriger Artikel",
+    next: "Nächster Artikel",
+    position: (i, n) => `${i} / ${n}`,
     add: "In den Warenkorb",
     remove: "Aus dem Warenkorb entfernen",
     open: (n) => `Warenkorb ansehen (${n})`,

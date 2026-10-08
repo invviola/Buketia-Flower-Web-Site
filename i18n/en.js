@@ -3,6 +3,9 @@
 (window.BUKETIA_I18N ||= {}).en = {
   locale: "en-GB",
   cart: {
+    prev: "Previous item",
+    next: "Next item",
+    position: (i, n) => `${i} / ${n}`,
     add: "Add to basket",
     remove: "Remove from basket",
     open: (n) => `View basket (${n})`,

@@ -3,6 +3,9 @@
 (window.BUKETIA_I18N ||= {}).tr = {
   locale: "tr-TR",
   cart: {
+    prev: "Önceki ürün",
+    next: "Sonraki ürün",
+    position: (i, n) => `${i} / ${n}`,
     add: "Sepete ekle",
     remove: "Sepetten çıkar",
     open: (n) => `Sepeti görüntüle (${n})`,

@@ -5,6 +5,9 @@ const ruPlural = new Intl.PluralRules("ru");
 (window.BUKETIA_I18N ||= {}).ru = {
   locale: "ru-RU",
   cart: {
+    prev: "Предыдущий товар",
+    next: "Следующий товар",
+    position: (i, n) => `${i} / ${n}`,
     add: "Добавить в корзину",
     remove: "Убрать из корзины",
     open: (n) => `Открыть корзину (${n})`,

@@ -131,7 +131,10 @@
     if (product.custom) budgetInput.value = "";
     const visual = document.querySelector("#dialog-visual");
     visual.className = `dialog-visual product-visual tone-${product.tone}${product.image ? " has-photo" : ""}`;
-    visual.innerHTML = visualMarkup(product) + (product.image ? `<span class="dialog-zoom-hint"><span class="dialog-zoom-text">${t.zoomPhoto} </span>⤢</span>` : "");
+    const arrows = item.cart && item.items.length > 1
+      ? `<button class="visual-arrow visual-arrow-prev" type="button" data-cart-step="-1" aria-label="${t.cart.prev}">‹</button><button class="visual-arrow visual-arrow-next" type="button" data-cart-step="1" aria-label="${t.cart.next}">›</button>`
+      : "";
+    visual.innerHTML = visualMarkup(product) + (product.image ? `<span class="dialog-zoom-hint"><span class="dialog-zoom-text">${t.zoomPhoto} </span>⤢</span>` : "") + arrows;
     if (product.image) {
       visual.setAttribute("role", "button");
       visual.tabIndex = 0;
@@ -295,16 +298,23 @@
     cartDialog.showModal();
   }
 
-  function cartProduct() {
+  // Sepet siparişinde pencere, sepetteki ürünleri ok tuşlarıyla gezdirir; index şu an gösterilen ürünü tutar.
+  function cartProduct(index = 0) {
     const items = cartItems();
-    const first = items[0];
+    const current = items[index];
     return {
-      id: "sepet", cart: true, items, code: "",
-      category: t.cart.title, name: t.cart.count(items.length),
-      description: items.map((item) => item.code).join(" · "),
-      tone: first.tone, image: first.image, imageWidth: first.imageWidth, imageHeight: first.imageHeight,
-      imageFit: first.imageFit, imagePosition: first.imagePosition, badge: ""
+      id: "sepet", cart: true, items, index, code: "",
+      category: `${t.cart.title} · ${t.cart.count(items.length)}`, name: current.code,
+      description: t.cart.position(index + 1, items.length),
+      tone: current.tone, image: current.image, imageWidth: current.imageWidth, imageHeight: current.imageHeight,
+      imageFit: current.imageFit, imagePosition: current.imagePosition, badge: ""
     };
+  }
+
+  function stepCartItem(delta) {
+    if (!activeProduct?.cart) return;
+    const count = activeProduct.items.length;
+    setProduct(cartProduct((activeProduct.index + delta + count) % count));
   }
 
   cartToggle.addEventListener("click", () => {
@@ -359,9 +369,20 @@
   }
 
   const dialogVisual = document.querySelector("#dialog-visual");
-  dialogVisual.addEventListener("click", openViewer);
+  dialogVisual.addEventListener("click", (event) => {
+    const arrow = event.target.closest("[data-cart-step]");
+    if (arrow) { stepCartItem(Number(arrow.dataset.cartStep)); return; }
+    openViewer();
+  });
   dialogVisual.addEventListener("keydown", (event) => {
+    if (event.target.closest("[data-cart-step]")) return;
     if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openViewer(); }
+  });
+  // Sepet siparişinde klavyenin sol/sağ okları da ürünleri gezdirir (form alanlarında yazarken değil).
+  dialog.addEventListener("keydown", (event) => {
+    if (!activeProduct?.cart || event.target.closest("input, textarea, select")) return;
+    if (event.key === "ArrowLeft") stepCartItem(-1);
+    if (event.key === "ArrowRight") stepCartItem(1);
   });
 
   function orderData() {
