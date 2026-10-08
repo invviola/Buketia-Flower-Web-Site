@@ -1,5 +1,5 @@
 // Katalog kartlarını ve ürün şemasını HTML'e önceden basar (arama motorları ürünleri JavaScript olmadan da görsün).
-// Kullanım: products.js veya i18n.js değiştikten sonra `node build.mjs` çalıştırın, çıkan HTML değişikliklerini commit'leyin.
+// Kullanım: products.js veya i18n/ dosyaları değiştikten sonra `node build.mjs` çalıştırın, çıkan HTML değişikliklerini commit'leyin.
 // Kart biçimi app.js içindeki productCard/visualMarkup ile aynı olmalıdır; birini değiştirirseniz diğerini de güncelleyin.
 import { readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -7,7 +7,7 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 globalThis.window = {};
 require("./products.js");
-require("./i18n.js");
+for (const lang of ["tr", "en", "ru", "de"]) require(`./i18n/${lang}.js`);
 const dictionaries = window.BUKETIA_I18N;
 const allProducts = window.BUKETIA_PRODUCTS;
 const siteUrl = "https://buketiaflower.com/";

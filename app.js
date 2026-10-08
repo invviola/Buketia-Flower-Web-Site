@@ -31,9 +31,10 @@
   const budgetRanges = { "Yapay Ağaç": [4000, 10000] };
   let currentCategory = "Tümü";
 
-  const dictionaries = window.BUKETIA_I18N || {};
-  const t = dictionaries[document.documentElement.lang.slice(0, 2)] || dictionaries.tr;
-  const isTurkish = t === dictionaries.tr;
+  // Sayfa yalnızca kendi dilinin sözlüğünü yükler (i18n/<dil>.js).
+  const pageLanguage = document.documentElement.lang.slice(0, 2);
+  const t = (window.BUKETIA_I18N || {})[pageLanguage];
+  const isTurkish = pageLanguage === "tr";
   // Görsel alt metni: kategori + kalıcı kod; ürüne özel (şablon olmayan) açıklaması varsa o da eklenir.
   // build.mjs aynı kuralı HTML'e önceden basılan kartlar için uygular; değiştirirseniz ikisini birlikte güncelleyin.
   const genericDescription = /koleksiyonundan bir tasarım/;
