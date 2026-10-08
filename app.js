@@ -34,7 +34,15 @@
   const dictionaries = window.BUKETIA_I18N || {};
   const t = dictionaries[document.documentElement.lang.slice(0, 2)] || dictionaries.tr;
   const isTurkish = t === dictionaries.tr;
-  const tx = (product) => ({ ...product, ...(t.products[product.id] || {}), category: t.categories[product.category] || product.category });
+  // Görsel alt metni: kategori + kalıcı kod; ürüne özel (şablon olmayan) açıklaması varsa o da eklenir.
+  // build.mjs aynı kuralı HTML'e önceden basılan kartlar için uygular; değiştirirseniz ikisini birlikte güncelleyin.
+  const genericDescription = /koleksiyonundan bir tasarım/;
+  const tx = (product) => {
+    const merged = { ...product, ...(t.products[product.id] || {}), category: t.categories[product.category] || product.category };
+    const label = `${merged.category} ${merged.code || merged.name}`;
+    merged.alt = !product.description || genericDescription.test(product.description) ? `${label} · Buketia Flower` : `${label}: ${merged.description}`;
+    return merged;
+  };
   // Türkçe karakterler ve kodun tire/boşluk biçimi arama sonucunu değiştirmez.
   const normalizeSearch = (value) => value.toLocaleLowerCase("tr-TR").normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "").replace(/ı/g, "i")
@@ -60,7 +68,7 @@
   const money = new Intl.NumberFormat(t.locale, { style: "currency", currency: "TRY", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 });
 
   const visualMarkup = (product) => product.image
-    ? `<img src="${assetBase}${product.image}" alt="${product.name}" loading="lazy" decoding="async" width="${product.imageWidth || 675}" height="${product.imageHeight || 900}"${product.imageFit ? ` style="min-width: 0; min-height: 0; object-fit: ${product.imageFit}; object-position: ${product.imagePosition || "center"}"` : ""} />`
+    ? `<img src="${assetBase}${product.image}" alt="${(product.alt || product.name).replace(/"/g, "&quot;")}" loading="lazy" decoding="async" width="${product.imageWidth || 675}" height="${product.imageHeight || 900}"${product.imageFit ? ` style="min-width: 0; min-height: 0; object-fit: ${product.imageFit}; object-position: ${product.imagePosition || "center"}"` : ""} />`
     : `<span>${t.imagePending}</span>`;
 
   function productCard(item) {
@@ -221,7 +229,7 @@
     if (!activeProduct?.image) return;
     const img = viewer.querySelector("img");
     img.src = `${assetBase}${activeProduct.image}`;
-    img.alt = tx(activeProduct).name;
+    img.alt = tx(activeProduct).alt;
     viewer.showModal();
   }
 
