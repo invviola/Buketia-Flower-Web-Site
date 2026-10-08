@@ -35,13 +35,15 @@
   const pageLanguage = document.documentElement.lang.slice(0, 2);
   const t = (window.BUKETIA_I18N || {})[pageLanguage];
   const isTurkish = pageLanguage === "tr";
-  // Görsel alt metni: kategori + kalıcı kod; ürüne özel (şablon olmayan) açıklaması varsa o da eklenir.
+  // Görsel alt metni: kategori + kalıcı kod; ürüne özel (şablon olmayan) açıklaması varsa ürünün adı ve açıklaması da eklenir.
   // build.mjs aynı kuralı HTML'e önceden basılan kartlar için uygular; değiştirirseniz ikisini birlikte güncelleyin.
   const genericDescription = /koleksiyonundan bir tasarım/;
+  const languageIndex = Math.max(0, ["tr", "en", "ru", "de"].indexOf(pageLanguage));
   const tx = (product) => {
     const merged = { ...product, ...(t.products[product.id] || {}), category: t.categories[product.category] || product.category };
     const label = `${merged.category} ${merged.code || merged.name}`;
-    merged.alt = !product.description || genericDescription.test(product.description) ? `${label} · Buketia Flower` : `${label}: ${merged.description}`;
+    const ownName = product.description && !genericDescription.test(product.description) && product.searchNames;
+    merged.alt = ownName ? `${product.searchNames[languageIndex] || product.searchNames[0]} (${label}): ${merged.description}` : `${label} · Buketia Flower`;
     return merged;
   };
   // Türkçe karakterler ve kodun tire/boşluk biçimi arama sonucunu değiştirmez.
@@ -75,7 +77,7 @@
   function productCard(item) {
     const product = tx(item);
     return `<article class="product-card">
-      <button class="product-button" type="button" data-product="${product.id}" aria-label="${t.viewProduct(product.name)}">
+      <a class="product-button" href="/urun/${product.code.toLowerCase()}/" data-product="${product.id}" aria-label="${t.viewProduct(product.name)}">
         <div class="product-visual tone-${product.tone}">
           ${visualMarkup(product)}
           ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
@@ -83,7 +85,7 @@
         <div class="product-meta">
           <h3>${product.name}</h3>
         </div>
-      </button>
+      </a>
     </article>`;
   }
 
@@ -487,9 +489,11 @@
     });
   });
 
+  // Kart, ürünün kendi sayfasına bağlantıdır (arama motorları için); normal tıklama sayfada pencereyi açar, Ctrl/⌘ ile yeni sekmede sayfa açılır.
   grid.addEventListener("click", (event) => {
     const button = event.target.closest("[data-product]");
-    if (!button) return;
+    if (!button || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
     const product = products.find((item) => item.id === button.dataset.product);
     if (product) openProduct(product);
   });
