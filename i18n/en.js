@@ -2,6 +2,21 @@
 // Yeni ürün eklerken products.js'teki id ile en, ru ve de dosyalarına da çeviri ekleyin; çeviri yoksa Türkçe görünür.
 (window.BUKETIA_I18N ||= {}).en = {
   locale: "en-GB",
+  cart: {
+    add: "Add to basket",
+    remove: "Remove from basket",
+    open: (n) => `View basket (${n})`,
+    fab: (n) => `Basket · ${n}`,
+    title: "Your basket",
+    close: "Close basket",
+    empty: "Your basket is empty. Add the designs you like.",
+    count: (n) => `${n} ${n === 1 ? "item" : "items"}`,
+    removeItem: (code) => `Remove ${code} from the basket`,
+    clear: "Clear basket",
+    checkout: "Complete order",
+    note: "All selected items are sent in one order with the same delivery details.",
+    full: "A basket can hold up to 8 items."
+  },
   time: (h, m) => `${h}:${m}`,
   count: (n) => `${n} ${n === 1 ? "design" : "designs"}`,
   empty: "New designs will be added to this category soon.",
@@ -18,6 +33,7 @@
   opensTomorrow: (t) => `Closed now · opens tomorrow at ${t}`,
   message: {
     intro: "Hello Buketia Flower, I would like to order this item:",
+    introCart: "Hello Buketia Flower, I would like to order these items together:",
     product: "Item", productCode: "Product code", budget: "Budget", delivery: "Delivery", recipient: "Recipient", recipientPhone: "Recipient’s phone", address: "Address",
     courier: "Courier fee: to be set by Buketia", card: "Card message", customer: "Ordered by", phone: "Phone"
   },

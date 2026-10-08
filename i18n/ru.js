@@ -4,6 +4,21 @@ const ruPlural = new Intl.PluralRules("ru");
 
 (window.BUKETIA_I18N ||= {}).ru = {
   locale: "ru-RU",
+  cart: {
+    add: "Добавить в корзину",
+    remove: "Убрать из корзины",
+    open: (n) => `Открыть корзину (${n})`,
+    fab: (n) => `Корзина · ${n}`,
+    title: "Ваша корзина",
+    close: "Закрыть корзину",
+    empty: "Корзина пуста. Добавьте понравившиеся композиции.",
+    count: (n) => `${n} ${{ one: "товар", few: "товара" }[ruPlural.select(n)] || "товаров"}`,
+    removeItem: (code) => `Убрать ${code} из корзины`,
+    clear: "Очистить корзину",
+    checkout: "Оформить заказ",
+    note: "Все выбранные товары отправляются одним заказом с теми же данными доставки.",
+    full: "В корзину можно добавить не более 8 товаров."
+  },
   time: (h, m) => `${h}:${m}`,
   count: (n) => `${n} ${{ one: "дизайн", few: "дизайна" }[ruPlural.select(n)] || "дизайнов"}`,
   empty: "Новые композиции скоро появятся в этой категории.",
@@ -20,6 +35,7 @@ const ruPlural = new Intl.PluralRules("ru");
   opensTomorrow: (t) => `Сейчас закрыто · откроемся завтра в ${t}`,
   message: {
     intro: "Здравствуйте, Buketia Flower! Хочу заказать:",
+    introCart: "Здравствуйте, Buketia Flower! Хочу заказать эти товары одним заказом:",
     product: "Товар", productCode: "Код товара", budget: "Бюджет", delivery: "Доставка", recipient: "Получатель", recipientPhone: "Телефон получателя", address: "Адрес",
     courier: "Стоимость доставки: определит Buketia", card: "Текст открытки", customer: "Заказчик", phone: "Телефон"
   },

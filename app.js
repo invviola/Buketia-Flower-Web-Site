@@ -141,6 +141,8 @@
       visual.removeAttribute("tabindex");
       visual.removeAttribute("aria-label");
     }
+    cartMessage.textContent = "";
+    syncCart();
   }
 
   // Telefonda pencere iki adımlıdır: önce büyük fotoğraf, "Sipariş oluştur" ile form açılır.
@@ -213,6 +215,128 @@
     setStep(0);
   });
 
+  // Sepet: birden fazla ürün tek WhatsApp siparişinde toplanır. Sekme kapanana kadar sessionStorage'da tutulur.
+  const cartKey = "buketia-cart";
+  const cartLimit = 8;
+  const productById = new Map(products.map((product) => [product.id, product]));
+  let cartIds = [];
+  try {
+    cartIds = JSON.parse(sessionStorage.getItem(cartKey) || "[]").filter((id) => productById.has(id)).slice(0, cartLimit);
+  } catch {}
+
+  const cartToggle = document.createElement("button");
+  cartToggle.type = "button";
+  cartToggle.className = "cart-toggle";
+  const cartLink = document.createElement("button");
+  cartLink.type = "button";
+  cartLink.className = "cart-link";
+  const cartMessage = document.createElement("p");
+  cartMessage.className = "cart-message";
+  cartMessage.setAttribute("role", "status");
+  document.querySelector(".dialog-summary").append(cartToggle, cartMessage, cartLink);
+
+  const cartFab = document.createElement("button");
+  cartFab.type = "button";
+  cartFab.className = "cart-fab";
+  cartFab.hidden = true;
+  document.body.append(cartFab);
+
+  const cartDialog = document.createElement("dialog");
+  cartDialog.className = "cart-dialog";
+  cartDialog.setAttribute("aria-labelledby", "cart-title");
+  cartDialog.innerHTML = `<div class="cart-shell">
+    <button class="cart-close" type="button" aria-label="${t.cart.close}">×</button>
+    <h2 id="cart-title">${t.cart.title}</h2>
+    <p class="cart-count"></p>
+    <ul class="cart-list"></ul>
+    <div class="cart-footer">
+      <p class="cart-note">${t.cart.note}</p>
+      <button class="whatsapp-button cart-checkout" type="button"><span class="whatsapp-dot" aria-hidden="true"></span>${t.cart.checkout}<span aria-hidden="true">→</span></button>
+      <button class="cart-clear" type="button">${t.cart.clear}</button>
+    </div>
+  </div>`;
+  document.body.append(cartDialog);
+  const cartList = cartDialog.querySelector(".cart-list");
+
+  const cartItems = () => cartIds.map((id) => productById.get(id));
+
+  function renderCart() {
+    const items = cartItems();
+    cartDialog.querySelector(".cart-count").textContent = items.length ? t.cart.count(items.length) : "";
+    cartDialog.querySelector(".cart-footer").hidden = !items.length;
+    cartList.innerHTML = items.length ? items.map((item) => {
+      const product = tx(item);
+      const label = product.code || product.name;
+      return `<li class="cart-item">
+        <span class="cart-item-photo tone-${product.tone}">${product.image ? `<img src="${assetBase}${product.image}" alt="" loading="lazy" decoding="async" width="56" height="72" />` : ""}</span>
+        <span class="cart-item-info"><strong>${label}</strong><small>${product.category}</small></span>
+        <button class="cart-item-remove" type="button" data-remove="${item.id}" aria-label="${t.cart.removeItem(label)}">×</button>
+      </li>`;
+    }).join("") : `<li class="cart-empty">${t.cart.empty}</li>`;
+  }
+
+  // Sepetin durumunu ürün penceresindeki düğmelere, yüzen sepet düğmesine ve (açıksa) sepet penceresine yansıtır.
+  function syncCart() {
+    try { sessionStorage.setItem(cartKey, JSON.stringify(cartIds)); } catch {}
+    const inCart = Boolean(activeProduct) && cartIds.includes(activeProduct.id);
+    const orderable = Boolean(activeProduct) && !activeProduct.custom && !activeProduct.cart;
+    cartToggle.hidden = !orderable;
+    cartToggle.textContent = inCart ? `✓ ${t.cart.remove}` : `+ ${t.cart.add}`;
+    cartToggle.setAttribute("aria-pressed", String(inCart));
+    cartLink.hidden = !orderable || !cartIds.length;
+    cartLink.textContent = t.cart.open(cartIds.length);
+    cartFab.hidden = !cartIds.length;
+    cartFab.textContent = t.cart.fab(cartIds.length);
+    if (cartDialog.open) renderCart();
+  }
+
+  function openCart() {
+    renderCart();
+    cartDialog.showModal();
+  }
+
+  function cartProduct() {
+    const items = cartItems();
+    const first = items[0];
+    return {
+      id: "sepet", cart: true, items, code: "",
+      category: t.cart.title, name: t.cart.count(items.length),
+      description: items.map((item) => item.code).join(" · "),
+      tone: first.tone, image: first.image, imageWidth: first.imageWidth, imageHeight: first.imageHeight,
+      imageFit: first.imageFit, imagePosition: first.imagePosition, badge: ""
+    };
+  }
+
+  cartToggle.addEventListener("click", () => {
+    const id = activeProduct.id;
+    if (cartIds.includes(id)) {
+      cartIds = cartIds.filter((item) => item !== id);
+      cartMessage.textContent = "";
+    } else if (cartIds.length >= cartLimit) {
+      cartMessage.textContent = t.cart.full;
+    } else {
+      cartIds.push(id);
+      cartMessage.textContent = "";
+    }
+    syncCart();
+  });
+  cartLink.addEventListener("click", () => { dialog.close(); openCart(); });
+  cartFab.addEventListener("click", openCart);
+  cartList.addEventListener("click", (event) => {
+    const remove = event.target.closest("[data-remove]");
+    if (!remove) return;
+    cartIds = cartIds.filter((id) => id !== remove.dataset.remove);
+    syncCart();
+  });
+  cartDialog.querySelector(".cart-clear").addEventListener("click", () => { cartIds = []; syncCart(); });
+  cartDialog.querySelector(".cart-close").addEventListener("click", () => cartDialog.close());
+  cartDialog.addEventListener("click", (event) => { if (event.target === cartDialog) cartDialog.close(); });
+  cartDialog.querySelector(".cart-checkout").addEventListener("click", () => {
+    if (!cartIds.length) return;
+    cartDialog.close();
+    openProduct(cartProduct());
+  });
+
   function openProduct(product) {
     setProduct(product);
     if (!dialog.open) dialog.showModal();
@@ -253,17 +377,20 @@
     // "Bize Bırak" hangi kategoriden açıldıysa mesajda yazsın (ör. Bize Bırak – Yapay Ağaçlar).
     const chosenKey = activeProduct.custom && activeProduct.categoryKey;
     if (chosenKey && chosenKey !== "Tümü") productName += ` – ${t.categories[chosenKey] || chosenKey}`;
+    // Fotoğraf adresi mesajda küçük resimli önizleme olarak görünür; dükkân ürünü bir bakışta tanır.
+    const photoUrl = (item) => (item.image ? [`https://buketiaflower.com/${item.image}`] : []);
+    const productLines = activeProduct.cart
+      ? activeProduct.items.flatMap((item, index) => [`${index + 1}. ${item.code}`, ...photoUrl(item)])
+      : [productName, ...photoUrl(activeProduct)];
     const budgetLines = activeProduct.custom ? [`💰 ${m.budget}: ${money.format(Number(values.budget))}`] : [];
     // 2026-10-04 yerine "4 Ekim 2026 Pazar" gibi okunur tarih.
     const [y, mo, d] = String(values.deliveryDate).split("-").map(Number);
     const dateText = y ? new Date(y, mo - 1, d).toLocaleDateString(t.locale, { day: "numeric", month: "long", year: "numeric", weekday: "long" }) : values.deliveryDate;
     return [
-      m.intro,
+      activeProduct.cart ? m.introCart : m.intro,
       "",
       `🌸 *${m.product}*`,
-      productName,
-      // Fotoğraf adresi mesajda küçük resimli önizleme olarak görünür; dükkân ürünü bir bakışta tanır.
-      ...(activeProduct.image ? [`https://buketiaflower.com/${activeProduct.image}`] : []),
+      ...productLines,
       ...budgetLines,
       "",
       `📅 *${m.delivery}*`,
@@ -450,6 +577,7 @@
     })).catch(() => {});
   }
 
+  syncCart();
   render();
   registerWebMcp();
 })();
