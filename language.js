@@ -1,5 +1,5 @@
 (() => {
-  // İlk giriş Türkçedir; menüden yapılan dil seçimi yalnızca bu sekmede saklanır.
+  // Tarayıcısı Türkçe olan ziyaretçinin ilk girişi Türkçedir; menüden yapılan dil seçimi yalnızca bu sekmede saklanır.
   const storageKey = "buketia-selected-language";
   const language = document.documentElement.lang;
   let selectedLanguage;
@@ -9,7 +9,10 @@
 
   // Depolama kapalıysa menü bağlantısındaki açık dil seçimini kullan.
   const requestedLanguage = new URLSearchParams(location.search).get("language");
-  if (language !== "tr" && selectedLanguage !== language && requestedLanguage !== language) {
+  // Yalnızca tarayıcı dili Türkçe olan ziyaretçi Türkçe sayfaya yönlendirilir. Googlebot ve yabancı ziyaretçiler
+  // /en/, /ru/, /de/ sayfalarında kalır; aksi halde bu sayfalar Google'da yönlendirme sayılıp dizine eklenmez.
+  const prefersTurkish = /^tr\b/i.test((navigator.languages && navigator.languages[0]) || navigator.language || "");
+  if (language !== "tr" && prefersTurkish && selectedLanguage !== language && requestedLanguage !== language) {
     location.replace(`/${location.search}${location.hash}`);
     return;
   }
