@@ -130,6 +130,9 @@
     budgetInput.required = Boolean(product.custom);
     if (product.custom) budgetInput.value = "";
     const visual = document.querySelector("#dialog-visual");
+    // Pencere fotoğrafı kırpmaz; fotoğraf alanı ürün fotoğrafının kendi en-boy oranını alır.
+    if (product.image) visual.style.setProperty("--photo-ratio", String(((product.imageWidth || 675) / (product.imageHeight || 900)).toFixed(4)));
+    else visual.style.removeProperty("--photo-ratio");
     visual.className = `dialog-visual product-visual tone-${product.tone}${product.image ? " has-photo" : ""}`;
     const arrows = item.cart && item.items.length > 1
       ? `<button class="visual-arrow visual-arrow-prev" type="button" data-cart-step="-1" aria-label="${t.cart.prev}">‹</button><button class="visual-arrow visual-arrow-next" type="button" data-cart-step="1" aria-label="${t.cart.next}">›</button>`

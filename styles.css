@@ -200,10 +200,11 @@ footer p:last-child { text-align: right; }
 .dialog-close { grid-column: 2; grid-row: 1 / 3; align-self: start; justify-self: end; position: sticky; top: 15px; margin: 15px 15px 0 0; z-index: 5; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,253,248,.94); color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; }
 .dialog-product { display: contents; }
 /* Sütun genişliği fotoğrafın kendi oranından (3:4) gelir; fotoğraf kırpılmadan tamamı görünür. */
-.dialog-visual { grid-column: 1; grid-row: 1 / 3; position: sticky; top: 0; height: min(80vh, 660px, 60vw); width: auto; aspect-ratio: 9 / 10; border: 0; background: var(--cream); }
+.dialog-visual { grid-column: 1; grid-row: 1 / 3; position: sticky; top: 0; height: min(80vh, 660px, 60vw); width: auto; aspect-ratio: var(--photo-ratio, .9); border: 0; background: var(--cream); }
 /* Fotoğraf üstten hizalı: duvardaki yazı tam görünür, yalnızca alttaki masa ayağı/çim kırpılır.
    Yükseklik en fazla 660 px = genişlik ~594 px: ürün fotoğrafları 675×900, kendi boyutundan büyük gösterilmez (pikselleşme). */
-.dialog-visual img { object-position: center top; }
+/* Fotoğraf kırpılmadan, tamamı görünür; sütun genişliği fotoğrafın kendi oranından gelir (--photo-ratio, app.js). */
+.dialog-visual img { object-fit: contain !important; object-position: center !important; }
 .dialog-visual.has-photo { cursor: zoom-in; }
 .product-visual .dialog-zoom-hint { position: absolute; z-index: 3; right: 14px; bottom: 14px; padding: 7px 11px; background: rgba(255,253,248,.92); color: var(--ink); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
 .product-visual .dialog-zoom-text { position: static; z-index: auto; padding: 0; background: none; color: inherit; font-size: inherit; letter-spacing: inherit; }
@@ -300,10 +301,11 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   .product-dialog:not(.is-ordering) .dialog-product { flex: 1 0 auto; display: flex; flex-direction: column; padding-top: calc(60px + env(safe-area-inset-top)); background: linear-gradient(180deg, var(--cream) 0%, var(--cream) 55%, var(--paper) 100%); }
   .dialog-visual { aspect-ratio: auto; }
   /* Çerçeve 9:10; fotoğraf üstten hizalı, yalnızca alttaki masa ayağı/çim kırpılır (duvardaki yazı tam görünür). */
-  .product-dialog:not(.is-ordering) .dialog-visual { flex: none; position: relative; width: min(calc(100% - 40px), calc(min(54dvh, 440px, 100dvh - 340px) * .9)); height: auto; max-width: none; aspect-ratio: 9 / 10; margin: 0 auto; border: 7px solid #fff; border-radius: 2px; box-shadow: 0 1px 0 var(--line), 0 22px 44px -18px rgba(61,45,23,.35); }
+  .product-dialog:not(.is-ordering) .dialog-visual { flex: none; position: relative; width: min(calc(100% - 40px), calc(min(54dvh, 440px, 100dvh - 340px) * var(--photo-ratio, .9))); height: auto; max-width: none; aspect-ratio: var(--photo-ratio, .9); margin: 0 auto; border: 7px solid #fff; border-radius: 2px; box-shadow: 0 1px 0 var(--line), 0 22px 44px -18px rgba(61,45,23,.35); }
   .product-dialog:not(.is-ordering) .product-visual .dialog-zoom-hint { top: auto; bottom: 10px; right: 10px; left: auto; width: 36px; height: 36px; padding: 0; display: grid; place-items: center; border-radius: 50%; background: rgba(255,253,245,.85); backdrop-filter: blur(8px); font-size: .95rem; letter-spacing: 0; }
   .product-dialog:not(.is-ordering) .dialog-zoom-text { display: none; }
-  .product-dialog:not(.is-ordering) .dialog-visual img { object-position: center top; }
+  .product-dialog:not(.is-ordering) /* Fotoğraf kırpılmadan, tamamı görünür; sütun genişliği fotoğrafın kendi oranından gelir (--photo-ratio, app.js). */
+.dialog-visual img { object-fit: contain !important; object-position: center !important; }
   .product-dialog:not(.is-ordering) .dialog-summary { flex: 1 0 auto; display: flex; flex-direction: column; align-items: center; padding: 26px 28px calc(16px + env(safe-area-inset-bottom)); text-align: center; }
   .product-dialog:not(.is-ordering) .dialog-summary .eyebrow { display: flex; align-items: center; gap: 12px; margin: auto 0 10px; font-size: .62rem; letter-spacing: .26em; }
   .product-dialog:not(.is-ordering) .dialog-summary .eyebrow::before,
@@ -323,7 +325,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   .is-ordering .order-back { display: grid; place-items: center; grid-column: 1; grid-row: 1; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.35rem; cursor: pointer; }
   .is-ordering .dialog-visual { grid-column: 2; grid-row: 1; width: 44px; height: 44px; border-radius: 50%; }
   .is-ordering .dialog-zoom-hint { display: none; }
-  .is-ordering .dialog-visual img { object-position: center; }
+  .is-ordering .dialog-visual img { object-fit: cover !important; object-position: center; }
   .is-ordering .dialog-summary { grid-column: 3; grid-row: 1; padding: 0; }
   .is-ordering .dialog-summary .eyebrow { margin: 0 0 2px; font-size: .6rem; }
   .is-ordering .dialog-summary h2 { margin: 0; font-size: 1.1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
