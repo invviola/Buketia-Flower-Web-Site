@@ -1,10 +1,11 @@
 // Katalog kartlarını, ürün sayfalarını (/urun/<kod>/), mağaza ve ürün şemasını ve sitemap.xml'i üretir (arama motorları ürünleri JavaScript olmadan da görsün).
 // Kullanım: products.js veya i18n/ dosyaları değiştikten sonra `node build.mjs` çalıştırın, çıkan HTML değişikliklerini commit'leyin.
 // Kart biçimi ve görsel alt metni kuralı app.js içindeki tx/productCard/visualMarkup ile aynı olmalıdır; birini değiştirirseniz diğerini de güncelleyin.
-// Ürün ve bölge sayfalarının üst bar, başlık ve alt bilgisi seferihisar-cicekci/index.html'den alınır; bölge metinleri bolgeler.mjs'tedir.
+// Ürün, bölge ve kategori sayfalarının üst bar, başlık ve alt bilgisi seferihisar-cicekci/index.html'den alınır; bölge metinleri bolgeler.mjs'te, kategori metinleri kategoriler.mjs'tedir.
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { areas } from "./bolgeler.mjs";
+import { categories } from "./kategoriler.mjs";
 
 const require = createRequire(import.meta.url);
 globalThis.window = {};
@@ -71,8 +72,10 @@ const shopDescriptions = {
   ru: "Цветочный магазин в Сеферихисаре (Измир): букеты, орхидеи, свадебные букеты и венки.",
   de: "Blumenladen in Seferihisar (İzmir) für Sträuße, Orchideen, Brautsträuße und Kränze."
 };
-const shop = (lang) => ({
-  "@context": "https://schema.org",
+// Sitenin Google'da görünen adı için WebSite kaydı da mağaza şemasıyla birlikte basılır.
+const website = (lang) => ({ "@type": "WebSite", "@id": `${siteUrl}#website`, url: siteUrl, name: "Buketia Flower", alternateName: ["Buketia", "Buketia Flower Seferihisar"], inLanguage: lang, publisher: { "@id": `${siteUrl}#shop` } });
+const shop = (lang) => ({ "@context": "https://schema.org", "@graph": [florist(lang), website(lang)] });
+const florist = (lang) => ({
   "@type": "Florist",
   "@id": `${siteUrl}#shop`,
   name: "Buketia Flower",
@@ -81,6 +84,10 @@ const shop = (lang) => ({
   logo: `${siteUrl}assets/buketia-logo.png`,
   image: [`${siteUrl}assets/buketia-paylasim.jpg`, ...allProducts.filter(hasOwnName).slice(0, 3).map((p) => `${siteUrl}${p.image}`)],
   telephone: "+90 552 407 28 17",
+  contactPoint: [
+    { "@type": "ContactPoint", telephone: "+90 552 407 28 17", contactType: "customer service", availableLanguage: ["Turkish", "English"] },
+    { "@type": "ContactPoint", telephone: "+90 552 242 52 52", contactType: "customer service" }
+  ],
   hasMap: "https://maps.app.goo.gl/1o3m3WtcM1YirCwD9",
   address: {
     "@type": "PostalAddress",
@@ -107,29 +114,46 @@ const shop = (lang) => ({
 
 const productsWithImage = allProducts.filter((p) => p.image);
 
+// Dil ana sayfalarının başlık ve açıklaması. Google'da "seferihisar çiçekçi" aramasında ilk sıradayız ama tıklama oranı düşük;
+// başlıkta aynı gün teslimat ve çevre bölgeler geçsin. og:title/og:description de aynı metinle güncellenir.
+const homeHead = {
+  tr: { title: "Seferihisar Çiçekçi · Aynı Gün Çiçek Siparişi | Buketia Flower", description: "Seferihisar çiçekçi Buketia Flower: buket, gül, orkide, çelenk ve yapay çiçek. Sığacık, Ürkmez, Urla ve çevresine aynı gün teslimat. Katalogdan seçin, WhatsApp’tan sipariş verin: 0552 407 28 17." },
+  en: { title: "Florist in Seferihisar & Sığacık · Same-Day Flower Delivery | Buketia Flower", description: "Buketia Flower, florist in Seferihisar (İzmir): bouquets, roses, orchids and wreaths with same-day delivery to Sığacık, Ürkmez, Urla and nearby. Choose from our catalogue and order via WhatsApp." },
+  de: { title: "Blumenladen in Seferihisar & Sığacık · Lieferung am selben Tag | Buketia Flower", description: "Buketia Flower, Blumenladen in Seferihisar (İzmir): Sträuße, Rosen, Orchideen und Kränze, Lieferung am selben Tag nach Sığacık, Ürkmez, Urla und Umgebung. Im Katalog auswählen, per WhatsApp bestellen." },
+  ru: { title: "Цветы в Сеферихисаре и Сыгаджике · Доставка в день заказа | Buketia Flower", description: "Buketia Flower — цветочный магазин в Сеферихисаре (Измир): букеты, розы, орхидеи и венки с доставкой в день заказа в Сыгаджик, Юркмез, Урлу и окрестности. Выберите в каталоге и закажите через WhatsApp." }
+};
+function setHead(html, { title, description }, file) {
+  const rules = [
+    [/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`],
+    [/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(description)}" />`],
+    [/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${escapeHtml(title)}" />`],
+    [/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(description)}" />`]
+  ];
+  for (const [pattern, value] of rules) {
+    if (!pattern.test(html)) throw new Error(`${file}: ${pattern} bulunamadı`);
+    html = html.replace(pattern, () => value);
+  }
+  return html;
+}
+
 for (const file of pages) {
   let html = readFileSync(file, "utf8");
   const lang = html.match(/<html lang="(\w+)"/)[1];
   const assetBase = html.match(/data-asset-base="([^"]*)"/)?.[1] || "";
   const t = dictionaries[lang];
+  html = setHead(html, homeHead[lang], file);
   // Katalogda "Tümü" görünümü: fotoğrafı olan, çelenk olmayan ürünler.
   const visible = productsWithImage.filter((p) => !p.categories.includes("Çelenk"));
   html = replaceBlock(html, "grid", visible.map((p) => card(t, lang, assetBase, p)).join("\n"), file);
   html = replaceBlock(html, "count", t.count(visible.length), file);
   html = replaceBlock(html, "shop", jsonLd(shop(lang)), file);
+  // Fiyatlar sitede gösterilmediği için Product şeması kullanılmaz: "offers" olmadan Google bunları geçersiz sayıyor
+  // (Search Console > Ürün snippet'leri). Liste yalnızca ürün sayfalarının adresini ve adını taşır.
   const list = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: html.match(/<title>([^<]*)<\/title>/)[1],
-    itemListElement: productsWithImage.map((p, index) => {
-      const product = translate(t, lang, p);
-      return {
-        "@type": "ListItem",
-        position: index + 1,
-        url: `${siteUrl}${productPath(p)}`,
-        item: { "@type": "Product", name: product.seoName, sku: product.code, category: product.category, image: `${siteUrl}${p.image}`, description: hasOwnName(p) ? product.description : undefined, url: `${siteUrl}${productPath(p)}`, brand: { "@type": "Brand", name: "Buketia Flower" } }
-      };
-    })
+    itemListElement: productsWithImage.map((p, index) => ({ "@type": "ListItem", position: index + 1, url: `${siteUrl}${productPath(p)}`, name: translate(t, lang, p).seoName }))
   };
   html = replaceBlock(html, "jsonld", jsonLd(list), file);
   writePage(file, `${siteUrl}${file.replace("index.html", "")}`, html);
@@ -138,13 +162,25 @@ for (const file of pages) {
 
 // Teslimat bölgesi bağlantıları: Türkçe ana sayfa, Seferihisar sayfası ve (alt bilgi üzerinden) tüm ürün ve bölge sayfaları.
 const areaLinks = (except) => areas.filter((area) => area.slug !== except).map((area) => `<a href="/${area.slug}/">${area.name}</a>`).join(", ");
-const areaLine = `\n          <p class="area-links">Aynı gün teslimat: ${areaLinks()}</p>\n          `;
+const categoryLinks = categories.map((category) => `<a href="/${category.slug}/">${category.name}</a>`).join(", ");
+const areaLine = `\n          <p class="area-links">Aynı gün teslimat: ${areaLinks()}</p>\n          <p class="area-links">Çiçek çeşitleri: ${categoryLinks}</p>\n          `;
 writePage("index.html", siteUrl, replaceBlock(readFileSync("index.html", "utf8"), "areas", areaLine, "index.html"));
 
 let local = readFileSync(localPage, "utf8");
 local = replaceBlock(local, "shop", jsonLd(shop("tr")), localPage);
-local = replaceBlock(local, "areas", `\n        <p class="area-links">Aynı gün teslimat: ${areaLinks()}</p>\n        `, localPage);
+local = replaceBlock(local, "areas", `\n        <p class="area-links">Aynı gün teslimat: ${areaLinks()}</p>\n        <p class="area-links">Çiçek çeşitleri: ${categoryLinks}</p>\n        `, localPage);
 local = replaceBlock(local, "area-list", `
+      <section class="seo-section seo-two-column" aria-labelledby="categories-title">
+        <div>
+          <p class="eyebrow">Çiçek çeşitleri</p>
+          <h2 id="categories-title">Ne göndermek istersiniz?</h2>
+        </div>
+        <div class="seo-copy">
+          <p>Buketlerden çelenklere, tüm tasarımlarımızı kategorilere ayırdık. Her sayfada o kategorideki tasarımları ve sık sorulan soruları bulabilirsiniz:</p>
+          <ul class="seo-area-links">${categories.map((category) => `<li><a href="/${category.slug}/">${category.heading}</a></li>`).join("")}</ul>
+        </div>
+      </section>
+
       <section class="seo-section seo-two-column" aria-labelledby="areas-title">
         <div>
           <p class="eyebrow">Teslimat bölgeleri</p>
@@ -166,6 +202,20 @@ const [header, footer] = [chrome[1], chrome[2]].map((part) => part.replaceAll('"
 const headShared = local.match(/<meta name="theme-color"[^>]*>/)[0] + "\n    " + local.match(/<link rel="preload"[\s\S]*?<link rel="stylesheet"[^>]*>/)[0].replaceAll('"../', '"/');
 const t = dictionaries.tr;
 const normalize = (value) => value.toLocaleLowerCase("tr-TR");
+const categoryOf = (product) => categories.find((category) => category.match.includes(product.category));
+// Fotoğrafların Google Görseller'de sahibiyle birlikte görünmesi için görsel bilgisi (ImageObject).
+const imageObject = (id, item, caption) => ({
+  "@type": "ImageObject",
+  "@id": id,
+  contentUrl: `${siteUrl}${item.image}`,
+  url: `${siteUrl}${item.image}`,
+  width: item.imageWidth || 675,
+  height: item.imageHeight || 900,
+  caption,
+  creator: { "@type": "Organization", name: "Buketia Flower", url: siteUrl },
+  creditText: "Buketia Flower",
+  copyrightNotice: "© Buketia Flower"
+});
 
 function productPage(item, index, group) {
   const product = translate(t, "tr", item);
@@ -181,6 +231,13 @@ function productPage(item, index, group) {
   const whatsapp = `https://wa.me/905524072817?text=${encodeURIComponent(`Merhaba Buketia Flower, ${code} kodlu ürün hakkında bilgi almak istiyorum.`)}`;
   // Aynı kategoride sıradaki 8 ürün: her ürün sayfası, öncesindeki sayfalardan bağlantı alır.
   const related = Array.from({ length: Math.min(8, group.length - 1) }, (_, i) => group[(index + i + 1) % group.length]);
+  const categoryPage = categoryOf(item);
+  const crumbs = [
+    { name: "Buketia Flower", item: siteUrl },
+    ...(categoryPage ? [{ name: categoryPage.heading.replace(/^./, (c) => c.toLocaleUpperCase("tr-TR")), item: `${siteUrl}${categoryPage.slug}/` }] : []),
+    { name: product.seoName, item: url }
+  ];
+  // Fiyat gösterilmediği için Product yerine sayfa + görsel bilgisi verilir (bkz. ItemList notu).
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -193,26 +250,14 @@ function productPage(item, index, group) {
         inLanguage: "tr",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}#website`, url: siteUrl, name: "Buketia Flower" },
         breadcrumb: { "@id": `${url}#breadcrumb` },
-        mainEntity: { "@id": `${url}#product` }
+        primaryImageOfPage: { "@id": `${url}#image` },
+        about: { "@id": `${siteUrl}#shop` }
       },
-      {
-        "@type": "Product",
-        "@id": `${url}#product`,
-        name: product.seoName,
-        sku: code,
-        category: product.category,
-        image,
-        description: product.description,
-        url,
-        brand: { "@type": "Brand", name: "Buketia Flower" }
-      },
+      imageObject(`${url}#image`, item, product.alt),
       {
         "@type": "BreadcrumbList",
         "@id": `${url}#breadcrumb`,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Buketia Flower", item: siteUrl },
-          { "@type": "ListItem", position: 2, name: product.seoName, item: url }
-        ]
+        itemListElement: crumbs.map((crumb, i) => ({ "@type": "ListItem", position: i + 1, ...crumb }))
       }
     ]
   };
@@ -245,7 +290,7 @@ function productPage(item, index, group) {
     <title>${escapeHtml(title)}</title>
   </head>
   <body class="seo-page-body">${langLinks(header)}<main class="seo-page product-page">
-      <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/#catalog">Katalog</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(product.category)}</span></nav>
+      <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/#catalog">Katalog</a><span aria-hidden="true">/</span>${categoryPage ? `<a href="/${categoryPage.slug}/">${escapeHtml(product.category)}</a>` : `<span aria-current="page">${escapeHtml(product.category)}</span>`}</nav>
       <article class="product-detail" aria-labelledby="product-title">
         <div class="product-detail-visual">
           <img src="/${item.image}" alt="${escapeHtml(product.alt)}" fetchpriority="high" decoding="async" width="${item.imageWidth || 675}" height="${item.imageHeight || 900}" />
@@ -267,7 +312,7 @@ ${related.length ? `
         <p class="eyebrow">${escapeHtml(product.category)}</p>
         <h2 id="related-title">Benzer tasarımlar</h2>
         <div class="product-grid">${related.map((p) => card(t, "tr", "/", p)).join("\n")}</div>
-        <div class="seo-actions"><a class="seo-button seo-button-secondary" href="/#catalog">Tüm kataloğu incele <span aria-hidden="true">↗</span></a></div>
+        <div class="seo-actions">${categoryPage ? `<a class="seo-button" href="/${categoryPage.slug}/">${escapeHtml(categoryPage.heading.replace(/^./, (c) => c.toLocaleUpperCase("tr-TR")))}: tüm tasarımlar <span aria-hidden="true">↗</span></a>` : ""}<a class="seo-button seo-button-secondary" href="/#catalog">Tüm kataloğu incele <span aria-hidden="true">↗</span></a></div>
       </section>
 ` : ""}    </main>${footer}</body>
 </html>
@@ -419,6 +464,148 @@ for (const area of areas) {
 }
 console.log(`${areas.length} bölge sayfası`);
 
+// Kategori sayfaları: bir kategorideki tüm ürünler, kategoriye özel metin ve sık sorulanlar.
+const csp = `<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />`;
+const capitalize = (text) => text.replace(/^./, (c) => c.toLocaleUpperCase("tr-TR"));
+function categoryPage(category) {
+  const url = `${siteUrl}${category.slug}/`;
+  const items = productsWithImage.filter((p) => category.match.some((key) => p.categories.includes(key)));
+  if (!items.length) throw new Error(`kategoriler.mjs: ${category.slug} için ürün bulunamadı`);
+  const whatsapp = `https://wa.me/905524072817?text=${encodeURIComponent(`Merhaba Buketia Flower, ${category.name.toLocaleLowerCase("tr-TR")} siparişi vermek istiyorum.`)}`;
+  const cover = items.find(hasOwnName) || items[0];
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": `${url}#webpage`, url, name: category.title, description: category.description, inLanguage: "tr", isPartOf: { "@id": `${siteUrl}#website` }, about: { "@id": `${siteUrl}#shop` }, breadcrumb: { "@id": `${url}#breadcrumb` }, mainEntity: { "@id": `${url}#list` } },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Buketia Flower", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Seferihisar Çiçekçi", item: `${siteUrl}seferihisar-cicekci/` },
+          { "@type": "ListItem", position: 3, name: capitalize(category.heading), item: url }
+        ]
+      },
+      { "@type": "ItemList", "@id": `${url}#list`, name: capitalize(category.heading), numberOfItems: items.length, itemListElement: items.map((p, index) => ({ "@type": "ListItem", position: index + 1, url: `${siteUrl}${productPath(p)}`, name: translate(t, "tr", p).seoName })) },
+      { "@type": "FAQPage", mainEntity: category.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }
+    ]
+  };
+  const otherCategories = categories.filter((c) => c.slug !== category.slug).map((c) => `<a href="/${c.slug}/">${c.name}</a>`).join(", ");
+  return `<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    ${csp}
+    <script src="/language.js?v=20261009a"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    ${headShared}
+    <meta name="description" content="${escapeHtml(category.description)}" />
+    <link rel="canonical" href="${url}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="Buketia Flower" />
+    <meta property="og:url" content="${url}" />
+    <meta property="og:title" content="${escapeHtml(category.title)}" />
+    <meta property="og:description" content="${escapeHtml(category.description)}" />
+    <meta property="og:image" content="${siteUrl}${cover.image}" />
+    <meta property="og:image:width" content="${cover.imageWidth || 675}" />
+    <meta property="og:image:height" content="${cover.imageHeight || 900}" />
+    <meta property="og:image:alt" content="${escapeHtml(translate(t, "tr", cover).alt)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">${JSON.stringify(schema)}</script>
+    <!--build:shop-->${jsonLd(shop("tr"))}<!--/build:shop-->
+    <title>${escapeHtml(category.title)}</title>
+  </head>
+  <body class="seo-page-body">${header}<main class="seo-page product-page">
+      <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/seferihisar-cicekci/">Seferihisar çiçekçi</a><span aria-hidden="true">/</span><span aria-current="page">${category.name}</span></nav>
+      <section class="seo-hero" aria-labelledby="seo-title">
+        <p class="eyebrow">Seferihisar / İzmir · ${items.length} tasarım · Aynı gün teslimat</p>
+        <h1 id="seo-title">${capitalize(category.heading)}</h1>
+        <p class="seo-lead">${category.lead}</p>
+        <div class="seo-actions">
+          <a class="seo-button" href="#designs-title">Tasarımları incele <span aria-hidden="true">↓</span></a>
+          <a class="seo-button seo-button-secondary" href="${whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp’tan sipariş ver <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="seo-section seo-two-column" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">Buketia Flower</p>
+          <h2 id="about-title">${category.name} siparişi nasıl verilir?</h2>
+        </div>
+        <div class="seo-copy">
+          ${category.intro.map((text) => `<p>${text}</p>`).join("\n          ")}
+        </div>
+      </section>
+
+      <section class="seo-section" aria-labelledby="occasions-title">
+        <p class="eyebrow">Hangi gün için?</p>
+        <h2 id="occasions-title">${category.name} seçenekleri</h2>
+        <div class="seo-service-grid seo-service-grid-three">
+          ${category.occasions.map(([heading, text]) => `<article><h3>${heading}</h3><p>${text}</p></article>`).join("\n          ")}
+        </div>
+      </section>
+
+      <section class="seo-section" aria-labelledby="designs-title">
+        <p class="eyebrow">Katalogdan · ${items.length} tasarım</p>
+        <h2 id="designs-title">${category.name} tasarımlarımız</h2>
+        <div class="product-grid">${items.map((p) => card(t, "tr", "/", p)).join("\n")}</div>
+      </section>
+
+      <section class="seo-section seo-faq" aria-labelledby="faq-title">
+        <p class="eyebrow">Sık sorulanlar</p>
+        <h2 id="faq-title">${category.name} hakkında</h2>
+        ${category.faq.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join("\n        ")}
+      </section>
+
+      <section class="seo-section seo-contact-section" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Mağazamız</p>
+          <h2 id="contact-title">Camikebir’de Buketia Flower</h2>
+        </div>
+        <div class="seo-contact-card">
+          <a href="https://maps.app.goo.gl/1o3m3WtcM1YirCwD9" target="_blank" rel="noopener noreferrer">Camikebir, 52. Sokak No: 7/C<br />Seferihisar / İzmir ↗</a>
+          <a href="tel:+905524072817">0552 407 28 17</a>
+          <span>Hafta içi &amp; Cumartesi 08.30–20.30<br />Pazar 09.00–20.00</span>
+          <span>Diğer çiçek çeşitleri: ${otherCategories}</span>
+        </div>
+      </section>
+    </main>${footer}</body>
+</html>
+`;
+}
+for (const category of categories) {
+  mkdirSync(category.slug, { recursive: true });
+  writePage(`${category.slug}/index.html`, `${siteUrl}${category.slug}/`, categoryPage(category));
+}
+console.log(`${categories.length} kategori sayfası`);
+
+// GitHub Pages bulunamayan adreslerde 404.html'i gösterir; ziyaretçiyi kataloğa ve kategorilere yönlendirir.
+writePage("404.html", `${siteUrl}404.html`, `<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    ${csp}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    ${headShared}
+    <meta name="robots" content="noindex" />
+    <title>Sayfa bulunamadı | Buketia Flower</title>
+  </head>
+  <body class="seo-page-body">${header}<main class="seo-page product-page">
+      <section class="seo-hero" aria-labelledby="seo-title">
+        <p class="eyebrow">404</p>
+        <h1 id="seo-title">Aradığınız sayfa bulunamadı</h1>
+        <p class="seo-lead">Bu adres değişmiş ya da kaldırılmış olabilir. Kataloğumuza göz atın ya da bir çiçek çeşidi seçin.</p>
+        <div class="seo-actions">
+          <a class="seo-button" href="/#catalog">Çiçek kataloğunu incele <span aria-hidden="true">↗</span></a>
+          <a class="seo-button seo-button-secondary" href="https://wa.me/905524072817" target="_blank" rel="noopener noreferrer">WhatsApp’tan sor <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="seo-area-links">${categories.map((category) => `<li><a href="/${category.slug}/">${capitalize(category.heading)}</a></li>`).join("")}</ul>
+      </section>
+    </main>${footer}</body>
+</html>
+`);
+
 // sitemap.xml: değişmeyen sayfalar eski lastmod tarihini korur.
 const previous = new Map([...readFileSync("sitemap.xml", "utf8").matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)].map((m) => [m[1], m[2]]));
 const lastmod = (url) => (changedUrls.has(url) || !previous.has(url) ? today : previous.get(url));
@@ -428,7 +615,7 @@ const entries = [
     const url = `${siteUrl}${lang === "tr" ? "" : `${lang}/`}`;
     return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod(url)}</lastmod>\n${alternates}\n  </url>`;
   }),
-  ...["seferihisar-cicekci", ...areas.map((area) => area.slug)].map((slug) => `  <url>\n    <loc>${siteUrl}${slug}/</loc>\n    <lastmod>${lastmod(`${siteUrl}${slug}/`)}</lastmod>\n  </url>`),
+  ...["seferihisar-cicekci", ...categories.map((category) => category.slug), ...areas.map((area) => area.slug)].map((slug) => `  <url>\n    <loc>${siteUrl}${slug}/</loc>\n    <lastmod>${lastmod(`${siteUrl}${slug}/`)}</lastmod>\n  </url>`),
   ...productsWithImage.map((p) => {
     const url = `${siteUrl}${productPath(p)}`;
     return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod(url)}</lastmod>\n    <image:image><image:loc>${siteUrl}${p.image}</image:loc></image:image>\n  </url>`;
