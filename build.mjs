@@ -417,6 +417,45 @@ for (const area of areas) {
 }
 console.log(`${areas.length} bölge sayfası`);
 
+// assets/urunler/ altındaki her kategori klasörüne GitHub'da galeri olarak görünen bir README.md yazılır.
+// Yeni ürünün fotoğrafını ana kategorisinin klasörüne koyun (ör. assets/urunler/buket/bkt-110.jpg).
+const galleryRoot = "assets/urunler";
+const galleryFolders = new Map();
+for (const p of productsWithImage) {
+  const folder = p.image.match(/^assets\/urunler\/([^/]+)\/[^/]+$/)?.[1];
+  if (!folder) throw new Error(`${p.code}: görsel ${galleryRoot}/<kategori>/ altında olmalı (${p.image})`);
+  if (!galleryFolders.has(folder)) galleryFolders.set(folder, { category: p.category, items: [] });
+  galleryFolders.get(folder).items.push(p);
+}
+const galleryCell = (p) => {
+  const file = p.image.split("/").pop();
+  const title = hasOwnName(p) ? ` · ${escapeHtml(p.searchNames[0])}` : "";
+  return `<td align="center" valign="top"><a href="${file}"><img src="${file}" width="200" alt="${p.code}" /></a><br /><b>${p.code}</b>${title}</td>`;
+};
+for (const [folder, { category, items }] of galleryFolders) {
+  const rows = [];
+  for (let i = 0; i < items.length; i += 3) rows.push(`<tr>${items.slice(i, i + 3).map(galleryCell).join("")}</tr>`);
+  writeFileSync(`${galleryRoot}/${folder}/README.md`, `# ${category} (${items.length} görsel)
+
+[← Tüm kategoriler](../)
+
+Görsele dokunun, açılan sayfadaki indirme düğmesiyle telefonunuza kaydedin. Bu dosya \`node build.mjs\` ile üretilir; elle düzenlemeyin.
+
+<table>
+${rows.join("\n")}
+</table>
+`);
+}
+writeFileSync(`${galleryRoot}/README.md`, `# Buketia ürün görselleri
+
+Kategoriye dokunun, o kategorideki bütün görseller ürün kodlarıyla açılır. Bu dosya \`node build.mjs\` ile üretilir; elle düzenlemeyin.
+
+| Kategori | Görsel |
+| --- | --- |
+${[...galleryFolders].map(([folder, { category, items }]) => `| [${category}](${folder}/) | ${items.length} |`).join("\n")}
+`);
+console.log(`${galleryFolders.size} görsel galerisi`);
+
 // sitemap.xml: değişmeyen sayfalar eski lastmod tarihini korur.
 const previous = new Map([...readFileSync("sitemap.xml", "utf8").matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)].map((m) => [m[1], m[2]]));
 const lastmod = (url) => (changedUrls.has(url) || !previous.has(url) ? today : previous.get(url));

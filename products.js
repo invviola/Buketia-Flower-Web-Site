@@ -1,5 +1,6 @@
 // Bu dosyadaki ürünleri düzenleyerek katalog fiyatlarını, stok durumunu ve görselleri yönetebilirsiniz.
 // Ürün kodları sabittir. Yeni ürün için ana kategorisindeki en büyük kodun bir sonrakini kullanın; silinen kodları tekrar kullanmayın.
+// Ürün fotoğrafı ana kategorisinin klasörüne konur: assets/urunler/<kategori>/<kod>.jpg (ör. assets/urunler/buket/bkt-110.jpg). Galeri sayfaları node build.mjs ile güncellenir.
 window.BUKETIA_PRODUCTS = [
   {
     id: "romantik-pudra",
@@ -10,7 +11,7 @@ window.BUKETIA_PRODUCTS = [
     categories: ["Buket", "Sevgiliye"],
     price: 1850,
     description: "Pudra tonlarında mevsim çiçekleri ve zarif yeşilliklerle hazırlanan imza buket.",
-    image: "assets/urunler/romantik-pudra-koleksiyon.jpg",
+    image: "assets/urunler/buket/bkt-001-romantik-pudra.jpg",
     imageWidth: 768,
     imageHeight: 1365,
     imagePosition: "center",
@@ -28,7 +29,7 @@ window.BUKETIA_PRODUCTS = [
     categories: ["Buket", "Sevgiliye"],
     price: 2750,
     description: "Kırmızı güller ve bordo dokularla hazırlanan güçlü, modern bir buket.",
-    image: "assets/urunler/ask-kirmizi-koleksiyon.jpg",
+    image: "assets/urunler/buket/bkt-002-ask-kirmizi.jpg",
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
@@ -45,7 +46,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
     description: "Fuşya ambalajda gladiol, krizantem ve güllerle hazırlanan canlı, gösterişli bir buket.",
-    image: "assets/urunler/fusya-ruya.jpg",
+    image: "assets/urunler/buket/bkt-003-fusya-ruya.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -59,7 +60,7 @@ window.BUKETIA_PRODUCTS = [
     categories: ["Buket"],
     price: 1650,
     description: "Açık sarı ve beyaz tonlarıyla iç açan, yumuşak dokulu mevsim buketi.",
-    image: "assets/urunler/iyi-hisset.jpg",
+    image: "assets/urunler/buket/bkt-004-iyi-hisset.jpg",
     tone: "sun",
     badge: "Mevsim seçkisi",
     inStock: true
@@ -72,7 +73,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
     description: "Kırmızı güllerle kalp şeklinde hazırlanan, unutulmaz bir sevgi aranjmanı.",
-    image: "assets/urunler/kirmizi-kalp.jpg",
+    image: "assets/urunler/buket/bkt-005-kirmizi-kalp.jpg",
     tone: "wine",
     badge: "",
     inStock: true
@@ -85,7 +86,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
     description: "Pembe gül, alstroemeria ve lilyumların krem ambalajda buluştuğu romantik bir buket.",
-    image: "assets/urunler/pembe-masal-koleksiyon.jpg",
+    image: "assets/urunler/buket/bkt-006-pembe-masal.jpg",
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
@@ -103,7 +104,7 @@ window.BUKETIA_PRODUCTS = [
     categories: ["Buket"],
     price: 2100,
     description: "Modern kutuda beyaz ve yeşil çiçeklerle hazırlanan kutlama aranjmanı.",
-    image: "assets/urunler/yeni-baslangic.jpg",
+    image: "assets/urunler/buket/bkt-007-yeni-baslangic.jpg",
     tone: "green",
     badge: "Ofise uygun",
     inStock: true
@@ -116,7 +117,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
     description: "Mercan ve krem tonlarında güller, cipsofilyayla birlikte doğal hasır ambalajda.",
-    image: "assets/urunler/mercan-guller.jpg",
+    image: "assets/urunler/buket/bkt-008-mercan-guller.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -130,7 +131,7 @@ window.BUKETIA_PRODUCTS = [
     categories: ["Buket"],
     price: 1950,
     description: "Pastel tonlarda hacimli çiçeklerle hazırlanan neşeli doğum günü aranjmanı.",
-    image: "assets/urunler/pastel-kutlama.jpg",
+    image: "assets/urunler/buket/bkt-009-pastel-kutlama.jpg",
     tone: "lilac",
     badge: "Sınırlı sayıda",
     inStock: true
@@ -143,7 +144,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Özel Aranjman",
     categories: ["Özel Aranjman", "Sevgiliye"],
     description: "Şeffaf kutuda kırmızı güller ve sevdiğinizin ismiyle hazırlanan kişiye özel tasarım.",
-    image: "assets/urunler/isme-ozel-gul-kutusu.jpg",
+    image: "assets/urunler/ozel-aranjman/oar-001-isme-ozel-gul-kutusu.jpg",
     tone: "wine",
     badge: "İsme özel",
     inStock: true
@@ -156,7 +157,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Ayçiçekleri ve turuncu güllerle hazırlanan, yüzleri güldüren bir buket.",
-    image: "assets/urunler/gunesli-gun.jpg",
+    image: "assets/urunler/buket/bkt-010-gunesli-gun.jpg",
     tone: "sun",
     badge: "",
     inStock: true
@@ -169,7 +170,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Beyaz lilyumlar ve pembe güllerle hazırlanan ferah, zarif bir buket.",
-    image: "assets/urunler/beyaz-lilyum.jpg",
+    image: "assets/urunler/buket/bkt-011-beyaz-lilyum.jpg",
     tone: "ivory",
     badge: "",
     inStock: true
@@ -182,7 +183,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Özel Aranjman",
     categories: ["Özel Aranjman"],
     description: "Hasır sepette gerbera, lilyum ve krizantemlerle hazırlanan neşeli bir aranjman.",
-    image: "assets/urunler/bahar-sepeti.jpg",
+    image: "assets/urunler/ozel-aranjman/oar-002-bahar-sepeti.jpg",
     tone: "sun",
     badge: "",
     inStock: true
@@ -195,7 +196,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket", "Sevgiliye"],
     description: "Mor ambalajda pembe güller ve mevsim çiçekleriyle hazırlanan zarif bir buket.",
-    image: "assets/urunler/lavanta-bahcesi.jpg",
+    image: "assets/urunler/buket/bkt-012-lavanta-bahcesi.jpg",
     tone: "lilac",
     badge: "",
     inStock: true
@@ -208,7 +209,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Siyah ve altın ambalajda lilyum ve renkli mevsim çiçekleriyle hazırlanan şık bir buket.",
-    image: "assets/urunler/altin-gece.jpg",
+    image: "assets/urunler/buket/bkt-013-altin-gece.jpg",
     tone: "stone",
     badge: "",
     inStock: true
@@ -221,7 +222,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Lilyum ile mavi ve sarı mevsim çiçeklerinden hazırlanan doğal, renkli bir buket.",
-    image: "assets/urunler/kir-esintisi.jpg",
+    image: "assets/urunler/buket/bkt-014-kir-esintisi.jpg",
     tone: "pearl",
     badge: "",
     inStock: true
@@ -234,7 +235,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Mor ambalajda pembe lilyumlar ve renkli mevsim çiçekleriyle hazırlanan neşeli bir buket.",
-    image: "assets/urunler/mor-melodi.jpg",
+    image: "assets/urunler/buket/bkt-015-mor-melodi.jpg",
     tone: "lilac",
     badge: "",
     inStock: true
@@ -247,7 +248,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Koyu yeşil ambalajda lilyum ve mevsim çiçekleriyle hazırlanan doğal, canlı bir buket.",
-    image: "assets/urunler/orman-buketi.jpg",
+    image: "assets/urunler/buket/bkt-016-orman-buketi.jpg",
     tone: "green",
     badge: "",
     inStock: true
@@ -260,7 +261,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Gri ambalajda lilyum, karanfil ve renkli çiçeklerle hazırlanan modern bir buket.",
-    image: "assets/urunler/gri-zarafet.jpg",
+    image: "assets/urunler/buket/bkt-017-gri-zarafet.jpg",
     tone: "stone",
     badge: "",
     inStock: true
@@ -273,7 +274,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Beyaz ambalajda pembe lilyum ve mevsim çiçekleriyle hazırlanan zarif bir buket.",
-    image: "assets/urunler/beyaz-ruya.jpg",
+    image: "assets/urunler/buket/bkt-018-beyaz-ruya.jpg",
     tone: "ivory",
     badge: "",
     inStock: true
@@ -286,7 +287,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Rengârenk alstroemeria, lilyum ve karanfillerle hazırlanan neşeli bir buket.",
-    image: "assets/urunler/yaz-senligi-koleksiyon.jpg",
+    image: "assets/urunler/buket/bkt-019-yaz-senligi.jpg",
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
@@ -316,7 +317,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Özel Aranjman",
     categories: ["Özel Aranjman"],
     description: "Ortanca, gül ve sarkan amarantlarla hasır sepette hazırlanan bohem bir aranjman.",
-    image: "assets/urunler/bohem-sepet-koleksiyon.jpg",
+    image: "assets/urunler/ozel-aranjman/oar-004-bohem-sepet.jpg",
     imageWidth: 768,
     imageHeight: 1364,
     imagePosition: "center",
@@ -361,7 +362,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Beyaz gerbera ve sarı aslanağzı ile hazırlanan ayaklı çiçek aranjmanı. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-01.jpg",
+    image: "assets/urunler/celenk/clk-001.jpg",
     tone: "stone",
     badge: "",
     inStock: true
@@ -374,7 +375,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Beyaz papatya ve gerbera ile hazırlanan ayaklı çiçek aranjmanı. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-02.jpg",
+    image: "assets/urunler/celenk/clk-002.jpg",
     tone: "sage",
     badge: "",
     inStock: true
@@ -387,7 +388,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Sarı gerbera ve pembe detaylar ile hazırlanan ayaklı çiçek aranjmanı. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-03.jpg",
+    image: "assets/urunler/celenk/clk-003.jpg",
     tone: "sun",
     badge: "",
     inStock: true
@@ -400,7 +401,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Beyaz gerbera ve yeşillikler ile hazırlanan ayaklı çiçek aranjmanı. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-04.jpg",
+    image: "assets/urunler/celenk/clk-004.jpg",
     tone: "pearl",
     badge: "",
     inStock: true
@@ -413,7 +414,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Sarı krizantem ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-05.jpg",
+    image: "assets/urunler/celenk/clk-005.jpg",
     tone: "sun",
     badge: "",
     inStock: true
@@ -426,7 +427,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Sarı ve turuncu gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-06.jpg",
+    image: "assets/urunler/celenk/clk-006.jpg",
     tone: "sun",
     badge: "",
     inStock: true
@@ -439,7 +440,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı ve sarı gerbera ile hazırlanan yuvarlak ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-07.jpg",
+    image: "assets/urunler/celenk/clk-007.jpg",
     tone: "stone",
     badge: "",
     inStock: true
@@ -452,7 +453,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı gerbera ve krem çiçekler ile hazırlanan yuvarlak ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-08.jpg",
+    image: "assets/urunler/celenk/clk-008.jpg",
     tone: "stone",
     badge: "",
     inStock: true
@@ -465,7 +466,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Sarı papatya ve gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-09.jpg",
+    image: "assets/urunler/celenk/clk-009.jpg",
     tone: "sun",
     badge: "",
     inStock: true
@@ -478,7 +479,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı ve beyaz gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-10.jpg",
+    image: "assets/urunler/celenk/clk-010.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -491,7 +492,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Sarı krizantem ile hazırlanan çift katlı ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-11.jpg",
+    image: "assets/urunler/celenk/clk-011.jpg",
     tone: "sun",
     badge: "",
     inStock: true
@@ -504,7 +505,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı karanfil ve beyaz papatya ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-12.jpg",
+    image: "assets/urunler/celenk/clk-012.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -517,7 +518,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-13.jpg",
+    image: "assets/urunler/celenk/clk-013.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -530,7 +531,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Sarı krizantem ve pembe gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-14.jpg",
+    image: "assets/urunler/celenk/clk-014.jpg",
     tone: "sage",
     badge: "",
     inStock: true
@@ -543,7 +544,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı, sarı ve beyaz gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-15.jpg",
+    image: "assets/urunler/celenk/clk-015.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -556,7 +557,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Krem gerbera ve kırmızı detaylar ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-16.jpg",
+    image: "assets/urunler/celenk/clk-016.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -569,7 +570,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Krem gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-17.jpg",
+    image: "assets/urunler/celenk/clk-017.jpg",
     tone: "ivory",
     badge: "",
     inStock: true
@@ -582,7 +583,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Krem gerbera ve papatya ile hazırlanan çift katlı ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-18.jpg",
+    image: "assets/urunler/celenk/clk-018.jpg",
     tone: "ivory",
     badge: "",
     inStock: true
@@ -595,7 +596,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı ve beyaz gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-19.jpg",
+    image: "assets/urunler/celenk/clk-019.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -608,7 +609,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Kırmızı güller ve beyaz papatya ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-20.jpg",
+    image: "assets/urunler/celenk/clk-020.jpg",
     tone: "rose",
     badge: "",
     inStock: true
@@ -621,7 +622,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Çelenk",
     categories: ["Çelenk"],
     description: "Krem papatya ve gerbera ile hazırlanan damla ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    image: "assets/urunler/celenk-21.jpg",
+    image: "assets/urunler/celenk/clk-021.jpg",
     tone: "ivory",
     badge: "",
     inStock: true
@@ -636,7 +637,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-001-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-021.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -655,7 +656,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-002-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-022.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -674,7 +675,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-003-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-023.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -693,7 +694,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-004-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-024.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -712,7 +713,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-006-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-025.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -731,7 +732,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-007-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-026.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -750,7 +751,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-008-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-027.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -769,7 +770,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-009-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-028.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -788,7 +789,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-010-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-029.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -807,7 +808,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-011-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-030.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -826,7 +827,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-012-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-031.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -845,7 +846,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-013-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-032.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -864,7 +865,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-014-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-033.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -883,7 +884,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-015-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-034.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -902,7 +903,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-016-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-035.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -921,7 +922,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-017-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-036.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -940,7 +941,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-018-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-037.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -959,7 +960,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-019-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-038.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -978,7 +979,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-020-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-039.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -997,7 +998,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-021-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-040.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1016,7 +1017,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-022-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-041.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1035,7 +1036,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-023-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-042.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1054,7 +1055,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-024-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-043.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1073,7 +1074,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-025-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-044.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1092,7 +1093,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-026-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-045.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1111,7 +1112,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-027-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-046.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1130,7 +1131,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-028-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-047.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1149,7 +1150,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-029-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-048.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1168,7 +1169,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-030-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-049.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1187,7 +1188,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-031-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-050.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -1206,7 +1207,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-032-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-051.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1225,7 +1226,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-033-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-052.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1244,7 +1245,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-034-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-053.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -1263,7 +1264,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-035-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-054.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1282,7 +1283,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-036-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-055.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1301,7 +1302,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-038-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-056.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -1320,7 +1321,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-039-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-057.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1339,7 +1340,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-040-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-058.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1358,7 +1359,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-041-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-059.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1377,7 +1378,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-042-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-060.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1396,7 +1397,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-043-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-061.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1415,7 +1416,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-044-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-062.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -1434,7 +1435,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-045-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-063.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1453,7 +1454,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-046-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-064.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1472,7 +1473,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-047-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-065.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1491,7 +1492,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-048-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-066.jpg",
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
@@ -1510,7 +1511,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-049-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-067.jpg",
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
@@ -1529,7 +1530,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-050-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-068.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1548,7 +1549,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-051-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-069.jpg",
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
@@ -1567,7 +1568,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-052-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-070.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1586,7 +1587,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-053-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-071.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1605,7 +1606,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-054-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-072.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1624,7 +1625,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-055-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-073.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1643,7 +1644,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-056-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-074.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1662,7 +1663,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-057-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-075.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1681,7 +1682,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-058-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-076.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1700,7 +1701,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-059-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-077.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1719,7 +1720,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-060-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-078.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1738,7 +1739,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-061-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-079.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1757,7 +1758,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-062-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-080.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1776,7 +1777,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-063-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-081.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1795,7 +1796,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-064-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-082.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -1814,7 +1815,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-065-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-083.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1833,7 +1834,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-066-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-084.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -1852,7 +1853,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-067-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-085.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1871,7 +1872,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-068-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-086.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1890,7 +1891,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-069-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-087.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1909,7 +1910,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-070-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-088.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1928,7 +1929,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-071-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-089.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1947,7 +1948,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-072-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-090.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -1966,7 +1967,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-073-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-091.jpg",
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
@@ -1985,7 +1986,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-074-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-092.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2004,7 +2005,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-075-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-093.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2023,7 +2024,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-076-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-094.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -2042,7 +2043,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-077-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-095.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2061,7 +2062,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-078-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-096.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2080,7 +2081,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-079-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-097.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -2099,7 +2100,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-080-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-098.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2118,7 +2119,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-081-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-099.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2137,7 +2138,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-082-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-100.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2156,7 +2157,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-083-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-101.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2175,7 +2176,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-084-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-102.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2194,7 +2195,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-085-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-103.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2213,7 +2214,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-086-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-104.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2232,7 +2233,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-087-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-105.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2251,7 +2252,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-088-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-106.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -2270,7 +2271,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-089-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-107.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2289,7 +2290,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-090-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-108.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2308,7 +2309,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Buketia Flower buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/buket-091-koleksiyon.jpg",
+    "image": "assets/urunler/buket/bkt-109.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2327,7 +2328,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-001-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-001.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2346,7 +2347,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-002-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-002.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2365,7 +2366,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-003-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-003.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2384,7 +2385,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-004-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-004.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -2403,7 +2404,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-005-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-005.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2422,7 +2423,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-006-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-006.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2441,7 +2442,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-007-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-007.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2460,7 +2461,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-008-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-008.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2479,7 +2480,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-009-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-009.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2498,7 +2499,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-010-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-010.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2517,7 +2518,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Buketia Flower sevgiliye koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/sevgiliye-011-koleksiyon.jpg",
+    "image": "assets/urunler/sevgiliye/svg-011.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2536,7 +2537,7 @@ window.BUKETIA_PRODUCTS = [
       "Yeni Doğum"
     ],
     "description": "Buketia Flower yeni doğum koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yeni-dogum-001-koleksiyon.jpg",
+    "image": "assets/urunler/yeni-dogum/ydg-001.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2555,7 +2556,7 @@ window.BUKETIA_PRODUCTS = [
       "Yeni Doğum"
     ],
     "description": "Buketia Flower yeni doğum koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yeni-dogum-002-koleksiyon.jpg",
+    "image": "assets/urunler/yeni-dogum/ydg-002.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2574,7 +2575,7 @@ window.BUKETIA_PRODUCTS = [
       "Yeni Doğum"
     ],
     "description": "Buketia Flower yeni doğum koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yeni-dogum-003-koleksiyon.jpg",
+    "image": "assets/urunler/yeni-dogum/ydg-003.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2593,7 +2594,7 @@ window.BUKETIA_PRODUCTS = [
       "Yeni Doğum"
     ],
     "description": "Buketia Flower yeni doğum koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yeni-dogum-004-koleksiyon.jpg",
+    "image": "assets/urunler/yeni-dogum/ydg-004.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2612,7 +2613,7 @@ window.BUKETIA_PRODUCTS = [
       "Yeni Doğum"
     ],
     "description": "Buketia Flower yeni doğum koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yeni-dogum-005-koleksiyon.jpg",
+    "image": "assets/urunler/yeni-dogum/ydg-005.jpg",
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
@@ -2631,7 +2632,7 @@ window.BUKETIA_PRODUCTS = [
       "Orkide"
     ],
     "description": "Buketia Flower orkide koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/orkide-001-koleksiyon.jpg",
+    "image": "assets/urunler/orkide/ork-002.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2650,7 +2651,7 @@ window.BUKETIA_PRODUCTS = [
       "Orkide"
     ],
     "description": "Buketia Flower orkide koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/orkide-002-koleksiyon.jpg",
+    "image": "assets/urunler/orkide/ork-003.jpg",
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
@@ -2669,7 +2670,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-001-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-005.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2688,7 +2689,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-002-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-006.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -2707,7 +2708,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-003-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-007.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2726,7 +2727,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-004-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-008.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2745,7 +2746,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-006-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-009.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2764,7 +2765,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-007-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-010.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -2783,7 +2784,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-008-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-011.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2802,7 +2803,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-009-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-012.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2821,7 +2822,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-010-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-013.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2840,7 +2841,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-011-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-014.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2859,7 +2860,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-012-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-015.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2878,7 +2879,7 @@ window.BUKETIA_PRODUCTS = [
       "Özel Aranjman"
     ],
     "description": "Buketia Flower özel aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/ozel-aranjman-013-koleksiyon.jpg",
+    "image": "assets/urunler/ozel-aranjman/oar-016.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2897,7 +2898,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-001-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-001.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2916,7 +2917,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-002-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-002.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2935,7 +2936,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-003-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-003.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2954,7 +2955,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-004-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-004.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2973,7 +2974,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-005-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-005.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -2992,7 +2993,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-006-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-006.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3011,7 +3012,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-007-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-007.jpg",
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
@@ -3030,7 +3031,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-008-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-008.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3049,7 +3050,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-009-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-009.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3068,7 +3069,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-011-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-010.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3087,7 +3088,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-012-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-011.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3106,7 +3107,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-013-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-012.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3125,7 +3126,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-014-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-013.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3144,7 +3145,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-015-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-014.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3163,7 +3164,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-016-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-015.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3182,7 +3183,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-017-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-016.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3201,7 +3202,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-018-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-017.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3220,7 +3221,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-019-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-018.jpg",
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
@@ -3239,7 +3240,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-020-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-019.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3258,7 +3259,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-021-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-020.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3277,7 +3278,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-022-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-021.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3296,7 +3297,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-023-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-022.jpg",
     "imageWidth": 768,
     "imageHeight": 1365,
     "imagePosition": "center",
@@ -3315,7 +3316,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-024-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-023.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3334,7 +3335,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-025-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-024.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3353,7 +3354,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-026-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-025.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3372,7 +3373,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Buketia Flower yapay buket koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-buket-027-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-buket/ybk-026.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3391,7 +3392,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-001-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-001.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3410,7 +3411,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-002-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-002.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3429,7 +3430,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-003-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-003.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3448,7 +3449,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-004-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-004.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3467,7 +3468,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-005-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-005.jpg",
     "imageWidth": 768,
     "imageHeight": 1363,
     "imagePosition": "center",
@@ -3486,7 +3487,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-006-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-006.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3505,7 +3506,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-007-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-007.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3524,7 +3525,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-008-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-008.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3543,7 +3544,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-009-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-009.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3562,7 +3563,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-010-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-010.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3581,7 +3582,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-011-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-011.jpg",
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
@@ -3600,7 +3601,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-012-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-012.jpg",
     "imageWidth": 768,
     "imageHeight": 1362,
     "imagePosition": "center",
@@ -3619,7 +3620,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-013-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-013.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3638,7 +3639,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Aranjman"
     ],
     "description": "Buketia Flower yapay aranjman koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/yapay-aranjman-014-koleksiyon.jpg",
+    "image": "assets/urunler/yapay-aranjman/yar-014.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center",
@@ -3657,7 +3658,7 @@ window.BUKETIA_PRODUCTS = [
       "İsteme Çiçekleri & Çikolataları"
     ],
     "description": "Buketia Flower isteme çiçekleri ve çikolataları koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/isteme-cikolata-001-koleksiyon.jpg",
+    "image": "assets/urunler/isteme-cicek-cikolata/ist-001.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center bottom",
@@ -3676,7 +3677,7 @@ window.BUKETIA_PRODUCTS = [
       "İsteme Çiçekleri & Çikolataları"
     ],
     "description": "Buketia Flower isteme çiçekleri ve çikolataları koleksiyonundan bir tasarım. Sipariş ve teslimat ayrıntıları WhatsApp üzerinden netleştirilir.",
-    "image": "assets/urunler/isteme-cikolata-002-koleksiyon.jpg",
+    "image": "assets/urunler/isteme-cicek-cikolata/ist-002.jpg",
     "imageWidth": 768,
     "imageHeight": 1364,
     "imagePosition": "center bottom",
