@@ -223,6 +223,7 @@ function productPage(item, index, group) {
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
     <script src="/language.js?v=20261009a"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${headShared}
@@ -321,6 +322,7 @@ function areaPage(area) {
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
     <script src="/language.js?v=20261009a"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${headShared}
