@@ -50,18 +50,28 @@
   const normalizeSearch = (value) => value.toLocaleLowerCase("tr-TR").normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "").replace(/ı/g, "i")
     .replace(/[^\p{L}\p{N}]+/gu, " ").trim();
-  function matchesSearch(product, query) {
+  // Eşleşme puanı: 2 = kod veya ürün adı, 1 = açıklama, kategori ya da etiketler (çiçek, renk, özel gün), 0 = eşleşme yok.
+  // Kalıp açıklamalar ("... koleksiyonundan bir tasarım") aramaya katılmaz.
+  function matchScore(product, query) {
     const normalized = normalizeSearch(query);
-    if (!normalized) return false;
+    if (!normalized) return 0;
     const compact = normalized.replace(/\s/g, "");
     const codeQuery = compact.match(/^([a-z]{3})(\d{1,3})$/);
-    if (codeQuery) return product.code === `${codeQuery[1].toUpperCase()}-${codeQuery[2].padStart(3, "0")}`;
+    if (codeQuery) return product.code === `${codeQuery[1].toUpperCase()}-${codeQuery[2].padStart(3, "0")}` ? 2 : 0;
     const terms = normalized.split(/\s+/).filter(Boolean);
-    const names = [product.code, product.name, ...(product.searchNames || [])];
-    return names.some((name) => {
-      const candidate = normalizeSearch(name);
+    const matches = (text) => {
+      const candidate = normalizeSearch(text);
       return terms.every((term) => candidate.includes(term)) || candidate.replace(/\s/g, "").includes(compact);
-    });
+    };
+    if ([product.code, product.name, ...(product.searchNames || [])].some(matches)) return 2;
+    const ownDescription = (text) => (text && !genericDescription.test(text) ? [text] : []);
+    const translated = t.products[product.id] || {};
+    const details = [
+      ...ownDescription(product.description), ...ownDescription(translated.description),
+      ...product.categories, ...product.categories.map((c) => t.categories[c] || ""),
+      ...(product.flowers || []), ...(product.colors || []), ...(product.occasions || []), product.presentation || ""
+    ].join(" ");
+    return matches(details) ? 1 : 0;
   }
   // Alt sayfalarda (/en/ vb.) ürün görselleri bir üst klasördedir.
   const assetBase = document.documentElement.dataset.assetBase || "";
@@ -70,7 +80,10 @@
 
   const money = new Intl.NumberFormat(t.locale, { style: "currency", currency: "TRY", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 });
 
-  const visualMarkup = (product) => product.image
+  // "Bize Bırak"ın fotoğrafı yok; telefondaki küçük yuvarlak alanda yazı yerine Buketia simgesi görünür.
+  const visualMarkup = (product) => product.custom && !product.image
+    ? `<img src="${assetBase}assets/buketia-symbol.svg?v=3" alt="" width="44" height="44" />`
+    : product.image
     ? `<img src="${assetBase}${product.image}" alt="${(product.alt || product.name).replace(/"/g, "&quot;")}" loading="lazy" decoding="async" width="${product.imageWidth || 675}" height="${product.imageHeight || 900}"${product.imageFit ? ` style="min-width: 0; min-height: 0; object-fit: ${product.imageFit}; object-position: ${product.imagePosition || "center"}"` : ""} />`
     : `<span>${t.imagePending}</span>`;
 
@@ -102,9 +115,12 @@
     currentCategory = category;
     const keys = category.split(",");
     const query = searchInput.value.trim();
-    const visible = query ? products.filter((p) => matchesSearch(p, query))
+    const visible = query ? products.map((p) => [p, matchScore(p, query)]).filter(([, score]) => score).sort((a, b) => b[1] - a[1]).map(([p]) => p)
       : category === "Tümü" ? products.filter((p) => p.image && !p.categories.includes("Çelenk")) : products.filter((p) => keys.some((k) => p.categories.includes(k)));
-    grid.innerHTML = visible.length ? visible.map(productCard).join("") : `<p class="empty-note">${query ? t.searchEmpty : t.empty}</p>`;
+    const askLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t.searchAsk(query))}`;
+    grid.innerHTML = visible.length ? visible.map(productCard).join("")
+      : query ? `<p class="empty-note">${t.searchEmpty} <a href="${askLink}" target="_blank" rel="noopener noreferrer">${t.searchAskLink}</a></p>`
+      : `<p class="empty-note">${t.empty}</p>`;
     // "Bize Bırak" buket seçeneğidir; Çelenk kategorisinde gösterilmez.
     setShown(document.querySelector("[data-open-choice]"), !query && category !== "Çelenk");
     searchClear.hidden = !searchInput.value;
@@ -175,10 +191,28 @@
   stepNext.className = "step-next";
   stepNext.textContent = `${t.next} →`;
   form.append(stepNext);
+  const sentNotice = document.createElement("p");
+  sentNotice.className = "sent-notice";
+  sentNotice.setAttribute("role", "status");
+  sentNotice.hidden = true;
+  form.querySelector(".whatsapp-button").after(sentNotice);
   let step = 0;
+
+  // Telefon: en az 10 rakam; yalnız rakam, boşluk, +, -, ( ). Yurt dışı numaralar (+49 ...) da geçer.
+  ["recipientPhone", "customerPhone"].forEach((name) => {
+    const input = form.elements[name];
+    const check = () => {
+      const value = input.value.trim();
+      const ok = !value || (/^[0-9+()\s-]+$/.test(value) && value.replace(/\D/g, "").length >= 10);
+      input.setCustomValidity(ok ? "" : t.phoneInvalid);
+    };
+    input.addEventListener("input", check);
+    check();
+  });
 
   function setStep(next) {
     step = next;
+    sentNotice.hidden = true;
     dialog.dataset.step = String(step);
     dialog.classList.toggle("is-ordering", step > 0);
     if (step > 0) {
@@ -350,10 +384,12 @@
     if (!cartIds.length) return;
     cartDialog.close();
     openProduct(cartProduct());
+    setStep(1);
   });
 
   function openProduct(product) {
     setProduct(product);
+    syncTimeSlots();
     if (!dialog.open) dialog.showModal();
     setStep(product.custom ? 1 : 0);
     // Açık ürünün bağlantısı adreste görünür (#BKT-001); kopyalanıp paylaşılabilir.
@@ -361,10 +397,13 @@
   }
 
   // Ürün bağlantısı: adres çubuğundaki #BKT-001 gibi bir kod, sayfa açılınca o ürünün penceresini açar.
+  // #BKT-001-siparis (ürün sayfasındaki "Sipariş oluştur") pencereyi doğrudan sipariş formunda açar.
   const productByCode = new Map(products.filter((product) => product.code).map((product) => [product.code.toLowerCase(), product]));
-  const hashProduct = () => {
-    try { return productByCode.get(decodeURIComponent(location.hash.slice(1)).toLowerCase()); } catch { return undefined; }
+  const orderSuffix = /-siparis$/;
+  const hashCode = () => {
+    try { return decodeURIComponent(location.hash.slice(1)).toLowerCase(); } catch { return ""; }
   };
+  const hashProduct = () => productByCode.get(hashCode().replace(orderSuffix, ""));
   function setProductHash(code) {
     try { history.replaceState(null, "", code ? `#${code}` : `${location.pathname}${location.search}`); } catch {}
   }
@@ -535,24 +574,56 @@
       return;
     }
     error.textContent = "";
-    const message = buildMessage(orderData());
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(buildMessage(orderData()))}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    // Sipariş, müşteri WhatsApp'ta Gönder'e dokunana kadar bize ulaşmaz; bunu hatırlat, WhatsApp açılmadıysa yedek bağlantı ver.
+    sentNotice.innerHTML = `<strong>${t.sentNotice}</strong> <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">${t.sentFallback}</a>`;
+    sentNotice.hidden = false;
+    if (activeProduct?.cart) { cartIds = []; syncCart(); }
   });
 
+  // Saatler her zaman dükkânın saatine (İstanbul) göre hesaplanır; ziyaretçi yurt dışında olsa da.
+  function istanbulNow() {
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Istanbul", year: "numeric", month: "2-digit", day: "2-digit", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+    }).formatToParts(new Date()).map((part) => [part.type, part.value]));
+    return { date: `${parts.year}-${parts.month}-${parts.day}`, weekday: parts.weekday, minutes: Number(parts.hour) * 60 + Number(parts.minute) };
+  }
+  const addDays = (iso, days) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return new Date(Date.UTC(y, m - 1, d + days)).toISOString().slice(0, 10);
+  };
+  const closingMinutes = (weekday) => (weekday === "Sun" ? 20 * 60 : 20 * 60 + 30);
+
   const dateInput = form.elements.deliveryDate;
-  const today = new Date();
-  const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-  dateInput.min = localToday;
-  dateInput.value = localToday;
-  document.querySelector("#year").textContent = String(today.getFullYear());
+  const now = istanbulNow();
+  dateInput.min = now.date;
+  // Dükkân kapandıktan sonra açılan formda tarih yarına gelir (bugün hâlâ seçilebilir).
+  dateInput.value = now.minutes >= closingMinutes(now.weekday) ? addDays(now.date, 1) : now.date;
+  document.querySelector("#year").textContent = now.date.slice(0, 4);
+
+  // Bugün için bitiş saati geçmiş teslimat aralıkları seçilemez; "Özel" her zaman açıktır.
+  function syncTimeSlots() {
+    const current = istanbulNow();
+    const isToday = dateInput.value === current.date;
+    for (const option of deliveryTimeSelect.options) {
+      if (!option.value || option.value === "custom") continue;
+      const end = option.value.match(/(\d{1,2})[.:](\d{2})\s*$/);
+      option.disabled = Boolean(isToday && end && Number(end[1]) * 60 + Number(end[2]) <= current.minutes);
+    }
+    if (deliveryTimeSelect.selectedOptions[0]?.disabled) {
+      deliveryTimeSelect.value = "";
+      syncCustomDeliveryTime();
+    }
+  }
+  dateInput.addEventListener("change", syncTimeSlots);
+  syncTimeSlots();
 
   function updateOpenStatus() {
     const status = document.querySelector("[data-open-status]");
     if (!status) return;
-    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Istanbul", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
-    }).formatToParts(new Date()).map((part) => [part.type, part.value]));
-    const minutes = Number(parts.hour) * 60 + Number(parts.minute);
+    const { weekday, minutes } = istanbulNow();
+    const parts = { weekday };
     const isSunday = parts.weekday === "Sun";
     const opens = isSunday ? 9 * 60 : 8 * 60 + 30;
     const closes = isSunday ? 20 * 60 : 20 * 60 + 30;
@@ -620,7 +691,13 @@
   syncCart();
   render();
   registerWebMcp();
-  const openFromHash = () => { const product = hashProduct(); if (product) openProduct(product); };
+  const openFromHash = () => {
+    const product = hashProduct();
+    if (!product) return;
+    const wantsOrder = orderSuffix.test(hashCode());
+    openProduct(product);
+    if (wantsOrder) setStep(1);
+  };
   openFromHash();
   window.addEventListener("hashchange", openFromHash);
 })();

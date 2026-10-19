@@ -19,6 +19,7 @@ const pages = ["index.html", "en/index.html", "ru/index.html", "de/index.html"];
 const localPage = "seferihisar-cicekci/index.html";
 const genericDescription = /koleksiyonundan bir tasarım/;
 const escapeHtml = (value) => String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const capitalize = (text) => text.replace(/^./, (c) => c.toLocaleUpperCase("tr-TR"));
 const productPath = (product) => `urun/${product.code.toLowerCase()}/`;
 const today = new Date().toISOString().slice(0, 10);
 
@@ -33,10 +34,41 @@ function translate(t, lang, product) {
   return merged;
 }
 
-function card(t, lang, assetBase, item) {
+// Fotoğraf boyutu: products.js'te yazılıysa o, yoksa JPEG/PNG dosyasının başlığından okunur, okunamazsa 675x900.
+const sizeCache = new Map();
+function imageSize(file) {
+  if (sizeCache.has(file)) return sizeCache.get(file);
+  let size = null;
+  try {
+    const data = readFileSync(file);
+    if (data[0] === 0x89 && data.toString("ascii", 1, 4) === "PNG") size = { width: data.readUInt32BE(16), height: data.readUInt32BE(20) };
+    else if (data[0] === 0xff && data[1] === 0xd8) {
+      for (let i = 2; i + 9 < data.length; ) {
+        if (data[i] !== 0xff) { i++; continue; }
+        const marker = data[i + 1];
+        if (marker === 0xd8 || marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) { i += 2; continue; }
+        if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) { size = { width: data.readUInt16BE(i + 7), height: data.readUInt16BE(i + 5) }; break; }
+        i += 2 + data.readUInt16BE(i + 2);
+      }
+    }
+  } catch {}
+  sizeCache.set(file, size);
+  return size;
+}
+const dims = (item) => {
+  if (item.imageWidth && item.imageHeight) return { width: item.imageWidth, height: item.imageHeight };
+  return (item.image && imageSize(item.image)) || { width: 675, height: 900 };
+};
+
+// deferImage: fotoğraf data-src ile basılır, urun.js ana fotoğraf yüklenince başlatır (JS kapalıysa noscript yedeği).
+function card(t, lang, assetBase, item, { deferImage = false } = {}) {
   const product = translate(t, lang, item);
+  const { width, height } = dims(item);
   const style = product.imageFit ? ` style="min-width: 0; min-height: 0; object-fit: ${product.imageFit}; object-position: ${product.imagePosition || "center"}"` : "";
-  const visual = `<img src="${assetBase}${product.image}" alt="${escapeHtml(product.alt)}" loading="lazy" decoding="async" width="${product.imageWidth || 675}" height="${product.imageHeight || 900}"${style} />`;
+  const attrs = `alt="${escapeHtml(product.alt)}" loading="lazy" decoding="async" width="${width}" height="${height}"${style}`;
+  const visual = deferImage
+    ? `<img data-src="${assetBase}${product.image}" ${attrs} /><noscript><img src="${assetBase}${product.image}" ${attrs} /></noscript>`
+    : `<img src="${assetBase}${product.image}" ${attrs} />`;
   return `<article class="product-card">
       <a class="product-button" href="/${productPath(product)}" data-product="${product.id}" aria-label="${escapeHtml(t.viewProduct(product.name))}">
         <div class="product-visual tone-${product.tone}">
@@ -209,13 +241,37 @@ const imageObject = (id, item, caption) => ({
   "@id": id,
   contentUrl: `${siteUrl}${item.image}`,
   url: `${siteUrl}${item.image}`,
-  width: item.imageWidth || 675,
-  height: item.imageHeight || 900,
+  ...dims(item),
   caption,
   creator: { "@type": "Organization", name: "Buketia Flower", url: siteUrl },
   creditText: "Buketia Flower",
   copyrightNotice: "© Buketia Flower"
 });
+
+// Ürün özellikleri listesi: products.js'teki etiketlerden (fotoğraflara bakılarak yazıldı). Etiketi olmayan satır basılmaz.
+const occasionLabels = {
+  "sevgiliye": ["Sevgiliye", "/sevgiliye-cicek-seferihisar/"], "yildonumu": ["Yıl dönümü"], "dogum-gunu": ["Doğum günü"],
+  "gecmis-olsun": ["Geçmiş olsun"], "yeni-dogan": ["Yeni doğan"], "tebrik-kutlama": ["Tebrik ve kutlama"], "acilis": ["Açılış", "/seferihisar-celenk/"],
+  "cenaze-taziye": ["Cenaze ve taziye", "/seferihisar-celenk/"], "ogretmenler-gunu": ["Öğretmenler Günü"], "anneler-gunu": ["Anneler Günü"],
+  "isteme-soz-nisan": ["İsteme, söz, nişan"], "dugun-gelin": ["Düğün"], "tesekkur": ["Teşekkür"], "ozur": ["Özür"], "yilbasi": ["Yılbaşı"], "ev-ofis-dekorasyon": ["Ev ve ofis"]
+};
+const sizeLabels = { kucuk: "Küçük boy", orta: "Orta boy", buyuk: "Büyük boy" };
+function productSpecs(item) {
+  const list = (values) => capitalize(values.join(", "));
+  const rows = [
+    ["Çiçekler", item.flowers?.length ? escapeHtml(list(item.flowers)) : ""],
+    ["Renkler", item.colors?.length ? escapeHtml(list(item.colors)) : ""],
+    ["Sunum", item.presentation && item.presentation !== "diğer" ? escapeHtml(capitalize(item.presentation)) : ""],
+    ["Boyut", sizeLabels[item.size] || ""],
+    ["Çiçek türü", item.categories.some((c) => c.startsWith("Yapay")) ? "Yapay çiçek" : ""],
+    ["Uygun olduğu günler", (item.occasions || []).filter((o) => occasionLabels[o]).map((o) => {
+      const [label, href] = occasionLabels[o];
+      return href ? `<a href="${href}">${label}</a>` : label;
+    }).join(", ")]
+  ].filter(([, value]) => value);
+  return rows.length ? `
+          <dl class="product-specs">${rows.map(([key, value]) => `<div><dt>${key}</dt><dd>${value}</dd></div>`).join("")}</dl>` : "";
+}
 
 function productPage(item, index, group) {
   const product = translate(t, "tr", item);
@@ -281,8 +337,8 @@ function productPage(item, index, group) {
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:image" content="${image}" />
-    <meta property="og:image:width" content="${item.imageWidth || 675}" />
-    <meta property="og:image:height" content="${item.imageHeight || 900}" />
+    <meta property="og:image:width" content="${dims(item).width}" />
+    <meta property="og:image:height" content="${dims(item).height}" />
     <meta property="og:image:alt" content="${escapeHtml(product.alt)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">${JSON.stringify(schema)}</script>
@@ -293,15 +349,15 @@ function productPage(item, index, group) {
       <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/#catalog">Katalog</a><span aria-hidden="true">/</span>${categoryPage ? `<a href="/${categoryPage.slug}/">${escapeHtml(product.category)}</a>` : `<span aria-current="page">${escapeHtml(product.category)}</span>`}</nav>
       <article class="product-detail" aria-labelledby="product-title">
         <div class="product-detail-visual">
-          <img src="/${item.image}" alt="${escapeHtml(product.alt)}" fetchpriority="high" decoding="async" width="${item.imageWidth || 675}" height="${item.imageHeight || 900}" />
+          <img src="/${item.image}" alt="${escapeHtml(product.alt)}" fetchpriority="high" decoding="async" width="${dims(item).width}" height="${dims(item).height}" />
         </div>
         <div class="product-detail-info">
           <p class="eyebrow">${escapeHtml(product.category)} · Seferihisar / İzmir</p>
           <h1 id="product-title">${escapeHtml(product.seoName)}</h1>
           <p class="product-detail-code">Ürün kodu: ${code}</p>
-          <p class="seo-lead">${escapeHtml(product.description)}</p>
+          <p class="seo-lead">${escapeHtml(product.description)}</p>${productSpecs(item)}
           <div class="seo-actions">
-            <a class="seo-button" href="/#${code}">${t.orderStart} <span aria-hidden="true">↗</span></a>
+            <a class="seo-button" href="/#${code}-siparis">${t.orderStart} <span aria-hidden="true">↗</span></a>
             <a class="seo-button seo-button-secondary" href="${whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp’tan sor <span aria-hidden="true">↗</span></a>
           </div>
           <p class="product-detail-note">Buketia Flower, Seferihisar Camikebir’de hazırlar. Teslimat tarihi, adres ve kart notunu sipariş sırasında WhatsApp üzerinden birlikte netleştiririz. ${t.priceNote}</p>
@@ -311,10 +367,16 @@ ${related.length ? `
       <section class="seo-section" aria-labelledby="related-title">
         <p class="eyebrow">${escapeHtml(product.category)}</p>
         <h2 id="related-title">Benzer tasarımlar</h2>
-        <div class="product-grid">${related.map((p) => card(t, "tr", "/", p)).join("\n")}</div>
+        <div class="product-grid">${related.map((p) => card(t, "tr", "/", p, { deferImage: true })).join("\n")}</div>
         <div class="seo-actions">${categoryPage ? `<a class="seo-button" href="/${categoryPage.slug}/">${escapeHtml(categoryPage.heading.replace(/^./, (c) => c.toLocaleUpperCase("tr-TR")))}: tüm tasarımlar <span aria-hidden="true">↗</span></a>` : ""}<a class="seo-button seo-button-secondary" href="/#catalog">Tüm kataloğu incele <span aria-hidden="true">↗</span></a></div>
       </section>
-` : ""}    </main>${footer}</body>
+` : ""}    </main>
+    <div class="product-sticky-order">
+      <a class="seo-button" href="/#${code}-siparis">${t.orderStart}</a>
+      <a class="sticky-wa" href="${whatsapp}" target="_blank" rel="noopener noreferrer" aria-label="${code} için WhatsApp’tan sor"><span class="whatsapp-dot" aria-hidden="true"></span>WhatsApp</a>
+    </div>${footer.replace('<a class="wa-float" href="https://wa.me/905524072817"', `<a class="wa-float" href="${whatsapp}"`)}
+    <script src="/urun.js?v=20261019a" defer></script>
+  </body>
 </html>
 `;
 }
@@ -466,7 +528,6 @@ console.log(`${areas.length} bölge sayfası`);
 
 // Kategori sayfaları: bir kategorideki tüm ürünler, kategoriye özel metin ve sık sorulanlar.
 const csp = `<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />`;
-const capitalize = (text) => text.replace(/^./, (c) => c.toLocaleUpperCase("tr-TR"));
 function categoryPage(category) {
   const url = `${siteUrl}${category.slug}/`;
   const items = productsWithImage.filter((p) => category.match.some((key) => p.categories.includes(key)));
@@ -508,8 +569,8 @@ function categoryPage(category) {
     <meta property="og:title" content="${escapeHtml(category.title)}" />
     <meta property="og:description" content="${escapeHtml(category.description)}" />
     <meta property="og:image" content="${siteUrl}${cover.image}" />
-    <meta property="og:image:width" content="${cover.imageWidth || 675}" />
-    <meta property="og:image:height" content="${cover.imageHeight || 900}" />
+    <meta property="og:image:width" content="${dims(cover).width}" />
+    <meta property="og:image:height" content="${dims(cover).height}" />
     <meta property="og:image:alt" content="${escapeHtml(translate(t, "tr", cover).alt)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">${JSON.stringify(schema)}</script>
