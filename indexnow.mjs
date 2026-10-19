@@ -7,7 +7,8 @@ import { existsSync, readFileSync, rmSync } from "node:fs";
 const key = "427b84f43d7115aee0501227c475e861";
 const host = "buketiaflower.com";
 const pendingFile = ".indexnow-bekleyen.json";
-const urlList = existsSync(pendingFile) ? JSON.parse(readFileSync(pendingFile, "utf8")) : [];
+// 404 sayfası dizine eklenmez, bildirilmez.
+const urlList = (existsSync(pendingFile) ? JSON.parse(readFileSync(pendingFile, "utf8")) : []).filter((url) => !url.endsWith("/404.html"));
 if (!urlList.length) {
   console.log("Bildirilecek adres yok.");
   process.exit(0);
