@@ -45,6 +45,17 @@
     product: "Item", productCode: "Product code", budget: "Budget", delivery: "Delivery", recipient: "Recipient", recipientPhone: "Recipient’s phone", address: "Address",
     courier: "Courier fee: to be set by Buketia", card: "Card message", customer: "Ordered by", phone: "Phone"
   },
+  cardIdeasTitle: "Need an idea?",
+  cardIdeas: {
+    "ogretmenler-gunu": { label: "Teachers’ Day", notes: ["Thank you for your patience and care. Happy Teachers’ Day!", "So glad you are my teacher. Thank you for everything you taught me."] },
+    "dogum-gunu": { label: "Birthday", notes: ["Happy birthday! May your new year bring you lovely things.", "So glad you were born. Wishing you many happy returns!"] },
+    sevgiliye: { label: "Love", notes: ["Every day is better with you. I love you.", "Thinking of you, always."] },
+    "gecmis-olsun": { label: "Get well", notes: ["Get well soon! We can’t wait to see you back on your feet.", "Rest and take good care of yourself. We’re always here for you."] },
+    "yeni-dogan": { label: "New baby", notes: ["Welcome to the world, little one! Congratulations to the proud parents.", "Wishing your new baby a healthy and happy life."] },
+    "tebrik-kutlama": { label: "Congratulations", notes: ["Congratulations! You truly deserve this.", "Wishing you every success in your new venture."] },
+    "cenaze-taziye": { label: "Sympathy", notes: ["With deepest sympathy. We share your sorrow.", "Our thoughts are with you on this difficult day."] },
+    tesekkur: { label: "Thank you", notes: ["Thank you for everything. I’m so glad to have you.", "A small thank you, with lots of love."] }
+  },
   categories: {
     "Yapay Buket": "Faux Bouquets",
     "Yapay Aranjman": "Faux Arrangements",

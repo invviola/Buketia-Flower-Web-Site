@@ -45,6 +45,17 @@
     product: "Artikel", productCode: "Artikelnummer", budget: "Budget", delivery: "Lieferung", recipient: "Empfänger", recipientPhone: "Telefon des Empfängers", address: "Adresse",
     courier: "Kuriergebühr: wird von Buketia festgelegt", card: "Kartentext", customer: "Besteller", phone: "Telefon"
   },
+  cardIdeasTitle: "Brauchen Sie eine Idee?",
+  cardIdeas: {
+    "ogretmenler-gunu": { label: "Lehrertag", notes: ["Danke für Ihre Geduld und Mühe. Alles Gute zum Lehrertag!", "Schön, dass Sie meine Lehrerin / mein Lehrer sind. Danke für alles!"] },
+    "dogum-gunu": { label: "Geburtstag", notes: ["Alles Gute zum Geburtstag! Möge dein neues Lebensjahr viel Schönes bringen.", "Schön, dass es dich gibt. Herzlichen Glückwunsch!"] },
+    sevgiliye: { label: "Liebe", notes: ["Mit dir ist jeder Tag schöner. Ich liebe dich.", "Ich denke an dich, immer."] },
+    "gecmis-olsun": { label: "Gute Besserung", notes: ["Gute Besserung! Wir freuen uns, dich bald wiederzusehen.", "Ruh dich aus und pass gut auf dich auf. Wir sind für dich da."] },
+    "yeni-dogan": { label: "Baby", notes: ["Willkommen auf der Welt, kleiner Schatz! Herzlichen Glückwunsch an die Eltern.", "Wir wünschen eurem Baby ein gesundes und glückliches Leben."] },
+    "tebrik-kutlama": { label: "Glückwunsch", notes: ["Herzlichen Glückwunsch! Das hast du dir verdient.", "Viel Erfolg und Glück im neuen Geschäft!"] },
+    "cenaze-taziye": { label: "Trauer", notes: ["Mit aufrichtiger Anteilnahme.", "In diesen schweren Tagen sind wir in Gedanken bei Ihnen."] },
+    tesekkur: { label: "Danke", notes: ["Danke für alles. Schön, dass es dich gibt.", "Ein kleines Dankeschön mit viel Liebe."] }
+  },
   categories: {
     "Yapay Buket": "Kunstblumensträuße",
     "Yapay Aranjman": "Kunstblumenarrangements",

@@ -166,6 +166,7 @@
       visual.removeAttribute("aria-label");
     }
     cartMessage.textContent = "";
+    renderCardIdeas(item);
     syncCart();
   }
 
@@ -182,6 +183,47 @@
     const control = label.querySelector("[name]");
     if (control && stepFields[control.name]) label.dataset.step = String(stepFields[control.name]);
   });
+  // Kart notu önerileri (i18n cardIdeas): kutunun altında özel gün çipleri; çipe dokununca o günün örnekleri açılır,
+  // örneğe dokununca kutuya yazılır. Kutu doluysa üzerine yazılmaz, yeni satıra eklenir. Açık ürünün özel gün etiketleri öne alınır.
+  const cardNoteInput = form.elements.cardNote;
+  const cardIdeas = t.cardIdeas || {};
+  const ideaBox = document.createElement("div");
+  ideaBox.className = "wide card-ideas";
+  ideaBox.dataset.step = "2";
+  ideaBox.hidden = !Object.keys(cardIdeas).length;
+  ideaBox.innerHTML = `<p class="card-ideas-title" id="card-ideas-title">${t.cardIdeasTitle || ""}</p><div class="card-ideas-chips" role="group" aria-labelledby="card-ideas-title"></div><div class="card-ideas-notes" hidden></div>`;
+  cardNoteInput.closest("label").after(ideaBox);
+  const ideaChips = ideaBox.querySelector(".card-ideas-chips");
+  const ideaNotes = ideaBox.querySelector(".card-ideas-notes");
+  const escapeText = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  function renderCardIdeas(item) {
+    const tags = item?.cart ? item.items.flatMap((p) => p.occasions || []) : item?.occasions || [];
+    const keys = Object.keys(cardIdeas);
+    // Ürünün etiketleri cardIdeas sırasıyla öne gelir (Öğretmenler Günü listede ilk).
+    const ordered = [...keys.filter((key) => tags.includes(key)), ...keys.filter((key) => !tags.includes(key))];
+    ideaChips.innerHTML = ordered.map((key) => `<button class="card-idea-chip" type="button" data-idea="${key}" aria-expanded="false">${cardIdeas[key].label}</button>`).join("");
+    ideaNotes.hidden = true;
+    ideaNotes.innerHTML = "";
+  }
+  ideaChips.addEventListener("click", (event) => {
+    const chip = event.target.closest("[data-idea]");
+    if (!chip) return;
+    const open = chip.getAttribute("aria-expanded") === "true";
+    ideaChips.querySelectorAll("[data-idea]").forEach((button) => button.setAttribute("aria-expanded", "false"));
+    if (open) { ideaNotes.hidden = true; return; }
+    chip.setAttribute("aria-expanded", "true");
+    ideaNotes.innerHTML = cardIdeas[chip.dataset.idea].notes.map((note) => `<button class="card-idea-note" type="button">${escapeText(note)}</button>`).join("");
+    ideaNotes.hidden = false;
+  });
+  ideaNotes.addEventListener("click", (event) => {
+    const note = event.target.closest(".card-idea-note");
+    if (!note) return;
+    const current = cardNoteInput.value.replace(/\s+$/, "");
+    cardNoteInput.value = current ? `${current}\n${note.textContent}` : note.textContent;
+    cardNoteInput.dispatchEvent(new Event("input", { bubbles: true }));
+    note.classList.add("is-added");
+  });
+
   const stepHead = document.createElement("div");
   stepHead.className = "step-head";
   stepHead.innerHTML = `<div class="step-progress" aria-hidden="true"><i></i><i></i><i></i></div><p class="step-count"></p><p class="step-question"></p>`;
@@ -601,6 +643,10 @@
   // Dükkân kapandıktan sonra açılan formda tarih yarına gelir (bugün hâlâ seçilebilir).
   dateInput.value = now.minutes >= closingMinutes(now.weekday) ? addDays(now.date, 1) : now.date;
   document.querySelector("#year").textContent = now.date.slice(0, 4);
+  // Özel gün bandı (yalnız Türkçe ana sayfa, build.mjs basar): İstanbul tarihi data-from–data-until aralığındaysa görünür.
+  document.querySelectorAll(".occasion-band[data-from][data-until]").forEach((band) => {
+    band.hidden = !(now.date >= band.dataset.from && now.date <= band.dataset.until);
+  });
 
   // Bugün için bitiş saati geçmiş teslimat aralıkları seçilemez; "Özel" her zaman açıktır.
   function syncTimeSlots() {

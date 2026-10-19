@@ -8,7 +8,7 @@ export const categories = [
     name: "Çelenk",
     match: ["Çelenk"],
     heading: "Seferihisar çelenk siparişi",
-    title: "Seferihisar Çelenk Siparişi · Cenaze, Açılış ve Düğün Çelengi | Buketia Flower",
+    title: "Seferihisar Çelenk Siparişi · Cenaze ve Açılış | Buketia",
     description: "Seferihisar’da çelenk siparişi: cenaze ve taziye, açılış, düğün ve tören için ayaklı çelenkler. Şerit yazısıyla aynı gün teslimat; Buketia Flower’dan WhatsApp ile sipariş verin.",
     lead: "Cenaze ve taziye, açılış, düğün ve törenler için ayaklı çelenkleri Seferihisar Camikebir’deki mağazamızda hazırlıyor, şerit yazısıyla birlikte aynı gün teslim ediyoruz.",
     intro: [
@@ -24,6 +24,43 @@ export const categories = [
       ["Çelengi aynı gün gönderebilir misiniz?", "Evet. Seferihisar ve çevresine aynı gün çelenk teslimatı yapıyoruz; teslimat saatini sipariş sırasında birlikte belirleriz."],
       ["Şerit yazısı ekleniyor mu?", "Evet. Şeritte yazmasını istediğiniz metni sipariş sırasında iletin; çelenge ekleyelim."],
       ["Çelenk fiyatları ne kadar?", "Fiyat bilgisi WhatsApp üzerinden iletilir. Adrese göre belirlenen kurye ücretini de sipariş onayından önce bildiririz."]
+    ],
+    // İsteğe bağlı alanlar (yalnız bu kategoride): şerit yazısı örnekleri ve kısa rehber. Taziye dili sade ve saygılı kalmalı;
+    // şerit uzunluğu, tek/çift şerit ve son sipariş saati sahip onayı bekliyor, yazmayın.
+    ribbonsTitle: "Çelenk şeridine ne yazılır?",
+    ribbonsIntro: "Köşeli parantez içindeki yerlere kendi adınızı ya da kurumunuzun adını yazın. Metni sipariş sırasında iletmeniz yeterli; yazımı WhatsApp’tan sizinle teyit ederiz.",
+    guideTitle: "Şerit yazısı ve renk seçimi",
+    ribbons: [
+      { title: "Cenaze ve taziye çelengi yazıları", items: [
+        "Merhuma rahmet, ailesine başsağlığı dileriz · [Gönderen]",
+        "Allah rahmet eylesin · [Ad Soyad]",
+        "Başınız sağ olsun · [Ad Soyad] ve ailesi",
+        "Acınızı paylaşıyoruz · [Kurum adı]",
+        "Huzur içinde uyusun · [Gönderen]",
+        "Saygıyla anıyoruz · [Kurum adı] çalışanları",
+        "Sevgili [Ad], seni hiç unutmayacağız · [Gönderen]"
+      ] },
+      { title: "Açılış çelengi yazıları", items: [
+        "Hayırlı olsun, bol kazançlar · [Gönderen]",
+        "Yeni iş yerinize hayırlı uğurlu olsun · [Kurum adı]",
+        "Başarılarınızın devamını dileriz · [Ad Soyad]",
+        "Bereketli, bol müşterili günler · [Gönderen]",
+        "Yeni şubeniz hayırlı olsun · [Kurum adı] ailesi",
+        "Nice başarılı yıllara · [Kurum adı]"
+      ] },
+      { title: "Düğün ve nişan çelengi yazıları", items: [
+        "Ömür boyu mutluluklar dileriz · [Gönderen]",
+        "Bir yastıkta kocayın · [Ad Soyad] ve ailesi",
+        "Nişanınız hayırlı olsun · [Gönderen]",
+        "Sevgiyle, nice mutlu yıllara · [Kurum adı]"
+      ] }
+    ],
+    guide: [
+      ["Şeride ne yazılır?", "Çelenk şeridinde genellikle iki bölüm olur: kısa bir dilek ve gönderenin adı. Mesajı birkaç kelimede tutmak yazının uzaktan da okunmasını sağlar. Kişi olarak gönderiyorsanız adınızı ve soyadınızı, aile adına gönderiyorsanız “… ve ailesi” biçimini kullanın."],
+      ["Kurum adı nasıl yazılır?", "Şirket, dernek, okul ya da kamu kurumu adına gönderilen çelenkte kurumun tam adını yazın; kısaltma kullanacaksanız alıcının tanıdığı biçimi seçin. “Yönetim Kurulu”, “çalışanları” ya da “ailesi” gibi eklerle çelengin kimin adına geldiği netleşir. Yazımı sipariş sırasında WhatsApp’tan sizinle teyit ederiz."],
+      ["Cenaze çelengi tasarımları", "Cenaze ve taziye için beyaz ve krem tonlar en çok tercih edilen renklerdir. Krem gerberalı <a href=\"/urun/clk-017/\">CLK-017</a>, iki katlı <a href=\"/urun/clk-018/\">CLK-018</a> ve krem papatyalı <a href=\"/urun/clk-021/\">CLK-021</a> sade görünümleriyle bu tür törenlere uygundur."],
+      ["Açılış çelengi tasarımları", "Açılış, yıl dönümü ve kutlamalarda canlı renkler öne çıkar. Sarı ve turuncu tonlu <a href=\"/urun/clk-005/\">CLK-005</a> ile <a href=\"/urun/clk-009/\">CLK-009</a> ya da kırmızı-beyaz tasarımlar iş yerinin önünde uzaktan fark edilir."],
+      ["Renk seçimi", "Kararsız kaldığınızda beyaz ve krem her durumda saygılı bir seçimdir. Kırmızı ve canlı tonlar kutlamaya, beyaz ve krem anmaya daha yakındır. Kurumunuzun renklerine uygun bir çelenk isterseniz WhatsApp’tan yazın, tasarımı birlikte seçelim."]
     ]
   },
   {
