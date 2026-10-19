@@ -9,7 +9,7 @@ export const categories = [
     match: ["Çelenk"],
     heading: "Seferihisar çelenk siparişi",
     title: "Seferihisar Çelenk Siparişi · Cenaze ve Açılış | Buketia",
-    description: "Seferihisar’da çelenk siparişi: cenaze ve taziye, açılış, düğün ve tören için ayaklı çelenkler. Şerit yazısıyla aynı gün teslimat; Buketia Flower’dan WhatsApp ile sipariş verin.",
+    description: "Seferihisar’da çelenk siparişi: cenaze, taziye, açılış, düğün ve tören için ayaklı çelenkler. Şerit yazısıyla aynı gün teslimat; WhatsApp ile sipariş verin.",
     lead: "Cenaze ve taziye, açılış, düğün ve törenler için ayaklı çelenkleri Seferihisar Camikebir’deki mağazamızda hazırlıyor, şerit yazısıyla birlikte aynı gün teslim ediyoruz.",
     intro: [
       "Çelenk çoğu zaman kısa sürede yetişmesi gereken bir sipariştir. Aşağıdan tasarımı seçin, ürün kodunu WhatsApp’tan iletin; teslimat adresini, saati ve şeritte yazmasını istediğiniz metni yazmanız yeterli.",
@@ -68,8 +68,8 @@ export const categories = [
     name: "Buket",
     match: ["Buket"],
     heading: "Seferihisar buket çiçek",
-    title: "Seferihisar Buket Çiçek · Gül Buketi ve Doğum Günü Buketleri | Buketia Flower",
-    description: "Seferihisar’da buket çiçek siparişi: gül buketi, doğum günü, sevgiliye ve geçmiş olsun buketleri. 100’den fazla tasarım, aynı gün teslimat; Buketia Flower’dan WhatsApp ile sipariş verin.",
+    title: "Seferihisar Buket · Gül ve Doğum Günü Buketleri | Buketia",
+    description: "Seferihisar’da buket çiçek: gül buketi, doğum günü, sevgiliye ve geçmiş olsun buketleri. 100’den fazla tasarım, aynı gün teslimat, WhatsApp ile sipariş.",
     lead: "Gül buketlerinden mevsim çiçekli buketlere, 100’den fazla tasarımı Seferihisar’daki mağazamızda hazırlıyoruz. Beğendiğiniz buketin kodunu WhatsApp’tan iletin, aynı gün teslim edelim.",
     intro: [
       "Doğum günü, yıl dönümü, sevgiliye, yeni iş ya da geçmiş olsun: buketlerimizi Seferihisar Camikebir’deki mağazamızda taze çiçeklerle hazırlıyoruz. Renk tercihinizi ve bütçenizi söylemeniz yeterli.",
@@ -91,8 +91,8 @@ export const categories = [
     name: "Sevgiliye",
     match: ["Sevgiliye"],
     heading: "Sevgiliye çiçek · Seferihisar",
-    title: "Sevgiliye Çiçek Seferihisar · Gül Buketi ve Gül Kutusu | Buketia Flower",
-    description: "Seferihisar’da sevgiliye çiçek: kırmızı gül buketi, isme özel gül kutusu ve romantik aranjmanlar. Yıl dönümü ve evlilik teklifi için aynı gün teslimat; Buketia Flower.",
+    title: "Sevgiliye Çiçek Seferihisar · Gül Buketi ve Kutusu | Buketia",
+    description: "Seferihisar’da sevgiliye çiçek: kırmızı gül buketi, isme özel gül kutusu ve romantik aranjmanlar. Yıl dönümü ve evlilik teklifi için aynı gün teslimat.",
     lead: "Yıl dönümü, evlilik teklifi ya da sebepsiz bir sürpriz için gül buketleri ve isme özel gül kutularını Seferihisar’daki mağazamızda hazırlıyor, aynı gün teslim ediyoruz.",
     intro: [
       "Sevgilinize göndereceğiniz çiçeği aşağıdaki tasarımlardan seçin; teslimat adresini, saati ve kart notunuzu WhatsApp’tan iletin.",
@@ -115,7 +115,7 @@ export const categories = [
     match: ["Özel Aranjman", "Orkide"],
     heading: "Seferihisar orkide ve aranjman",
     title: "Seferihisar Orkide ve Çiçek Aranjmanı | Buketia Flower",
-    description: "Seferihisar’da orkide, gül kutusu ve sepet aranjmanları: ev, ofis, yeni iş ve özel günler için. Aynı gün teslimat; Buketia Flower’dan WhatsApp ile sipariş verin.",
+    description: "Seferihisar’da orkide, gül kutusu ve sepet aranjmanları: ev, ofis, yeni iş ve özel günler için. Aynı gün teslimat; WhatsApp ile kolay sipariş verin.",
     lead: "Uzun süre dayanan orkideler, hasır sepette mevsim çiçekleri ve gül kutuları: ev, ofis ve özel günler için aranjmanları Seferihisar’daki mağazamızda hazırlıyoruz.",
     intro: [
       "Aranjmanlar, buketten farklı olarak vazo gerektirmeden olduğu yerde sergilenir; bu yüzden ofise, yeni bir eve ya da hastane ziyaretine gönderilecek çiçekte sıkça tercih edilir.",
@@ -137,7 +137,7 @@ export const categories = [
     name: "Yapay çiçek",
     match: ["Yapay Buket", "Yapay Aranjman"],
     heading: "Seferihisar yapay çiçek",
-    title: "Seferihisar Yapay Çiçek · Yapay Buket ve Aranjman | Buketia Flower",
+    title: "Seferihisar Yapay Çiçek · Yapay Buket ve Aranjman | Buketia",
     description: "Solmayan yapay buket ve yapay çiçek aranjmanları: ev dekorasyonu, ofis ve hediye için. Seferihisar’daki Buketia Flower’dan WhatsApp ile sipariş verin.",
     lead: "Solmayan, bakım istemeyen yapay buketler ve aranjmanlar: ev ve ofis dekorasyonu ya da uzun süre saklanacak bir hediye için Seferihisar’daki mağazamızda hazırlıyoruz.",
     intro: [

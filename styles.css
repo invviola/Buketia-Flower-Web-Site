@@ -77,6 +77,11 @@ a { color: inherit; }
 .top-bar-group { display: flex; align-items: center; gap: 22px; min-width: 0; }
 .top-bar a { display: inline-flex; align-items: center; gap: 7px; color: #d7d0c5; text-decoration: none; white-space: nowrap; transition: color .2s ease; }
 .top-bar a:hover, .top-bar a:focus-visible { color: #fff; }
+/* Küçük bağlantıların dokunma alanı görünümü değiştirmeden ~44 px'e büyür. */
+.top-bar-group > a, .product-breadcrumb a, .google-rating { position: relative; }
+.top-bar-group > a::after, .product-breadcrumb a::after, .google-rating::after { content: ""; position: absolute; inset: -14px -6px; }
+.skip-link { position: absolute; left: 16px; top: -120px; z-index: 100; padding: 12px 18px; background: var(--ink); color: var(--cream); font-size: .85rem; text-decoration: none; }
+.skip-link:focus { top: 12px; }
 .top-bar-status { display: inline-flex; align-items: center; gap: 8px; color: var(--cream); white-space: nowrap; }
 .top-bar-status + a { padding-left: 22px; border-left: 1px solid rgba(215, 208, 197, .25); }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #61c778; box-shadow: 0 0 0 3px rgba(97, 199, 120, .18); }
@@ -231,6 +236,7 @@ footer p:last-child { text-align: right; }
 .custom-time-field { display: grid; gap: 5px; margin-top: 7px; color: var(--muted); font-size: .7rem; letter-spacing: .02em; }
 .custom-time-field input { max-width: 180px; }
 input, textarea, select { width: 100%; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 10px 0 11px; background: transparent; color: var(--ink); font-size: .9rem; outline: none; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 textarea { resize: none; }
 input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 .form-error { min-height: 20px; margin: 14px 0 4px; color: #943f36; font-size: .78rem; }
@@ -393,6 +399,9 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 .seo-button span { color: #d7bd96; font-size: 1rem; }
 .seo-button-secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 .seo-section { padding: 78px 0; border-top: 1px solid var(--line); }
+.seo-section.how-it-works-line { padding: 28px 0; font-size: .95rem; line-height: 1.6; }
+.how-it-works-line a { color: inherit; font-weight: 600; }
+.product-detail-info .google-rating { margin: 4px 0 14px; }
 .seo-section h2 { max-width: 560px; margin: 0; font-family: var(--serif); font-size: clamp(2.3rem, 4.5vw, 4.4rem); font-weight: 600; line-height: .98; letter-spacing: -.045em; }
 .seo-two-column, .seo-contact-section { display: grid; grid-template-columns: minmax(220px, .9fr) minmax(0, 1.3fr); gap: 60px; align-items: start; }
 .seo-copy { max-width: 620px; color: var(--muted); font-size: .95rem; line-height: 1.8; }

@@ -99,6 +99,8 @@ function writePage(file, url, html) {
   writeFileSync(file, html);
   changedUrls.add(url);
 }
+// Google puan rozeti (ana sayfadakiyle aynı). Yorum şeması (AggregateRating) bilerek eklenmez: Google işletmenin kendi sitesindeki kendi yorumlarını yıldızlı göstermez.
+const googleRating = `<a class="google-rating" href="https://maps.app.goo.gl/1o3m3WtcM1YirCwD9" target="_blank" rel="noopener noreferrer" aria-label="Google'da 5,0 puan, 40'tan fazla yorum. Yorumları Google Haritalar'da okuyun"><span class="google-rating-stars" aria-hidden="true">★★★★★</span><span>5,0 · Google’da 40+ yorum</span><span aria-hidden="true">↗</span></a>`;
 const jsonLd = (data) => `\n    <script type="application/ld+json">${JSON.stringify(data)}</script>\n    `;
 
 // Mağaza şeması tek kaynaktan tüm sayfalara basılır. Konum, Yandex Haritalar kaydındaki işaretten alınmıştır.
@@ -154,9 +156,9 @@ const productsWithImage = allProducts.filter((p) => p.image);
 // başlıkta aynı gün teslimat ve çevre bölgeler geçsin. og:title/og:description de aynı metinle güncellenir.
 const homeHead = {
   tr: { title: "Seferihisar Çiçekçi · Aynı Gün Çiçek Siparişi | Buketia Flower", description: "Seferihisar çiçekçi Buketia Flower: buket, gül, orkide, çelenk ve yapay çiçek. Sığacık, Ürkmez, Urla ve çevresine aynı gün teslimat. Katalogdan seçin, WhatsApp’tan sipariş verin: 0552 407 28 17." },
-  en: { title: "Florist in Seferihisar & Sığacık · Same-Day Flower Delivery | Buketia Flower", description: "Buketia Flower, florist in Seferihisar (İzmir): bouquets, roses, orchids and wreaths with same-day delivery to Sığacık, Ürkmez, Urla and nearby. Choose from our catalogue and order via WhatsApp." },
-  de: { title: "Blumenladen in Seferihisar & Sığacık · Lieferung am selben Tag | Buketia Flower", description: "Buketia Flower, Blumenladen in Seferihisar (İzmir): Sträuße, Rosen, Orchideen und Kränze, Lieferung am selben Tag nach Sığacık, Ürkmez, Urla und Umgebung. Im Katalog auswählen, per WhatsApp bestellen." },
-  ru: { title: "Цветы в Сеферихисаре и Сыгаджике · Доставка в день заказа | Buketia Flower", description: "Buketia Flower — цветочный магазин в Сеферихисаре (Измир): букеты, розы, орхидеи и венки с доставкой в день заказа в Сыгаджик, Юркмез, Урлу и окрестности. Выберите в каталоге и закажите через WhatsApp." }
+  en: { title: "Florist in Seferihisar & Sığacık · Same-Day Delivery | Buketia", description: "Florist in Seferihisar, İzmir: bouquets, roses, orchids and wreaths with same-day delivery to Sığacık, Ürkmez and Urla. Choose online, order via WhatsApp." },
+  de: { title: "Blumenladen Seferihisar & Sığacık · Lieferung am selben Tag", description: "Blumenladen in Seferihisar (İzmir): Sträuße, Rosen, Orchideen und Kränze, Lieferung am selben Tag nach Sığacık, Ürkmez und Urla. Bestellung per WhatsApp." },
+  ru: { title: "Цветы в Сеферихисаре и Сыгаджике · Доставка в день заказа", description: "Цветочный магазин в Сеферихисаре (Измир): букеты, розы, орхидеи и венки с доставкой в день заказа в Сыгаджик, Юркмез и Урлу. Заказ через WhatsApp." }
 };
 function setHead(html, { title, description }, file) {
   const rules = [
@@ -214,8 +216,8 @@ for (const file of pages) {
   const list = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: html.match(/<title>([^<]*)<\/title>/)[1],
-    itemListElement: productsWithImage.map((p, index) => ({ "@type": "ListItem", position: index + 1, url: `${siteUrl}${productPath(p)}`, name: translate(t, lang, p).seoName }))
+    name: html.match(/<title>([^<]*)<\/title>/)[1].replace(/&amp;/g, "&"),
+    itemListElement: visible.map((p, index) => ({ "@type": "ListItem", position: index + 1, url: `${siteUrl}${productPath(p)}`, name: translate(t, lang, p).seoName }))
   };
   html = replaceBlock(html, "jsonld", jsonLd(list), file);
   writePage(file, `${siteUrl}${file.replace("index.html", "")}`, html);
@@ -226,7 +228,7 @@ for (const file of pages) {
 const areaLinks = (except) => areas.filter((area) => area.slug !== except).map((area) => `<a href="/${area.slug}/">${area.name}</a>`).join(", ");
 const categoryLinks = categories.map((category) => `<a href="/${category.slug}/">${category.name}</a>`).join(", ");
 const specialLinks = [...occasions.map((o) => `<a href="/${o.slug}/">${o.name}</a>`), ...guides.map((g) => `Rehber: <a href="/${g.slug}/">${g.name}</a>`)].join(" · ");
-const linkLines = (indent) => [`Aynı gün teslimat: ${areaLinks()}`, `Çiçek çeşitleri: ${categoryLinks}`, `Özel günler: ${specialLinks}`].map((line) => `\n${indent}<p class="area-links">${line}</p>`).join("") + `\n${indent}`;
+const linkLines = (indent) => [`Aynı gün teslimat: <a href="/seferihisar-cicekci/">Seferihisar merkez</a>, ${areaLinks()}`, `Çiçek çeşitleri: ${categoryLinks}`, `Özel günler: ${specialLinks}`].map((line) => `\n${indent}<p class="area-links">${line}</p>`).join("") + `\n${indent}`;
 const areaLine = linkLines("          ");
 writePage("index.html", siteUrl, replaceBlock(readFileSync("index.html", "utf8"), "areas", areaLine, "index.html"));
 
@@ -312,10 +314,15 @@ function productPage(item, index, group) {
   const code = product.code;
   const nameHasCategory = normalize(product.seoName).includes(normalize(product.category).slice(0, -1));
   const heading = hasOwnName(item) && !nameHasCategory ? `${product.seoName} · ${product.category} (${code})` : hasOwnName(item) ? `${product.seoName} (${code})` : product.seoName;
-  const title = `${heading} | Seferihisar Çiçekçi Buketia Flower`;
-  const description = hasOwnName(item)
-    ? `${product.seoName} (${code}): ${product.description} Seferihisar / İzmir'de Buketia Flower'dan, WhatsApp ile sipariş verin.`
-    : `${product.seoName}: ${product.description} Seferihisar / İzmir.`;
+  // Başlık arama sonucunda kesilmesin: 60 karakteri aşmayan ilk seçenek kullanılır.
+  const title = [`${heading} | Buketia Flower Seferihisar`, `${product.seoName} · ${product.category} | Buketia Seferihisar`, `${product.seoName} | Buketia Seferihisar`, `${product.seoName} | Buketia`]
+    .find((candidate) => candidate.length <= 60) || product.seoName;
+  // Arama sonucunda kesilmesin diye açıklama ~160 karakterde tutulur; yer varsa sipariş cümlesi eklenir.
+  const baseDescription = hasOwnName(item) ? `${product.seoName} (${code}): ${product.description}` : `${product.seoName}: ${product.description}`;
+  const orderNote = " Seferihisar’dan aynı gün teslimat, WhatsApp ile sipariş.";
+  const description = baseDescription.length + orderNote.length <= 160 ? baseDescription + orderNote
+    : baseDescription.length <= 160 ? baseDescription
+    : `${baseDescription.slice(0, 157).replace(/\s+\S*$/, "")}…`;
   const image = `${siteUrl}${item.image}`;
   const whatsapp = `https://wa.me/905524072817?text=${encodeURIComponent(`Merhaba Buketia Flower, ${code} kodlu ürün hakkında bilgi almak istiyorum.`)}`;
   // Aynı kategoride sıradaki 8 ürün: her ürün sayfası, öncesindeki sayfalardan bağlantı alır.
@@ -358,7 +365,7 @@ function productPage(item, index, group) {
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
-    <script src="/language.js?v=20261009a"></script>
+    <script src="/language.js?v=20261009a" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${headShared}
     <meta name="description" content="${escapeHtml(description)}" />
@@ -378,7 +385,7 @@ function productPage(item, index, group) {
     <!--build:shop-->${jsonLd(shop("tr"))}<!--/build:shop-->
     <title>${escapeHtml(title)}</title>
   </head>
-  <body class="seo-page-body">${langLinks(header)}<main class="seo-page product-page">
+  <body class="seo-page-body">${langLinks(header)}<main id="main" class="seo-page product-page">
       <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/#catalog">Katalog</a><span aria-hidden="true">/</span>${categoryPage ? `<a href="/${categoryPage.slug}/">${escapeHtml(product.category)}</a>` : `<span aria-current="page">${escapeHtml(product.category)}</span>`}</nav>
       <article class="product-detail" aria-labelledby="product-title">
         <div class="product-detail-visual">
@@ -388,6 +395,7 @@ function productPage(item, index, group) {
           <p class="eyebrow">${escapeHtml(product.category)} · Seferihisar / İzmir</p>
           <h1 id="product-title">${escapeHtml(product.seoName)}</h1>
           <p class="product-detail-code">Ürün kodu: ${code}</p>
+          ${googleRating}
           <p class="seo-lead">${escapeHtml(product.description)}</p>${productSpecs(item)}
           <div class="seo-actions">
             <a class="seo-button" href="/#${code}-siparis">${t.orderStart} <span aria-hidden="true">↗</span></a>
@@ -435,8 +443,8 @@ function areaPage(area) {
   const faq = [
     [`${area.dative} aynı gün çiçek gönderebilir miyim?`, `Evet. Seferihisar’daki mağazamızdan ${area.dative} aynı gün teslimat yapıyoruz; teslimat saatini sipariş sırasında birlikte belirleriz.`],
     ["Kurye ücreti ne kadar?", "Kurye ücreti teslimat adresine göre belirlenir ve sipariş onayından önce size bildirilir."],
-    ["Fiyatları nasıl öğrenebilirim?", "Fiyat bilgisi WhatsApp üzerinden iletilir. Bütçenizi söylerseniz size uygun tasarımları önerebiliriz."],
-    ["Kart notu ekleyebilir miyim?", "Evet. Sipariş sırasında yazdığınız notu kartla birlikte çiçeğin yanına ekleriz."]
+    // Bölgeye özel sorular bolgeler.mjs'te (faq: [[soru, cevap]]); fiyat ve kart notu soruları kategori sayfalarında.
+    ...(area.faq || [])
   ];
   const featured = area.featured.map((code) => {
     const product = productByCode.get(code);
@@ -446,7 +454,8 @@ function areaPage(area) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "WebPage", "@id": `${url}#webpage`, url, name: area.title, description: area.description, inLanguage: "tr", isPartOf: { "@type": "WebSite", "@id": `${siteUrl}#website`, url: siteUrl, name: "Buketia Flower" }, about: { "@id": `${siteUrl}#shop` } },
+      { "@type": "WebPage", "@id": `${url}#webpage`, url, name: area.title, description: area.description, inLanguage: "tr", isPartOf: { "@type": "WebSite", "@id": `${siteUrl}#website`, url: siteUrl, name: "Buketia Flower" }, about: { "@id": `${siteUrl}#shop` }, primaryImageOfPage: { "@id": `${url}#image` } },
+      imageObject(`${url}#image`, featured[0], translate(t, "tr", featured[0]).alt),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -463,7 +472,7 @@ function areaPage(area) {
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
-    <script src="/language.js?v=20261009a"></script>
+    <script src="/language.js?v=20261009a" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${headShared}
     <meta name="description" content="${escapeHtml(area.description)}" />
@@ -474,21 +483,22 @@ function areaPage(area) {
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${escapeHtml(area.title)}" />
     <meta property="og:description" content="${escapeHtml(area.description)}" />
-    <meta property="og:image" content="${siteUrl}assets/buketia-paylasim.jpg?v=2" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Buketia Flower logosu ve buketleri" />
+    <meta property="og:image" content="${siteUrl}${featured[0].image}" />
+    <meta property="og:image:width" content="${dims(featured[0]).width}" />
+    <meta property="og:image:height" content="${dims(featured[0]).height}" />
+    <meta property="og:image:alt" content="${escapeHtml(translate(t, "tr", featured[0]).alt)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">${JSON.stringify(schema)}</script>
     <!--build:shop-->${jsonLd(shop("tr"))}<!--/build:shop-->
     <title>${escapeHtml(area.title)}</title>
   </head>
-  <body class="seo-page-body">${header}<main class="seo-page product-page">
+  <body class="seo-page-body">${header}<main id="main" class="seo-page product-page">
       <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/seferihisar-cicekci/">Seferihisar çiçekçi</a><span aria-hidden="true">/</span><span aria-current="page">${area.name}</span></nav>
       <section class="seo-hero" aria-labelledby="seo-title">
         <p class="eyebrow">${area.region} · Aynı gün teslimat</p>
         <h1 id="seo-title">${area.heading}</h1>
         <p class="seo-lead">${area.lead}</p>
+        ${googleRating}
         <div class="seo-actions">
           <a class="seo-button" href="/#catalog">Çiçek kataloğunu incele <span aria-hidden="true">↗</span></a>
           <a class="seo-button seo-button-secondary" href="${whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp’tan sipariş ver <span aria-hidden="true">↗</span></a>
@@ -505,16 +515,7 @@ function areaPage(area) {
         </div>
       </section>
 
-      <section class="seo-section" aria-labelledby="steps-title">
-        <p class="eyebrow">Nasıl çalışır?</p>
-        <h2 id="steps-title">${area.dative} aynı gün teslimat</h2>
-        <div class="seo-service-grid">
-          <article><h3>1 · Tasarımı seçin</h3><p>Katalogdan beğendiğiniz buketi, aranjmanı ya da çelengi seçin; ürün kodunu not alın.</p></article>
-          <article><h3>2 · WhatsApp’tan yazın</h3><p>${area.locative}ki teslimat adresini, saati, alıcının bilgilerini ve kart notunuzu iletin.</p></article>
-          <article><h3>3 · Onaylayın</h3><p>Fiyatı ve adrese göre belirlenen kurye ücretini sipariş onayından önce size bildiririz.</p></article>
-          <article><h3>4 · Aynı gün kapıda</h3><p>Çiçeği Seferihisar’daki mağazamızda hazırlayıp aynı gün ${area.dative} teslim ederiz.</p></article>
-        </div>
-      </section>
+      <p class="seo-section how-it-works-line">Sipariş üç adımda: tasarımı seçin, bilgileri yazın, WhatsApp’tan onaylayın. <a href="/seferihisar-cicekci/#siparis">Nasıl sipariş verilir? →</a></p>
 
       <section class="seo-section" aria-labelledby="occasions-title">
         <p class="eyebrow">Özel günler</p>
@@ -602,7 +603,7 @@ function categoryPage(category) {
   <head>
     <meta charset="UTF-8" />
     ${csp}
-    <script src="/language.js?v=20261009a"></script>
+    <script src="/language.js?v=20261009a" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${headShared}
     <meta name="description" content="${escapeHtml(category.description)}" />
@@ -622,12 +623,13 @@ function categoryPage(category) {
     <!--build:shop-->${jsonLd(shop("tr"))}<!--/build:shop-->
     <title>${escapeHtml(category.title)}</title>
   </head>
-  <body class="seo-page-body">${header}<main class="seo-page product-page">
+  <body class="seo-page-body">${header}<main id="main" class="seo-page product-page">
       <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/seferihisar-cicekci/">Seferihisar çiçekçi</a><span aria-hidden="true">/</span><span aria-current="page">${category.name}</span></nav>
       <section class="seo-hero" aria-labelledby="seo-title">
         <p class="eyebrow">Seferihisar / İzmir · ${items.length} tasarım · Aynı gün teslimat</p>
         <h1 id="seo-title">${capitalize(category.heading)}</h1>
         <p class="seo-lead">${category.lead}</p>
+        ${googleRating}
         <div class="seo-actions">
           <a class="seo-button" href="#designs-title">Tasarımları incele <span aria-hidden="true">↓</span></a>
           <a class="seo-button seo-button-secondary" href="${whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp’tan sipariş ver <span aria-hidden="true">↗</span></a>
@@ -703,7 +705,7 @@ function pageHead({ url, title, description, image, imageAlt, schema }) {
   <head>
     <meta charset="UTF-8" />
     ${csp}
-    <script src="/language.js?v=20261009a"></script>
+    <script src="/language.js?v=20261009a" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${headShared}
     <meta name="description" content="${escapeHtml(description)}" />
@@ -755,12 +757,13 @@ function occasionPage(o) {
     ]
   };
   return `${pageHead({ url, title: o.title, description: o.description, image: items[0], imageAlt: translate(t, "tr", items[0]).alt, schema })}
-  <body class="seo-page-body">${header}<main class="seo-page product-page">
+  <body class="seo-page-body">${header}<main id="main" class="seo-page product-page">
       <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/seferihisar-cicekci/">Seferihisar çiçekçi</a><span aria-hidden="true">/</span><span aria-current="page">${o.name}</span></nav>
       <section class="seo-hero" aria-labelledby="seo-title">
         <p class="eyebrow">${o.dateText} · Seferihisar / İzmir</p>
         <h1 id="seo-title">${o.heading}</h1>
         <p class="seo-lead">${o.lead}</p>
+        ${googleRating}
         <div class="seo-actions">
           <a class="seo-button" href="#designs-title">Tasarımları incele <span aria-hidden="true">↓</span></a>
           <a class="seo-button seo-button-secondary" href="${whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp’tan sor <span aria-hidden="true">↗</span></a>
@@ -852,7 +855,7 @@ function guidePage(g) {
     ]
   };
   return `${pageHead({ url, title: g.title, description: g.description, schema })}
-  <body class="seo-page-body">${header}<main class="seo-page product-page">
+  <body class="seo-page-body">${header}<main id="main" class="seo-page product-page">
       <nav class="product-breadcrumb" aria-label="Sayfa yolu"><a href="/">Buketia Flower</a><span aria-hidden="true">/</span><a href="/seferihisar-cicekci/">Seferihisar çiçekçi</a><span aria-hidden="true">/</span><span aria-current="page">${g.name}</span></nav>
       <section class="seo-hero" aria-labelledby="seo-title">
         <p class="eyebrow">Rehber · Buketia Flower</p>
@@ -908,7 +911,7 @@ writePage("404.html", `${siteUrl}404.html`, `<!doctype html>
     <meta name="robots" content="noindex" />
     <title>Sayfa bulunamadı | Buketia Flower</title>
   </head>
-  <body class="seo-page-body">${header}<main class="seo-page product-page">
+  <body class="seo-page-body">${header}<main id="main" class="seo-page product-page">
       <section class="seo-hero" aria-labelledby="seo-title">
         <p class="eyebrow">404</p>
         <h1 id="seo-title">Aradığınız sayfa bulunamadı</h1>
@@ -922,6 +925,16 @@ writePage("404.html", `${siteUrl}404.html`, `<!doctype html>
     </main>${footer}</body>
 </html>
 `);
+
+// IndexNow: bu build'de değişen adresler .indexnow-bekleyen.json'a eklenir (yayınlanmaz, .gitignore'da).
+// Yayından SONRA `node indexnow.mjs` ile Bing ve Yandex'e bildirilir.
+{
+  const pendingFile = ".indexnow-bekleyen.json";
+  let pending = [];
+  try { pending = JSON.parse(readFileSync(pendingFile, "utf8")); } catch {}
+  const merged = [...new Set([...pending, ...changedUrls, ...(changedUrls.size ? [`${siteUrl}sitemap.xml`] : [])])];
+  if (merged.length) writeFileSync(pendingFile, JSON.stringify(merged, null, 1));
+}
 
 // sitemap.xml: değişmeyen sayfalar eski lastmod tarihini korur.
 const previous = new Map([...readFileSync("sitemap.xml", "utf8").matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)].map((m) => [m[1], m[2]]));

@@ -734,6 +734,12 @@
     })).catch(() => {});
   }
 
+  // Henüz ürünü olmayan kategori düğmeleri gizlenir; products.js'e ürün eklenince kendiliğinden görünür.
+  document.querySelectorAll(".category[data-category]").forEach((button) => {
+    const keys = button.dataset.category.split(",");
+    if (button.dataset.category !== "Tümü" && !products.some((p) => keys.some((k) => p.categories.includes(k)))) button.hidden = true;
+  });
+
   syncCart();
   render();
   registerWebMcp();
