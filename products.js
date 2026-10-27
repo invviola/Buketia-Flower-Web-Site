@@ -3075,7 +3075,7 @@ window.BUKETIA_PRODUCTS = [
     "category": "Buket",
     "categories": [
       "Buket"
-    ],
+    , "Sevgiliye"],
     "description": "Kırmızı güller cipso ve yeşilliklerle çevrelenmiş, üstte tomurcuklu beyaz lilyumlar yükseliyor. Beyaz ambalaja sarılan buket bordo organze kurdeleyle bağlanmış.",
     "occasions": ["sevgiliye", "yildonumu", "dogum-gunu"],
     "colors": ["kırmızı", "beyaz"],
