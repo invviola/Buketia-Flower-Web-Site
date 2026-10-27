@@ -144,8 +144,8 @@ const florist = (lang) => ({
     })
   ],
   openingHoursSpecification: [
-    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:30", closes: "20:30" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "09:00", closes: "20:00" }
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:30", closes: "19:30" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "09:00", closes: "19:00" }
   ],
   sameAs: ["https://www.instagram.com/buketia.flower/", "https://yandex.com.tr/maps/org/buketia_flower/51008909089/"]
 });
@@ -548,7 +548,7 @@ function areaPage(area) {
         <div class="seo-contact-card">
           <a href="https://maps.app.goo.gl/1o3m3WtcM1YirCwD9" target="_blank" rel="noopener noreferrer">Camikebir, 52. Sokak No: 7/C<br />Seferihisar / İzmir ↗</a>
           <a href="tel:+905524072817">0552 407 28 17</a>
-          <span>Hafta içi &amp; Cumartesi 08.30–20.30<br />Pazar 09.00–20.00</span>
+          <span>Hafta içi &amp; Cumartesi 08.30–19.30<br />Pazar 09.00–19.00</span>
           <span>Diğer teslimat bölgeleri: <a href="/seferihisar-cicekci/">Seferihisar</a>, ${areaLinks(area.slug)}</span>
         </div>
       </section>
@@ -571,7 +571,7 @@ const contactSection = (extra) => `      <section class="seo-section seo-contact
         <div class="seo-contact-card">
           <a href="https://maps.app.goo.gl/1o3m3WtcM1YirCwD9" target="_blank" rel="noopener noreferrer">Camikebir, 52. Sokak No: 7/C<br />Seferihisar / İzmir ↗</a>
           <a href="tel:+905524072817">0552 407 28 17</a>
-          <span>Hafta içi &amp; Cumartesi 08.30–20.30<br />Pazar 09.00–20.00</span>
+          <span>Hafta içi &amp; Cumartesi 08.30–19.30<br />Pazar 09.00–19.00</span>
           <span>${extra}</span>
         </div>
       </section>`;
