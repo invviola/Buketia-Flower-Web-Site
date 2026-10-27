@@ -74,7 +74,7 @@ window.BUKETIA_PRODUCTS = [
     categories: ["Buket"],
     price: 1650,
     description: "Canlı sarı ayçiçekleri, pembe sprey güller ve solidago dalları yeşil kâğıt ambalajda buluşuyor; sarı kurdele bu neşeli buketi tamamlıyor.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama"],
     "colors": ["sarı", "yeşil", "pembe"],
     "flowers": ["ayçiçeği", "sprey gül", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -170,7 +170,7 @@ window.BUKETIA_PRODUCTS = [
     categories: ["Buket"],
     price: 1950,
     description: "Pastel tonlarda hacimli çiçeklerle hazırlanan neşeli doğum günü aranjmanı.",
-    "occasions": ["dogum-gunu", "tebrik-kutlama", "ogretmenler-gunu", "gecmis-olsun"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "gecmis-olsun"],
     "colors": ["lila", "pembe", "mavi"],
     "flowers": ["lilyum", "krizantem", "sprey gül", "lisyantus"],
     "presentation": "kağıt ambalajlı buket",
@@ -206,7 +206,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Ayçiçekleri ve turuncu güllerle hazırlanan, yüzleri güldüren bir buket.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama"],
     "colors": ["sarı", "turuncu", "yeşil"],
     "flowers": ["ayçiçeği", "sprey gül", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -296,7 +296,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Lilyum ile mavi ve sarı mevsim çiçeklerinden hazırlanan doğal, renkli bir buket.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "anneler-gunu", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "anneler-gunu"],
     "colors": ["renkli", "pembe", "mavi"],
     "flowers": ["lilyum", "krizantem", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -332,7 +332,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Koyu yeşil ambalajda lilyum ve mevsim çiçekleriyle hazırlanan doğal, canlı bir buket.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "tesekkur", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tesekkur"],
     "colors": ["renkli", "yeşil", "mor"],
     "flowers": ["lilyum", "lisyantus", "sprey gül"],
     "presentation": "kağıt ambalajlı buket",
@@ -350,7 +350,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Gri ambalajda lilyum, karanfil ve renkli çiçeklerle hazırlanan modern bir buket.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["pembe", "beyaz", "renkli"],
     "flowers": ["lilyum", "karanfil", "sprey gül", "krizantem", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -386,7 +386,7 @@ window.BUKETIA_PRODUCTS = [
     category: "Buket",
     categories: ["Buket"],
     description: "Rengârenk alstroemeria, lilyum ve karanfillerle hazırlanan neşeli bir buket.",
-    "occasions": ["dogum-gunu", "tebrik-kutlama", "anneler-gunu", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "anneler-gunu"],
     "colors": ["renkli", "fuşya", "sarı"],
     "flowers": ["alstroemeria", "lilyum", "karanfil", "cipso", "gerbera"],
     "presentation": "kağıt ambalajlı buket",
@@ -869,7 +869,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Şeftali tonlu güller, iki lila gül ve bol cipso; yeşil yapraklar ve palmiye yaprağıyla birlikte gazete desenli kâğıt ile siyah ambalaja sarılmış, sapı krem kurdeleyle bağlanmış.",
-    "occasions": ["dogum-gunu", "yildonumu", "ogretmenler-gunu", "tesekkur"],
+    "occasions": ["dogum-gunu", "yildonumu", "tesekkur"],
     "colors": ["şeftali", "beyaz", "yeşil"],
     "flowers": ["gül", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -941,7 +941,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Turuncu gerbera, beyaz ve lila krizantemler, lilyum tomurcukları ve renkli mevsim çiçekleri bir araya geliyor; buket mor-sarı ambalaj ve lila kurdeleyle tamamlanmış.",
-    "occasions": ["dogum-gunu", "ogretmenler-gunu", "anneler-gunu", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["turuncu", "lila", "renkli"],
     "flowers": ["gerbera", "krizantem", "lilyum"],
     "presentation": "kağıt ambalajlı buket",
@@ -989,7 +989,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Mavi hezaren, mor statis ve beyaz alstroemeria; küçük beyaz güller, papatyalar ve turkuaz mini çiçeklerle lacivert ambalajda toplanmış, açık mavi kurdeleyle bağlanmış ferah bir buket.",
-    "occasions": ["yeni-dogan", "dogum-gunu", "ogretmenler-gunu", "tesekkur"],
+    "occasions": ["yeni-dogan", "dogum-gunu", "tesekkur"],
     "colors": ["mavi", "beyaz", "mor"],
     "flowers": ["hezaren", "statis", "alstroemeria", "gül", "papatya"],
     "presentation": "kağıt ambalajlı buket",
@@ -1013,7 +1013,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Bol beyaz papatya ve cipso, palmiye yapraklarıyla çevrelenip bordo ambalaja sarılmış; sapındaki beyaz gerbera ve altın sarısı kurdele buketi tamamlıyor.",
-    "occasions": ["dogum-gunu", "ogretmenler-gunu", "gecmis-olsun", "tesekkur"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tesekkur"],
     "colors": ["beyaz", "bordo"],
     "flowers": ["papatya", "cipso", "gerbera"],
     "presentation": "kağıt ambalajlı buket",
@@ -1037,7 +1037,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Turuncu ve lila laleler, beyaz cipso ve iri monstera yapraklarıyla bir araya geliyor. Lila ambalaj kâğıdına sarılan buket, mor kurdeleyle bağlanmış.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["turuncu", "lila"],
     "flowers": ["lale", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -1085,7 +1085,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Lacivert ambalaj içinde sarı lilyum, mercan rengi gerbera, açık mavi ve mor çiçekler ile cipso renkli bir karışım oluşturuyor. Beyaz kurdeleyle bağlanan buket neşeli bir hediye seçeneği.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "ogretmenler-gunu", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama"],
     "colors": ["renkli", "mavi"],
     "flowers": ["lilyum", "gerbera", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -1109,7 +1109,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Beyaz papatyalar, mor statis, beyaz ve mor lisyantuslar ile şeftali tonlu krizantemler bu buketin ana çiçekleri. Lacivert kâğıda sarılmış ve krem kurdeleyle tamamlanmış.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "ogretmenler-gunu", "tesekkur"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tesekkur"],
     "colors": ["beyaz", "mor", "mavi"],
     "flowers": ["papatya", "statis", "lisyantus", "krizantem", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -1133,7 +1133,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Bol beyaz papatya ve cipsodan oluşan bu buket, ince yeşil yapraklarla hareket kazanıyor. Canlı mor ambalaj ve beyaz kurdele, beyaz çiçeklerle güzel bir kontrast yaratıyor.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "ogretmenler-gunu", "anneler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "anneler-gunu"],
     "colors": ["beyaz", "mor"],
     "flowers": ["papatya", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -1277,7 +1277,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Mor ambalajın içinde kırmızı-pembe ve beyaz güller, beyaz ve lila lisyantuslar, ince yapraklı beyaz çiçekler ve mor statisler bir araya geliyor. Buket altın sarısı kurdeleyle bağlanmış.",
-    "occasions": ["dogum-gunu", "tebrik-kutlama", "anneler-gunu", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "anneler-gunu"],
     "colors": ["mor", "beyaz", "kırmızı"],
     "flowers": ["gül", "lisyantus", "statis"],
     "presentation": "kağıt ambalajlı buket",
@@ -1349,7 +1349,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Birkaç dal beyaz lilyumun etrafına krem güller, cipso ve beyaz statis yerleştirilmiş sade bir buket. Beyaz ambalaj ve altın kurdeleyle zarif bir görünüm sunar.",
-    "occasions": ["tebrik-kutlama", "gecmis-olsun", "ogretmenler-gunu", "anneler-gunu"],
+    "occasions": ["tebrik-kutlama", "gecmis-olsun", "anneler-gunu"],
     "colors": ["beyaz", "krem"],
     "flowers": ["lilyum", "gül", "cipso", "statis"],
     "presentation": "kağıt ambalajlı buket",
@@ -1373,7 +1373,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Beyaz lilyum ve papatyaların arasında tek bir pembe krizantem dikkat çekiyor. Beyaz statisle zenginleşen buket, pembe-gri ambalaja sarılıp pembe ve beyaz kurdelelerle bağlanmış.",
-    "occasions": ["anneler-gunu", "gecmis-olsun", "dogum-gunu", "ogretmenler-gunu"],
+    "occasions": ["anneler-gunu", "gecmis-olsun", "dogum-gunu"],
     "colors": ["beyaz", "pembe"],
     "flowers": ["lilyum", "papatya", "krizantem", "statis"],
     "presentation": "kağıt ambalajlı buket",
@@ -1541,7 +1541,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Gri ve pembe çift katlı ambalaj içinde beyaz lilyum, iri beyaz krizantem, sarı ve lila krizantemler ile mor küçük çiçekler yer alıyor. Lila saten kurdele buketi tamamlıyor.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama"],
     "colors": ["renkli", "beyaz", "mor"],
     "flowers": ["lilyum", "krizantem", "lisyantus"],
     "presentation": "kağıt ambalajlı buket",
@@ -1589,7 +1589,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Turuncu ambalajın içinde pembe lilyumlar, somon rengi karanfiller ve sarı krizantemler canlı bir uyum yakalıyor. Pembe krizantemler ve solidago dallarıyla zenginleşen buket krem kurdeleyle bağlanıyor.",
-    "occasions": ["dogum-gunu", "tebrik-kutlama", "gecmis-olsun", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "gecmis-olsun"],
     "colors": ["turuncu", "pembe", "sarı"],
     "flowers": ["lilyum", "karanfil", "krizantem", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -1781,7 +1781,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Lila ambalaja sarılı bu buket, beyaz lilyum ve lisyantusları mor ve beyaz krizantemlerle buluşturuyor. Pembe sprey güller ve sarı solidago dalları pastel görünüme sıcak bir dokunuş katıyor.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "gecmis-olsun", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "gecmis-olsun"],
     "colors": ["lila", "beyaz", "mor"],
     "flowers": ["lilyum", "lisyantus", "krizantem", "sprey gül", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -1877,7 +1877,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Şeftali tonlu karanfiller; beyaz, mor, sarı ve yeşil krizantemlerle bir araya geliyor. Kırmızı küçük meyveli dallar ve sarı solidagoyla renklenen buket, açık sarı şeffaf ambalaja sarılı.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "gecmis-olsun"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "gecmis-olsun"],
     "colors": ["krem", "mor", "şeftali"],
     "flowers": ["krizantem", "karanfil", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -1949,7 +1949,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Büyük sarı krizantem, bu buketin en göze çarpan çiçeği; yanında yeşil, mor ve beyaz krizantemler ile beyaz lisyantuslar duruyor. Açık sarı şeffaf ambalaj ve beyaz kurdele sade bir zarafet sunuyor.",
-    "occasions": ["gecmis-olsun", "ogretmenler-gunu", "dogum-gunu", "tesekkur"],
+    "occasions": ["gecmis-olsun", "dogum-gunu", "tesekkur"],
     "colors": ["sarı", "mor", "beyaz"],
     "flowers": ["krizantem", "lisyantus", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -2021,7 +2021,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Turuncu lilyumlar ve gerbera, sarı krizantemler, beyaz lisyantuslar ve şeftali tonlu sprey güllerle hazırlanan buket, turuncu ambalajı ve kurdelesiyle sıcak, neşeli bir görünüm sunuyor.",
-    "occasions": ["dogum-gunu", "tebrik-kutlama", "gecmis-olsun", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "gecmis-olsun"],
     "colors": ["turuncu", "sarı", "beyaz"],
     "flowers": ["lilyum", "gerbera", "krizantem", "lisyantus", "sprey gül"],
     "presentation": "kağıt ambalajlı buket",
@@ -2165,7 +2165,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Rengârenk bir karışım: pembe, beyaz ve yeşil krizantemler, turuncu sprey güller, pembe alstroemeria ve sarı göbekli lila çiçekler. Pembe ambalaj ve saten kurdeleyle bağlanmış neşeli bir buket.",
-    "occasions": ["dogum-gunu", "ogretmenler-gunu", "tebrik-kutlama", "anneler-gunu"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "anneler-gunu"],
     "colors": ["pembe", "turuncu", "lila"],
     "flowers": ["krizantem", "sprey gül", "alstroemeria"],
     "presentation": "kağıt ambalajlı buket",
@@ -2213,7 +2213,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Lilyumlar, mavi tonlu ve pembe krizantemler, krem lisyantuslar ve mor alstroemeria pembe-şeftali ambalajda buluşuyor. Solidago ve lila küçük çiçekler buketin hacmini artırıyor.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "gecmis-olsun", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "gecmis-olsun"],
     "colors": ["pembe", "mavi", "krem"],
     "flowers": ["lilyum", "krizantem", "lisyantus", "alstroemeria", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -2237,7 +2237,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Beyaz lilyumlar, mor lisyantuslar ve iri yeşilimsi beyaz krizantemle hazırlanan bu buket, açık mavi ambalaja sarılıp pembe kurdeleyle bağlandı. Arada beyaz karanfil, alstroemeria ve pembe küçük çiçekler var.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "ogretmenler-gunu", "tesekkur"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tesekkur"],
     "colors": ["mavi", "beyaz", "mor"],
     "flowers": ["lilyum", "lisyantus", "krizantem", "karanfil", "alstroemeria"],
     "presentation": "kağıt ambalajlı buket",
@@ -2357,7 +2357,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Şeftali ve pembe tonlarındaki krizantemler, beyaz pompon krizantemler, güller ve beyaz lisyantuslarla yumuşak bir renk uyumu oluşturuyor. Buket kraft kâğıda sarılıp kurdeleyle bağlandı.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "tesekkur"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tesekkur"],
     "colors": ["şeftali", "beyaz", "pembe"],
     "flowers": ["krizantem", "gül", "lisyantus"],
     "presentation": "kağıt ambalajlı buket",
@@ -2381,7 +2381,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Güneş sarısı ayçiçekleri, solidago ve geniş palmiye yapraklarıyla canlı bir görünüm kazanıyor. Kraft kâğıda sarılan buket sarı kurdeleyle bağlandı.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama"],
     "colors": ["sarı", "yeşil"],
     "flowers": ["ayçiçeği", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -2429,7 +2429,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Üç ayçiçeği, mor lisyantus ve pembe krizantemlerin buluştuğu bu buket neşeli bir renk karışımı sunuyor. Pembe ambalaja sarılıp krem rengi kurdeleyle bağlandı.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "ogretmenler-gunu", "tesekkur"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tesekkur"],
     "colors": ["sarı", "pembe", "mor"],
     "flowers": ["ayçiçeği", "lisyantus", "krizantem"],
     "presentation": "kağıt ambalajlı buket",
@@ -2477,7 +2477,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Beyaz ve pembe lilyumlar, beyaz krizantem ve yeşilliklerle hazırlanan bu buket siyah ambalaja sarılmış; bağlantı noktası küçük pembe güller ve uçuşan pembe kurdelelerle süslenmiş.",
-    "occasions": ["dogum-gunu", "tebrik-kutlama", "anneler-gunu", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "anneler-gunu"],
     "colors": ["beyaz", "pembe", "siyah"],
     "flowers": ["lilyum", "krizantem", "gül"],
     "presentation": "kağıt ambalajlı buket",
@@ -2501,7 +2501,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Bordo ve somon tonlu ambalajın içinde pembe ve beyaz lilyumlar, iri krem krizantem ve küçük lila krizantemler yer alıyor. Bordo kurdele buketi zarifçe tamamlıyor.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["pembe", "beyaz", "bordo"],
     "flowers": ["lilyum", "krizantem"],
     "presentation": "kağıt ambalajlı buket",
@@ -2525,7 +2525,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Kraft kâğıda sarılan bu buket pembe, beyaz ve lila krizantemleri mor lisyantus ve pembe tonlu güllerle bir araya getiriyor. Yeşil kurdele doğal görünümü tamamlıyor.",
-    "occasions": ["dogum-gunu", "ogretmenler-gunu", "anneler-gunu", "tesekkur"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tesekkur"],
     "colors": ["pembe", "beyaz", "lila"],
     "flowers": ["krizantem", "lisyantus", "gül"],
     "presentation": "kağıt ambalajlı buket",
@@ -2573,7 +2573,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Fuşya ve pembe ambalaj, beyaz lilyumlar, sarı krizantem, küçük pembe krizantemler ve mor çiçeklerden oluşan canlı bir karışımı çevreliyor; buket beyaz saten kurdeleyle bağlanmış.",
-    "occasions": ["dogum-gunu", "ogretmenler-gunu", "anneler-gunu", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["fuşya", "pembe", "sarı"],
     "flowers": ["lilyum", "krizantem"],
     "presentation": "kağıt ambalajlı buket",
@@ -2597,7 +2597,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Lila güller, krem gerberalar ve pembe karanfiller krizantem, lisyantus ve statis eşliğinde mor-pembe ambalaja sarılmış; üstteki ince pembe dallar buketi hareketlendiriyor.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "tesekkur"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tesekkur"],
     "colors": ["lila", "pembe", "mor"],
     "flowers": ["gül", "gerbera", "karanfil", "krizantem", "lisyantus", "statis"],
     "presentation": "kağıt ambalajlı buket",
@@ -2621,7 +2621,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Pastel pembe ve gri ambalaja sarılan bu buket, beyaz lilyumlar, sarı ve beyaz krizantemler, mor statis ve açık pembe karanfillerle canlı ama yumuşak bir görünüm kazanıyor.",
-    "occasions": ["dogum-gunu", "gecmis-olsun", "ogretmenler-gunu", "anneler-gunu"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "anneler-gunu"],
     "colors": ["beyaz", "sarı", "pembe"],
     "flowers": ["lilyum", "krizantem", "statis", "karanfil"],
     "presentation": "kağıt ambalajlı buket",
@@ -2717,7 +2717,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Pembe ve mor krizantemler, pembe alstroemerialar, krem sprey güller ve sarı solidago bir araya geliyor. Mavi ambalaj kâğıdına sarılan buket, beyaz saten kurdeleyle bağlanmış.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["pembe", "mor", "krem"],
     "flowers": ["krizantem", "alstroemeria", "sprey gül", "solidago"],
     "presentation": "kağıt ambalajlı buket",
@@ -2741,7 +2741,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Ortadaki beyaz lilyumun çevresinde kırmızı, turuncu ve pembe gerberalar, beyaz papatyalar, beyaz çiçek salkımları ve küçük süs meyveleri yer alıyor. Somon tonlu kâğıda sarılı, yeşil çizgili kurdeleyle tamamlanmış.",
-    "occasions": ["dogum-gunu", "tebrik-kutlama", "gecmis-olsun", "ogretmenler-gunu"],
+    "occasions": ["dogum-gunu", "tebrik-kutlama", "gecmis-olsun"],
     "colors": ["beyaz", "kırmızı", "turuncu"],
     "flowers": ["lilyum", "gerbera", "papatya"],
     "presentation": "kağıt ambalajlı buket",
@@ -2765,7 +2765,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Beyaz krizantem, karanfil ve gül; bol cipso, lila başaklı çiçekler ve yeşil yapraklarla sade bir uyum yakalıyor. Altın kenarlı beyaz ambalaj ile yeşil ve altın rengi kurdeleler buketi zarif biçimde tamamlıyor.",
-    "occasions": ["gecmis-olsun", "tesekkur", "ogretmenler-gunu", "tebrik-kutlama"],
+    "occasions": ["gecmis-olsun", "tesekkur", "tebrik-kutlama"],
     "colors": ["beyaz", "yeşil"],
     "flowers": ["krizantem", "karanfil", "gül", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -2957,7 +2957,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Pembe lisyantus, lilyum ve şebboy dalları yeşilliklerle bir araya geliyor; buket lila ve mor tonlu ambalaja sarılmış, sapında cipso ve mor kurdele var.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["pembe", "lila", "mor"],
     "flowers": ["lisyantus", "lilyum", "şebboy", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -3053,7 +3053,7 @@ window.BUKETIA_PRODUCTS = [
       "Buket"
     ],
     "description": "Tomurcuklu beyaz lilyumlar, iri krem krizantem, sarı ponpon krizantem ve pembe sprey güller lila dallarla bir araya geliyor. Beyaz ambalaj ve tülle sarılmış buket, pembe dantelli kurdeleyle bağlanmış.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "tebrik-kutlama"],
     "colors": ["beyaz", "sarı", "pembe", "lila"],
     "flowers": ["lilyum", "krizantem", "sprey gül"],
     "presentation": "kağıt ambalajlı buket",
@@ -3173,7 +3173,7 @@ window.BUKETIA_PRODUCTS = [
       "Sevgiliye"
     ],
     "description": "Beyaz papatyalar palmiye yaprakları arasında üç paket atıştırmalıkla birlikte toplanmış. Krem ve açık sarı ambalajlı buketin sapı sarı kurdele, cipso ve küçük bir kartla süslenmiş.",
-    "occasions": ["ogretmenler-gunu", "dogum-gunu", "gecmis-olsun", "tebrik-kutlama"],
+    "occasions": ["dogum-gunu", "gecmis-olsun", "tebrik-kutlama"],
     "colors": ["beyaz", "sarı", "krem"],
     "flowers": ["papatya", "cipso"],
     "presentation": "kağıt ambalajlı buket",
@@ -3533,7 +3533,7 @@ window.BUKETIA_PRODUCTS = [
       "Orkide"
     ],
     "description": "Beyaz orkide dallarının dibinde sarı minik çiçek dalları ve küçük beyaz bir ayıcık yer alıyor. Saksı altın ve beyaz ambalaj kâğıdına sarılmış; organze kurdele ve nazar boncuklu süslerle tamamlanmış.",
-    "occasions": ["yeni-dogan", "ogretmenler-gunu", "tebrik-kutlama", "gecmis-olsun"],
+    "occasions": ["yeni-dogan", "tebrik-kutlama", "gecmis-olsun"],
     "colors": ["beyaz", "sarı", "altın"],
     "flowers": ["orkide"],
     "presentation": "saksı bitkisi",
@@ -3557,7 +3557,7 @@ window.BUKETIA_PRODUCTS = [
       "Orkide"
     ],
     "description": "İki dallı sarı orkide, sarı ve beyaz ambalaj içinde sarı saten kurdeleyle sunuluyor. Dallardaki küçük fiyonk ve nazar boncuklu sarı kart, saksıya neşeli bir görünüm katıyor.",
-    "occasions": ["ogretmenler-gunu", "tebrik-kutlama", "gecmis-olsun", "dogum-gunu"],
+    "occasions": ["tebrik-kutlama", "gecmis-olsun", "dogum-gunu"],
     "colors": ["sarı", "beyaz"],
     "flowers": ["orkide"],
     "presentation": "saksı bitkisi",
@@ -3581,7 +3581,7 @@ window.BUKETIA_PRODUCTS = [
       "Orkide"
     ],
     "description": "Beyaz orkide dalları, sarı minik çiçek süsleri ve pembe elbiseli ayıcık figürüyle tamamlanıyor. Saksı altın ve beyaz ambalaja sarılmış, beyaz tül kurdelelerle bağlanmış.",
-    "occasions": ["yeni-dogan", "ogretmenler-gunu", "tebrik-kutlama", "gecmis-olsun"],
+    "occasions": ["yeni-dogan", "tebrik-kutlama", "gecmis-olsun"],
     "colors": ["beyaz", "altın", "sarı"],
     "flowers": ["orkide"],
     "presentation": "saksı bitkisi",
@@ -4133,7 +4133,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Turuncu yapay güller, pembe, lila, mavi ve beyaz çiçeklerle bir araya geliyor. Mürdüm ve altın rengi ambalaj, çizgili kurdele ve bağlama yerindeki küçük çiçek demeti buketi tamamlıyor.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "ev-ofis-dekorasyon"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "ev-ofis-dekorasyon"],
     "colors": ["renkli", "mor", "turuncu"],
     "flowers": ["gül"],
     "presentation": "kağıt ambalajlı buket",
@@ -4229,7 +4229,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Sarı, krem ve şeftali tonlarındaki yapay şakayıklar, pembe çiçekler ve okaliptüs yapraklarıyla bir araya gelmiş. Altın kenarlı beyaz ambalaj ve organze fiyonk buketi zarifçe tamamlıyor.",
-    "occasions": ["dogum-gunu", "anneler-gunu", "ogretmenler-gunu", "ev-ofis-dekorasyon"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "ev-ofis-dekorasyon"],
     "colors": ["sarı", "şeftali", "beyaz"],
     "flowers": ["şakayık", "okaliptüs"],
     "presentation": "kağıt ambalajlı buket",
@@ -4253,7 +4253,7 @@ window.BUKETIA_PRODUCTS = [
       "Yapay Buket"
     ],
     "description": "Beyaz lilyum, şeftali ve krem tonlu yapay çiçekler, turuncu süs dalları ve kahverengi yapraklar bu bukete sonbahar havası veriyor. Kraft kâğıda sarılan buket, beyaz dantel kurdeleyle bağlanmış.",
-    "occasions": ["dogum-gunu", "ogretmenler-gunu", "anneler-gunu", "ev-ofis-dekorasyon"],
+    "occasions": ["dogum-gunu", "anneler-gunu", "ev-ofis-dekorasyon"],
     "colors": ["krem", "şeftali", "turuncu"],
     "flowers": ["lilyum"],
     "presentation": "kağıt ambalajlı buket",

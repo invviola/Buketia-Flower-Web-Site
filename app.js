@@ -199,7 +199,7 @@
   function renderCardIdeas(item) {
     const tags = item?.cart ? item.items.flatMap((p) => p.occasions || []) : item?.occasions || [];
     const keys = Object.keys(cardIdeas);
-    // Ürünün etiketleri cardIdeas sırasıyla öne gelir (Öğretmenler Günü listede ilk).
+    // Ürünün etiketleri cardIdeas sırasıyla öne gelir. Liste boşsa kutu gizlenir.
     const ordered = [...keys.filter((key) => tags.includes(key)), ...keys.filter((key) => !tags.includes(key))];
     ideaChips.innerHTML = ordered.map((key) => `<button class="card-idea-chip" type="button" data-idea="${key}" aria-expanded="false">${cardIdeas[key].label}</button>`).join("");
     ideaNotes.hidden = true;

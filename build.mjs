@@ -180,7 +180,7 @@ const homeLinks = {
   areas: areas.map((area) => link(`/${area.slug}/`, area.name)).join(", "),
   categories: Object.fromEntries(categories.map((category) => [category.slug, (text) => link(`/${category.slug}/`, text)])),
   occasion: occasions[0] ? (text) => link(`/${occasions[0].slug}/`, text) : (text) => text,
-  guide: (text) => link(`/${guides[0].slug}/`, text)
+  guide: guides[0] ? (text) => link(`/${guides[0].slug}/`, text) : (text) => text,
 };
 const homeTexts = homeText(homeLinks);
 const howtoBlock = (lines) => `<p class="how-it-works">${lines.map((line) => `<span>${line}</span>`).join("")}</p>`;
@@ -288,7 +288,7 @@ const imageObject = (id, item, caption) => ({
 const occasionLabels = {
   "sevgiliye": ["Sevgiliye", "/sevgiliye-cicek-seferihisar/"], "yildonumu": ["Yıl dönümü"], "dogum-gunu": ["Doğum günü"],
   "gecmis-olsun": ["Geçmiş olsun"], "yeni-dogan": ["Yeni doğan"], "tebrik-kutlama": ["Tebrik ve kutlama"], "acilis": ["Açılış", "/seferihisar-celenk/"],
-  "cenaze-taziye": ["Cenaze ve taziye", "/seferihisar-celenk/"], "ogretmenler-gunu": ["Öğretmenler Günü"], "anneler-gunu": ["Anneler Günü"],
+  "cenaze-taziye": ["Cenaze ve taziye", "/seferihisar-celenk/"], "anneler-gunu": ["Anneler Günü"],
   "isteme-soz-nisan": ["İsteme, söz, nişan"], "dugun-gelin": ["Düğün"], "tesekkur": ["Teşekkür"], "ozur": ["Özür"], "yilbasi": ["Yılbaşı"], "ev-ofis-dekorasyon": ["Ev ve ofis"]
 };
 for (const o of occasions) occasionLabels[o.tag] = [o.name, `/${o.slug}/`];
@@ -806,7 +806,7 @@ ${o.sections.map((section, i) => `
         <div class="seo-copy">
           <p>${o.notesIntro}</p>
           ${noteList(notes)}
-          <p><a class="local-guide-link" href="/${guides[0].slug}/">Diğer günler için çiçek notu örnekleri <span aria-hidden="true">↗</span></a></p>
+          ${guides[0] ? `<p><a class="local-guide-link" href="/${guides[0].slug}/">Diğer günler için çiçek notu örnekleri <span aria-hidden="true">↗</span></a></p>` : ""}
         </div>
       </section>
 ` : ""}

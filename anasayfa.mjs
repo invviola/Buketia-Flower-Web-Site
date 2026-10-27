@@ -18,7 +18,7 @@ export const homeText = (links) => ({
         "Doğum günü, yıl dönümü, geçmiş olsun ziyareti, yeni iş ya da yeni ev için kataloğu kategoriye göre süzebilir, ürün kodu ya da çiçek adıyla arama yapabilirsiniz. Her ürün sayfasında çiçeklerin, renklerin ve uygun olduğu günlerin listesi var; fotoğrafta gördüğünüzü sipariş verirken de kolayca tarif edersiniz.",
         "İsteme ve söz için çiçek-çikolata tasarımları, yeni doğan için aranjmanlar, cenaze, açılış ya da düğün için de şerit yazılı ayaklı çelenkler hazırlıyoruz. Çelenk siparişinde şeride yazılacak metni iletmeniz yeterli.",
         "Hangi çiçeği seçeceğinizden emin değilseniz “Bize Bırak” seçeneğiyle yalnız bütçenizi belirleyin; buketinizi mevsimin çiçekleriyle biz tasarlayalım. Kart notunu da çiçeğin yanına ekleriz.",
-        `Aradığınızı daha hızlı bulmak için ${links.categories["seferihisar-buket"]("buketler")}, ${links.categories["seferihisar-orkide-aranjman"]("orkide ve aranjmanlar")}, ${links.categories["sevgiliye-cicek-seferihisar"]("sevgiliye çiçekler")}, ${links.categories["seferihisar-celenk"]("çelenkler")} ve ${links.categories["yapay-cicek-seferihisar"]("yapay çiçekler")} sayfalarına göz atabilirsiniz. Karta ne yazacağınızı düşünüyorsanız ${links.guide("çiçek notu örnekleri")} rehberimize bakın.`
+        `Aradığınızı daha hızlı bulmak için ${links.categories["seferihisar-buket"]("buketler")}, ${links.categories["seferihisar-orkide-aranjman"]("orkide ve aranjmanlar")}, ${links.categories["sevgiliye-cicek-seferihisar"]("sevgiliye çiçekler")}, ${links.categories["seferihisar-celenk"]("çelenkler")} ve ${links.categories["yapay-cicek-seferihisar"]("yapay çiçekler")} sayfalarına göz atabilirsiniz.`
       ]
     }
   },
