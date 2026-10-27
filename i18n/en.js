@@ -250,7 +250,6 @@
     "celenk-17": { name: "CLK-017", description: "A teardrop standing wreath of cream gerberas. Ribbon text prepared on request.", badge: "" },
     "celenk-18": { name: "CLK-018", description: "This two-tier standing wreath, with a teardrop-shaped upper tier and a round lower tier, is decorated entirely with cream gerberas and green foliage. The white scalloped backing gives it a simple look; the ribbon message can be personalised on request.", badge: "" },
     "celenk-19": { name: "CLK-019", description: "A teardrop standing wreath of red and white gerberas. Ribbon text prepared on request.", badge: "" },
-    "celenk-20": { name: "CLK-020", description: "Pear-shaped standing wreath with red gerberas on a white backing and a cluster of white gerberas at the lower centre. The ribbon message can be prepared on request.", badge: "" },
     "celenk-21": { name: "CLK-021", description: "A teardrop standing wreath of cream daisies and gerberas. Ribbon text prepared on request.", badge: "" },
     "celenk-22": { name: "CLK-022", description: "A round standing wreath with red gerberas on the upper half and white gerberas below, framed with green leaves. Ribbon text prepared on request.", badge: "" },
     "pastel-kutlama": { name: "BKT-009", description: "A joyful birthday arrangement of lush blooms in pastel shades.", badge: "Limited" },

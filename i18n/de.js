@@ -250,7 +250,6 @@
     "celenk-17": { name: "CLK-017", description: "stehender Tropfenkranz aus cremefarbenen Gerbera. Schleifentext nach Wunsch.", badge: "" },
     "celenk-18": { name: "CLK-018", description: "Dieser zweistöckige Standkranz – oben in Tropfenform, unten rund – ist ganz mit cremefarbenen Gerbera und grünem Laub geschmückt. Beide Teile sitzen auf einem weißen Untergrund mit gewelltem Rand und wirken schlicht; die Schleifenaufschrift wird nach Ihrem Wunsch gestaltet.", badge: "" },
     "celenk-19": { name: "CLK-019", description: "stehender Tropfenkranz aus roten und weißen Gerbera. Schleifentext nach Wunsch.", badge: "" },
-    "celenk-20": { name: "CLK-020", description: "Birnenförmiger Standkranz mit roten Gerbera auf weißem Grund und einer Gruppe weißer Gerbera im unteren Mittelteil. Die Schleifenaufschrift wird auf Wunsch gestaltet.", badge: "" },
     "celenk-21": { name: "CLK-021", description: "stehender Tropfenkranz aus cremefarbenen Margeriten und Gerbera. Schleifentext nach Wunsch.", badge: "" },
     "celenk-22": { name: "CLK-022", description: "Runder Standkranz mit roten Gerbera in der oberen und weißen Gerbera in der unteren Hälfte, von grünen Blättern umrahmt. Schleifentext nach Wunsch.", badge: "" },
     "pastel-kutlama": { name: "BKT-009", description: "Ein fröhliches Geburtstagsarrangement aus üppigen Blüten in Pastelltönen.", badge: "Limitiert" },

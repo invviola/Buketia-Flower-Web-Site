@@ -806,24 +806,6 @@ window.BUKETIA_PRODUCTS = [
     inStock: true
   },
   {
-    id: "celenk-20",
-    "searchNames": ["Beyaz Zeminli Kırmızı Gerbera Çelengi","White-Backed Red Gerbera Wreath","Венок с красными герберами на белой основе","Roter Gerbera-Kranz auf weißem Grund"],
-    code: "CLK-020",
-    name: "CLK-020",
-    category: "Çelenk",
-    categories: ["Çelenk"],
-    description: "Beyaz zemin üzerinde kırmızı gerberalar ve alt ortada beyaz gerbera kümesiyle hazırlanan armut biçimli ayaklı çelenk. Şerit yazısı isteğe göre hazırlanır.",
-    "occasions": ["acilis", "tebrik-kutlama", "cenaze-taziye"],
-    "colors": ["kırmızı", "beyaz"],
-    "flowers": ["gerbera"],
-    "presentation": "ayaklı çelenk",
-    "size": "buyuk",
-    image: "assets/urunler/celenk-20.jpg",
-    tone: "rose",
-    badge: "",
-    inStock: true
-  },
-  {
     id: "celenk-21",
     "searchNames": ["Krem Papatya Çelengi","Cream Daisy Wreath","Венок «Кремовая ромашка»","Cremefarbene Margerite-Kranz"],
     code: "CLK-021",
