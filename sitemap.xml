@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://buketiaflower.com/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/en/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/ru/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -29,7 +29,7 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/de/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://buketiaflower.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://buketiaflower.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://buketiaflower.com/ru/" />
@@ -42,11 +42,11 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/seferihisar-celenk/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://buketiaflower.com/seferihisar-buket/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://buketiaflower.com/sevgiliye-cicek-seferihisar/</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/seferihisar-orkide-aranjman/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://buketiaflower.com/yapay-cicek-seferihisar/</loc>
@@ -277,43 +277,48 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-014/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-14.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-015/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-15.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-016/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-16.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-017/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-17.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-018/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-18.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-019/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-19.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-020/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-20.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/clk-021/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-21.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/clk-022/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/celenk-22.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-021/</loc>
@@ -722,43 +727,68 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-102/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-084-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-103/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-085-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-104/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-086-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-105/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-087-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-106/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-088-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-107/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-089-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-108/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-090-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/bkt-109/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-091-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/bkt-110/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-092-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/bkt-111/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-093-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/bkt-112/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-094-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/bkt-113/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-095-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/bkt-114/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/buket-096-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/svg-001/</loc>
@@ -817,38 +847,48 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ydg-001/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/yeni-dogum-001-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ydg-002/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/yeni-dogum-002-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ydg-003/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/yeni-dogum-003-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ydg-004/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/yeni-dogum-004-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ydg-005/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/yeni-dogum-005-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://buketiaflower.com/urun/ydg-006/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/yeni-dogum-006-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://buketiaflower.com/urun/ork-002/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/orkide-001-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ork-003/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/orkide-002-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/ork-004/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/orkide-003-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/oar-005/</loc>
@@ -1112,12 +1152,17 @@
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ist-001/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/isteme-cikolata-001-koleksiyon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://buketiaflower.com/urun/ist-002/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://buketiaflower.com/assets/urunler/isteme-cikolata-002-koleksiyon.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://buketiaflower.com/urun/ist-003/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://buketiaflower.com/assets/urunler/isteme-cikolata-003-koleksiyon.jpg</image:loc></image:image>
   </url>
 </urlset>
