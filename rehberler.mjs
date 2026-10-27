@@ -9,10 +9,10 @@ export const guides = [
     title: "Çiçek Notu Örnekleri · Kart Notuna Ne Yazılır? | Buketia",
     description: "Öğretmenler Günü, doğum günü, sevgiliye, geçmiş olsun, yeni doğan ve taziye için kısa çiçek kart notu örnekleri. Kart notuna ne yazılır, nasıl imzalanır?",
     datePublished: "2026-10-20",
-    dateModified: "2026-10-20",
+    dateModified: "2026-10-27",
     lead: "Çiçeği seçmek kolay, karta ne yazacağını bulmak zor. Siparişlerde en sık karşılaştığımız günler için kısa ve içten not örneklerini bir araya getirdik; olduğu gibi kullanabilir ya da kendi cümlenizle değiştirebilirsiniz.",
     sections: [
-      { key: "ogretmenler-gunu", title: "Öğretmene çiçek notu", intro: "24 Kasım’da öğretmene gönderilecek çiçek için sade bir teşekkür yeterli. Sınıf adına gönderiyorsanız sınıfın adını imza olarak ekleyin.", link: ["/ogretmenler-gunu-cicek-seferihisar/", "Öğretmenler Günü çiçekleri"] },
+      { key: "ogretmenler-gunu", title: "Öğretmene çiçek notu", intro: "Öğretmene gönderilecek çiçek için sade bir teşekkür yeterli. Sınıf adına gönderiyorsanız sınıfın adını imza olarak ekleyin.", link: ["/seferihisar-buket/", "Buketler"] },
       { key: "dogum-gunu", title: "Doğum günü notları", intro: "Doğum günü notunda samimiyet ölçüyü belirler: yakın bir arkadaşa “sen”, iş arkadaşına “siz” diye yazmak notu doğru tona oturtur.", link: ["/seferihisar-buket/", "Doğum günü buketleri"] },
       { key: "sevgiliye", title: "Sevgiliye kart notu", intro: "Sevgiliye yazılan notta uzun cümleler yerine sizin ikinizin diliyle tek bir satır çoğu zaman daha etkili olur.", link: ["/sevgiliye-cicek-seferihisar/", "Sevgiliye çiçekler"] },
       { key: "gecmis-olsun", title: "Geçmiş olsun notları", intro: "Hastaneye ya da eve gönderilen çiçekte notu kısa ve umut veren bir dille yazın; hastalığın ayrıntısına girmeyin.", link: ["/seferihisar-orkide-aranjman/", "Vazo istemeyen aranjmanlar"] },

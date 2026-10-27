@@ -179,7 +179,7 @@ const link = (href, text) => `<a href="${href}">${text}</a>`;
 const homeLinks = {
   areas: areas.map((area) => link(`/${area.slug}/`, area.name)).join(", "),
   categories: Object.fromEntries(categories.map((category) => [category.slug, (text) => link(`/${category.slug}/`, text)])),
-  occasion: (text) => link(`/${occasions[0].slug}/`, text),
+  occasion: occasions[0] ? (text) => link(`/${occasions[0].slug}/`, text) : (text) => text,
   guide: (text) => link(`/${guides[0].slug}/`, text)
 };
 const homeTexts = homeText(homeLinks);
@@ -227,8 +227,10 @@ for (const file of pages) {
 // Teslimat bölgesi bağlantıları: Türkçe ana sayfa, Seferihisar sayfası ve (alt bilgi üzerinden) tüm ürün ve bölge sayfaları.
 const areaLinks = (except) => areas.filter((area) => area.slug !== except).map((area) => `<a href="/${area.slug}/">${area.name}</a>`).join(", ");
 const categoryLinks = categories.map((category) => `<a href="/${category.slug}/">${category.name}</a>`).join(", ");
-const specialLinks = [...occasions.map((o) => `<a href="/${o.slug}/">${o.name}</a>`), ...guides.map((g) => `Rehber: <a href="/${g.slug}/">${g.name}</a>`)].join(" · ");
-const linkLines = (indent) => [`Aynı gün teslimat: <a href="/seferihisar-cicekci/">Seferihisar merkez</a>, ${areaLinks()}`, `Çiçek çeşitleri: ${categoryLinks}`, `Özel günler: ${specialLinks}`].map((line) => `\n${indent}<p class="area-links">${line}</p>`).join("") + `\n${indent}`;
+const occasionLinks = occasions.map((o) => `<a href="/${o.slug}/">${o.name}</a>`).join(" · ");
+const guideLinks = guides.map((g) => `<a href="/${g.slug}/">${g.name}</a>`).join(" · ");
+const extraLinkLines = [occasionLinks ? `Özel günler: ${occasionLinks}` : "", guideLinks ? `Rehber: ${guideLinks}` : ""].filter(Boolean);
+const linkLines = (indent) => [`Aynı gün teslimat: <a href="/seferihisar-cicekci/">Seferihisar merkez</a>, ${areaLinks()}`, `Çiçek çeşitleri: ${categoryLinks}`, ...extraLinkLines].map((line) => `\n${indent}<p class="area-links">${line}</p>`).join("") + `\n${indent}`;
 const areaLine = linkLines("          ");
 writePage("index.html", siteUrl, replaceBlock(readFileSync("index.html", "utf8"), "areas", areaLine, "index.html"));
 
