@@ -183,7 +183,7 @@ const homeLinks = {
   guide: guides[0] ? (text) => link(`/${guides[0].slug}/`, text) : (text) => text,
 };
 const homeTexts = homeText(homeLinks);
-const howtoBlock = (lines) => `<p class="how-it-works">${lines.map((line) => `<span>${line}</span>`).join("")}</p>`;
+const howtoBlock = (lines) => lines.length ? `<p class="how-it-works">${lines.map((line) => `<span>${line}</span>`).join("")}</p>` : "";
 const aboutBlock = ({ eyebrow, title, paragraphs }) => `
       <section class="local-guide about-shop" id="hakkimizda" aria-labelledby="about-shop-title">
         <div>

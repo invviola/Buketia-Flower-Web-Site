@@ -1,12 +1,12 @@
 // Dil ana sayfalarındaki iki metin bloğu (build.mjs basar, tarayıcıya ayrıca gönderilmez):
-// howItWorks: Google puanının altındaki tek satırlık teslimat ve sipariş satırı (<!--build:howto-->).
+// howItWorks: Google puanının altındaki kısa satırlar (<!--build:howto-->). Boş dizi hiçbir şey basmaz.
 // about: kataloğun altındaki "Seferihisar'daki çiçekçiniz" bölümü (<!--build:about-->).
 // Yalnız doğrulanmış bilgi yazın: adres, çalışma saatleri, teslimat bölgeleri, WhatsApp ile sipariş, kart notu, "Bize Bırak".
 // Son sipariş saati, kurye ücreti tutarı, ödeme yöntemi ve "kendi elimizle/aracısız" gibi iddialar sahip onayı bekliyor; yazmayın.
 // links: build.mjs'ten gelen hazır bağlantılar ({ areas, categories: { slug: html }, occasion, guide }).
 export const homeText = (links) => ({
   tr: {
-    howItWorks: ["Seferihisar, Sığacık, Urla ve çevresine aynı gün teslimat", "Seçin → bilgileri yazın → WhatsApp’tan onaylayın"],
+    howItWorks: [],
     about: {
       eyebrow: "Buketia Flower",
       title: "Seferihisar’daki çiçekçiniz",
@@ -23,7 +23,7 @@ export const homeText = (links) => ({
     }
   },
   en: {
-    howItWorks: ["Same-day delivery to Seferihisar, Sığacık, Urla and nearby", "Choose → add the details → confirm on WhatsApp"],
+    howItWorks: [],
     about: {
       eyebrow: "Buketia Flower",
       title: "Your florist in Seferihisar",
@@ -36,7 +36,7 @@ export const homeText = (links) => ({
     }
   },
   ru: {
-    howItWorks: ["Доставка в день заказа: Сеферихисар, Сыгаджик, Урла и окрестности", "Выберите → заполните данные → подтвердите в WhatsApp"],
+    howItWorks: [],
     about: {
       eyebrow: "Buketia Flower",
       title: "Ваш цветочный магазин в Сеферихисаре",
@@ -49,7 +49,7 @@ export const homeText = (links) => ({
     }
   },
   de: {
-    howItWorks: ["Lieferung am selben Tag: Seferihisar, Sığacık, Urla und Umgebung", "Auswählen → Angaben eintragen → per WhatsApp bestätigen"],
+    howItWorks: [],
     about: {
       eyebrow: "Buketia Flower",
       title: "Ihr Blumenladen in Seferihisar",
