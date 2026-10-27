@@ -210,6 +210,8 @@ footer p:last-child { text-align: right; }
    Yükseklik en fazla 660 px = genişlik ~594 px: ürün fotoğrafları 675×900, kendi boyutundan büyük gösterilmez (pikselleşme). */
 /* Fotoğraf kırpılmadan, tamamı görünür; sütun genişliği fotoğrafın kendi oranından gelir (--photo-ratio, app.js). */
 .dialog-visual img { object-fit: contain !important; object-position: center !important; }
+/* "Bize Bırak" simgesi fotoğraf karesinden uzun. Izgara kendi boyunu dayatınca altı kesiliyordu; kareye sığsın. */
+.dialog-visual img[src*="buketia-symbol"] { width: 100%; height: 100%; min-width: 0; min-height: 0; padding: 7%; box-sizing: border-box; object-fit: contain !important; }
 .dialog-visual.has-photo { cursor: zoom-in; }
 .product-visual .dialog-zoom-hint { position: absolute; z-index: 3; right: 14px; bottom: 14px; padding: 7px 11px; background: rgba(255,253,248,.92); color: var(--ink); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
 .product-visual .dialog-zoom-text { position: static; z-index: auto; padding: 0; background: none; color: inherit; font-size: inherit; letter-spacing: inherit; }
@@ -343,7 +345,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); }
   .is-ordering .dialog-close { top: calc(12px + env(safe-area-inset-top)); }
   /* Sipariş adımlarında üst şeritte yalnız ürünün küçük resmi ve adı kalır; sepet düğmeleri ve oklar formu itmesin. */
   .is-ordering .cart-toggle, .is-ordering .cart-link, .is-ordering .cart-message, .is-ordering .visual-arrow { display: none; }
-  .is-ordering .dialog-visual img[src*="buketia-symbol"] { object-fit: contain !important; padding: 8px; box-sizing: border-box; }
+  .is-ordering .dialog-visual img[src*="buketia-symbol"] { width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain !important; padding: 6px; box-sizing: border-box; }
   /* "Bize Bırak" kartının tamamı düğmedir; "Seç" yazısı yüzen WhatsApp düğmesinin altında kalmasın. */
   .designer-choice-action { display: none; }
   body { padding-bottom: 80px; }
