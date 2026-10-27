@@ -672,11 +672,11 @@
     const parts = { weekday };
     const isSunday = parts.weekday === "Sun";
     const opens = isSunday ? 9 * 60 : 8 * 60 + 30;
-    const closes = isSunday ? 20 * 60 : 20 * 60 + 30;
+    const closes = isSunday ? 19 * 60 : 19 * 60 + 30;
     const nextOpen = parts.weekday === "Sat" ? t.time("09", "00") : t.time("08", "30");
     const isOpen = minutes >= opens && minutes < closes;
     let text;
-    if (isOpen) text = t.openNow(isSunday ? t.time("20", "00") : t.time("20", "30"));
+    if (isOpen) text = t.openNow(isSunday ? t.time("19", "00") : t.time("19", "30"));
     else if (minutes < opens) text = t.opensToday(isSunday ? t.time("09", "00") : t.time("08", "30"));
     else text = t.opensTomorrow(nextOpen);
     status.querySelector("[data-open-status-text]").textContent = text;
